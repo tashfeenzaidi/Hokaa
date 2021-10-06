@@ -23,10 +23,20 @@ class CustomTheme {
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
+            headline2: TextStyle(
+                color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
+            headline3: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Helvetica'),
+            subtitle1: TextStyle(
+                color: Colors.white, fontSize: 10, fontFamily: 'Helvetica'),
             button: TextStyle(
                 fontSize: 18,
                 color: Colors.black,
-                fontWeight: FontWeight.bold)),
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Helvetica')),
         buttonTheme: ButtonThemeData(
             // 4
             shape: RoundedRectangleBorder(
