@@ -27,11 +27,11 @@ class CustomTheme {
                 color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
             headline3: TextStyle(
                 color: Colors.white,
-                fontSize: 16,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Helvetica'),
             subtitle1: TextStyle(
-                color: Colors.white, fontSize: 10, fontFamily: 'Helvetica'),
+                color: Colors.black, fontSize: 18, fontFamily: 'Helvetica'),
             button: TextStyle(
                 fontSize: 18,
                 color: Colors.black,
