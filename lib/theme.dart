@@ -28,10 +28,10 @@ class CustomTheme {
             headline3: TextStyle(
                 color: Colors.white,
                 fontSize: 20,
-                fontWeight: FontWeight.bold,
+            
                 fontFamily: 'Helvetica'),
             subtitle1: TextStyle(
-                color: Colors.black, fontSize: 18, fontFamily: 'Helvetica'),
+                color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
             button: TextStyle(
                 fontSize: 18,
                 color: Colors.black,
@@ -39,6 +39,7 @@ class CustomTheme {
                 fontFamily: 'Helvetica')),
         buttonTheme: ButtonThemeData(
             // 4
+      
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18.0)),
             colorScheme:
