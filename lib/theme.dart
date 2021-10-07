@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gold_crowne/constants.dart';
 
 class CustomTheme {
   static ThemeData get lightTheme {
@@ -11,13 +12,16 @@ class CustomTheme {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0)),
+                borderRadius: BorderRadius.circular(25.0)),
             primary: Color.fromRGBO(255, 199, 0, 10),
           ),
         ),
         buttonColor: Color.fromRGBO(255, 199, 0, 10),
+  
+      
         //3
         textTheme: TextTheme(
+          
             headline1: TextStyle(
               fontSize: 30,
               color: Colors.white,
@@ -26,14 +30,17 @@ class CustomTheme {
             headline2: TextStyle(
                 color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
             headline3: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
+                color: primaryColor,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
             
                 fontFamily: 'Helvetica'),
+                subtitle2:  TextStyle(
+                color: Colors.white, fontSize: 16, fontFamily: 'Helvetica'),
             subtitle1: TextStyle(
                 color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
             button: TextStyle(
-                fontSize: 18,
+                fontSize: 25,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Helvetica')),
