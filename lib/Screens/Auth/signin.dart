@@ -22,7 +22,10 @@ class _SignInScreenState extends State<SignInScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Sign In",style: TextStyle(fontSize: 30),),
+            Text(
+              "Sign In",
+              style: TextStyle(fontSize: 30),
+            ),
             Container(
               padding: EdgeInsets.all(20),
               child: TextFormField(
@@ -75,9 +78,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 )),
             ElevatedButton(
               onPressed: () {
-                if(formKey.currentState!.validate()){}
-
-
+                if (formKey.currentState!.validate()) {}
               },
               child: Text("Sign In"),
             ),
@@ -88,7 +89,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 children: [
                   Text(
                     "Dont't have an account?",
-                    style: TextStyle( fontSize: 18),
+                    style: TextStyle(fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
                   GestureDetector(

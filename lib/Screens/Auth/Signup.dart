@@ -9,11 +9,11 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
- TextEditingController email = TextEditingController();
+  TextEditingController email = TextEditingController();
 
   TextEditingController password = TextEditingController();
-  TextEditingController username=TextEditingController();
-  TextEditingController phoneNumber=TextEditingController();
+  TextEditingController username = TextEditingController();
+  TextEditingController phoneNumber = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
   bool view = true;
@@ -26,8 +26,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Sign Up",style: TextStyle(fontSize: 30),),
-              Container(
+            Text(
+              "Sign Up",
+              style: TextStyle(fontSize: 30),
+            ),
+            Container(
               padding: EdgeInsets.all(20),
               child: TextFormField(
                 controller: username,
@@ -38,8 +41,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     hintText: "Username"),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (value) {
-                  if (value!.isNotEmpty
-                     ) {
+                  if (value!.isNotEmpty) {
                     return null;
                   } else {
                     return "Please Enter Your Name";
@@ -58,8 +60,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     hintText: "Phone Number"),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (value) {
-                  if (value!.isNotEmpty
-                     ) {
+                  if (value!.isNotEmpty) {
                     return null;
                   } else {
                     return "Please Enter Your Phone Number";
@@ -128,7 +129,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 children: [
                   Text(
                     "Already have an account?",
-                    style: TextStyle( fontSize: 18),
+                    style: TextStyle(fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
                   GestureDetector(

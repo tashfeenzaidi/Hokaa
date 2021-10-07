@@ -16,15 +16,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
-      theme: CustomTheme.lightTheme,
-     getPages: [
-       GetPage(name: "/", page: ()=>SplashScreen()),
-        GetPage(name: "/signIn", page: ()=>SignInScreen()),
-           GetPage(name: "/onboard", page: ()=>OnboardingScreen()),
-         GetPage(name: "/signup", page: ()=>SignUpScreen())
-     ],
-      home:SplashScreen()
-    );
+        title: 'Flutter Demo',
+        theme: CustomTheme.lightTheme,
+        getPages: [
+          GetPage(name: "/", page: () => SplashScreen()),
+          GetPage(name: "/signIn", page: () => SignInScreen()),
+          GetPage(name: "/onboard", page: () => OnboardingScreen()),
+          GetPage(name: "/signup", page: () => SignUpScreen())
+        ],
+        home: SplashScreen());
   }
 }
