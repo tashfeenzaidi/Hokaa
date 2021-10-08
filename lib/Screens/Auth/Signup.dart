@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gold_crowne/constants.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -14,141 +15,325 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController password = TextEditingController();
   TextEditingController username = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
+  TextEditingController confirmpassword = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
   bool view = true;
+  bool view1 = true;
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: primaryColor,
+      appBar: AppBar(
+        leading: Icon(Icons.arrow_back_ios),
+        elevation: 0,
+      ),
       body: Form(
         key: formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Sign Up",
-              style: TextStyle(fontSize: 30),
-            ),
-            Container(
-              padding: EdgeInsets.all(20),
-              child: TextFormField(
-                controller: username,
-                decoration: InputDecoration(
-                    hintStyle: TextStyle(
-                      fontSize: 20,
+        child: Container(
+          decoration: BoxDecoration(
+              color: primayBackgroundColor,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              )),
+          child: ListView(
+            padding: EdgeInsets.all(0),
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        child: Divider(
+                          color: Colors.white,
+                          thickness: 1,
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.all(13.0),
+                      child: Text("SIGN UP",
+                          style: Theme.of(context).textTheme.headline3),
                     ),
-                    hintText: "Username"),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) {
-                  if (value!.isNotEmpty) {
-                    return null;
-                  } else {
-                    return "Please Enter Your Name";
-                  }
-                },
+                    Container(
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        child: Divider(
+                          color: Colors.white,
+                          thickness: 1,
+                        ))
+                  ],
+                ),
               ),
-            ),
-            Container(
-              padding: EdgeInsets.all(20),
-              child: TextFormField(
-                controller: phoneNumber,
-                decoration: InputDecoration(
-                    hintStyle: TextStyle(
-                      fontSize: 20,
-                    ),
-                    hintText: "Phone Number"),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) {
-                  if (value!.isNotEmpty) {
-                    return null;
-                  } else {
-                    return "Please Enter Your Phone Number";
-                  }
-                },
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(20),
-              child: TextFormField(
-                controller: email,
-                decoration: InputDecoration(
-                    hintStyle: TextStyle(
-                      fontSize: 20,
-                    ),
-                    hintText: "Email"),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) {
-                  if (value!.isNotEmpty &&
-                      RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
-                          .hasMatch(value.trim())) {
-                    return null;
-                  } else {
-                    return "Please Enter Valid Email";
-                  }
-                },
-              ),
-            ),
-            Container(
-                padding: EdgeInsets.all(20),
-                child: TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: password,
-                  obscureText: view,
-                  validator: (value) {
-                    if (value!.isNotEmpty && value.length > 5) {
-                      return null;
-                    } else {
-                      return "Please Enter Password minimum length of 6";
-                    }
-                  },
-                  decoration: InputDecoration(
-                    hintStyle: TextStyle(
-                      fontSize: 20,
-                    ),
-                    suffixIcon: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            view = !view;
-                          });
-                        },
-                        child: view
-                            ? Icon(Icons.visibility)
-                            : Icon(Icons.visibility_off)),
-                    hintText: "Password",
-                  ),
-                )),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text("Sign Up"),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Already have an account?",
-                    style: TextStyle(fontSize: 18),
-                    textAlign: TextAlign.center,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Sign In",
-                        style: TextStyle(color: Colors.red, fontSize: 18),
-                        textAlign: TextAlign.center,
+              Padding(
+                padding:
+                    EdgeInsets.only(top: height * 0.04, left: 30, right: 30),
+                child: Container(
+                  height: height * 0.12,
+                  decoration: BoxDecoration(
+                      color: cardBackgroundColor,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 10.0, top: 10, bottom: 10),
+                        child: Text(
+                          "Enter Name",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
                       ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 10.0),
+                        child: TextFormField(
+                          controller: username,
+                          decoration: InputDecoration(
+                              hintStyle:
+                                  TextStyle(fontSize: 17, color: Colors.white),
+                              border: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              enabledBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                              hintText: "Enter Name"),
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          validator: (value) {
+                            if (value!.isNotEmpty) {
+                              return null;
+                            } else {
+                              return "Please Enter Your name";
+                            }
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
+                child: Container(
+                  height: height * 0.12,
+                  decoration: BoxDecoration(
+                      color: cardBackgroundColor,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 10.0, top: 10, bottom: 10),
+                        child: Text(
+                          "Enter Email",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 10.0),
+                        child: TextFormField(
+                          controller: email,
+                          decoration: InputDecoration(
+                              hintStyle:
+                                  TextStyle(fontSize: 17, color: Colors.white),
+                              border: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              enabledBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                              hintText: "Email"),
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          validator: (value) {
+                            if (value!.isNotEmpty &&
+                                RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                                    .hasMatch(value.trim())) {
+                              return null;
+                            } else {
+                              return "Please Enter Valid Email";
+                            }
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
+                child: Container(
+                  height: height * 0.12,
+                  decoration: BoxDecoration(
+                      color: cardBackgroundColor,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 10.0, top: 10, bottom: 10),
+                        child: Text(
+                          "Enter Mobile Number (Optional)",
+                          style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 10.0),
+                        child: TextFormField(
+                          controller: email,
+                          decoration: InputDecoration(
+                              hintStyle:
+                                  TextStyle(fontSize: 17, color: Colors.white),
+                              border: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              enabledBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                              hintText: "+924242424"),
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          validator: (value) {
+                            if (value!.isNotEmpty) {
+                              return null;
+                            } else {
+                              return "Please Enter Your Number";
+                            }
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
+                child: Container(
+                    height: height * 0.12,
+                    decoration: BoxDecoration(
+                        color: cardBackgroundColor,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 10.0, top: 10, bottom: 10),
+                          child: Text(
+                            "Password",
+                            style: Theme.of(context).textTheme.subtitle1,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10.0),
+                          child: TextFormField(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            controller: password,
+                            obscureText: view,
+                            validator: (value) {
+                              if (value!.isNotEmpty && value.length > 5) {
+                                return null;
+                              } else {
+                                return "Please Enter Password minimum length of 6";
+                              }
+                            },
+                            decoration: InputDecoration(
+                              hintStyle:
+                                  TextStyle(fontSize: 17, color: Colors.white),
+                              suffixIcon: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      view = !view;
+                                    });
+                                  },
+                                  child: view
+                                      ? Icon(Icons.visibility,
+                                          color: primaryColor)
+                                      : Icon(Icons.visibility_off,
+                                          color: primaryColor)),
+                              hintText: "Password",
+                            ),
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
+                child: Container(
+                    height: height * 0.12,
+                    decoration: BoxDecoration(
+                        color: cardBackgroundColor,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 10.0, top: 10, bottom: 10),
+                          child: Text(
+                            "Confirm Password",
+                            style: Theme.of(context).textTheme.subtitle1,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10.0),
+                          child: TextFormField(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            controller: confirmpassword,
+                            obscureText: view1,
+                            validator: (value) {
+                              if (value!.isNotEmpty && value.length > 5) {
+                                return null;
+                              } else {
+                                return "Please Enter Password minimum length of 6";
+                              }
+                            },
+                            decoration: InputDecoration(
+                              hintStyle:
+                                  TextStyle(fontSize: 17, color: Colors.white),
+                              suffixIcon: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      view1 = !view1;
+                                    });
+                                  },
+                                  child: view
+                                      ? Icon(Icons.visibility,
+                                          color: primaryColor)
+                                      : Icon(Icons.visibility_off,
+                                          color: primaryColor)),
+                              hintText: "Password",
+                            ),
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
+                child: Container(
+                  height: 45,
+                  width: 100,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {}
+                    },
+                    child: Text(
+                      "SIGN UP",
+                      style: Theme.of(context).textTheme.button,
                     ),
                   ),
-                ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -176,7 +176,8 @@ class _SignInScreenState extends State<SignInScreen> {
                           width: 200,
                           child: ElevatedButton(
                             onPressed: () {
-                              if (formKey.currentState!.validate()) {}
+                              // if (formKey.currentState!.validate()) {}
+                              Get.toNamed("/mainscreen");
                             },
                             child: Text(
                               "SIGN IN",

@@ -16,12 +16,18 @@ class CustomTheme {
             primary: Color.fromRGBO(255, 199, 0, 10),
           ),
         ),
+        primaryIconTheme: IconThemeData(color: Colors.black),
         buttonColor: Color.fromRGBO(255, 199, 0, 10),
   
       
         //3
+        appBarTheme: AppBarTheme(color: primaryColor),
         textTheme: TextTheme(
-          
+        bodyText1: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+            
+            ),
             headline1: TextStyle(
               fontSize: 30,
               color: Colors.white,
@@ -31,6 +37,12 @@ class CustomTheme {
                 color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
             headline3: TextStyle(
                 color: primaryColor,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+            
+                fontFamily: 'Helvetica'),
+                 headline4: TextStyle(
+                color: Colors.white,
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
             
