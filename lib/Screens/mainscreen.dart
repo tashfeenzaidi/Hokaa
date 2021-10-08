@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constants.dart';
 import 'package:gold_crowne/drawer.dart';
@@ -47,7 +48,9 @@ class MainScreen extends StatelessWidget {
                       right: 10,
                       bottom: 10,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.toNamed("/shop");
+                        },
                         child: Text(
                           "Select",
                           style: Theme.of(context).textTheme.button,

@@ -60,7 +60,9 @@ class CustomTheme {
             // 4
       
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0)),
+              side: BorderSide(color: Colors.black),
+                borderRadius: BorderRadius.circular(25.0)),
+
             colorScheme:
                 ColorScheme.light(primary: Color.fromRGBO(255, 199, 0, 10)),
             buttonColor: Color.fromRGBO(255, 199, 0, 10)));
