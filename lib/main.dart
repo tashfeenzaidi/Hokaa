@@ -5,6 +5,7 @@ import 'package:gold_crowne/Screens/Auth/Signup.dart';
 import 'package:gold_crowne/Screens/Auth/signin.dart';
 import 'package:gold_crowne/Screens/Splash/splashscreen.dart';
 import 'package:gold_crowne/Screens/mainscreen.dart';
+import 'package:gold_crowne/Screens/prouctdetails.dart';
 import 'package:gold_crowne/Screens/shop.dart';
 import 'package:gold_crowne/onboarding.dart';
 
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
           GetPage(name: "/onboard", page: () => OnboardingScreen()),
           GetPage(name: "/signup", page: () => SignUpScreen()),
           GetPage(name: "/mainscreen", page: () => MainScreen()),
-           GetPage(name: "/shop", page: () => ShopWidget())
+          GetPage(name: "/shop", page: () => ShopWidget()),
+          GetPage(name: "/productdetail", page: () => ProductDetailScreen())
         ],
         home: SplashScreen());
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constants.dart';
 import 'package:gold_crowne/drawer.dart';
@@ -79,14 +80,20 @@ class ShopWidget extends StatelessWidget {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.43,
-                              height: MediaQuery.of(context).size.height * 0.6,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage("assets/more.png"),
-                                      fit: BoxFit.cover),
-                                  borderRadius: BorderRadius.circular(25)),
+                            GestureDetector(
+                              onTap: () {
+                                Get.toNamed("/productdetail");
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.43,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.6,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage("assets/more.png"),
+                                        fit: BoxFit.cover),
+                                    borderRadius: BorderRadius.circular(25)),
+                              ),
                             ),
                             Positioned(
                                 bottom: 30,

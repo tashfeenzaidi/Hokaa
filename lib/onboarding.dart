@@ -85,8 +85,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               height: 40,
               width: 100,
               child: ElevatedButton(
-                child:
-                    Text(currentIndex == slides.length - 1 ? "Next" : "Skip",style:  Theme.of(context).textTheme.button,),
+                child: Text(
+                  currentIndex == slides.length - 1 ? "Next" : "Skip",
+                  style: Theme.of(context).textTheme.button,
+                ),
                 onPressed: () {
                   if (currentIndex == slides.length - 1) {
                     Get.offAllNamed("/signIn");
@@ -138,22 +140,13 @@ class Slider extends StatelessWidget {
         children: [
           // image given in slider
           Image(image: AssetImage(image)),
-        
+
           Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.headline1
-            ),
+            child: Text(title, style: Theme.of(context).textTheme.headline1),
           ),
-          Text(
-            body1,
-            style: Theme.of(context).textTheme.headline2
-          ),
-            Text(
-            body2,
-            style: Theme.of(context).textTheme.headline2
-          )
+          Text(body1, style: Theme.of(context).textTheme.headline2),
+          Text(body2, style: Theme.of(context).textTheme.headline2)
         ],
       ),
     );
