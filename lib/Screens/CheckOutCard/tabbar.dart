@@ -40,7 +40,7 @@ class TabBarWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              Tab(child: Center(child: Image.asset("assets/cash.png",width: 60,height: 60,),),),
+              Tab(child: Center(child: Image.asset("assets/cash.png",width: 80,height: 80,),),),
             ],
           ),
           body: TabBarView(
