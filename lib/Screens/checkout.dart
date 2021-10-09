@@ -1,27 +1,57 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gold_crowne/Screens/CheckOutCard/tabbar.dart';
 import 'package:gold_crowne/constants.dart';
 
-class CartScreen extends StatelessWidget {
+class CheckOutScreen extends StatelessWidget {
+  const CheckOutScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primayBackgroundColor,
+      backgroundColor: primaryColor,
       appBar: AppBar(
-        backgroundColor: primayBackgroundColor,
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: primaryColor,
-        ),
-        actions: [
-          Icon(Icons.search, color: primaryColor),
-          Icon(Icons.add_shopping_cart, color: primaryColor)
-        ],
+        leading: Icon(Icons.arrow_back_ios),
+        elevation: 0,
       ),
-      body: ListView(
-        children: [
-          Padding(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            color: primayBackgroundColor,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            )
+            ),
+        child: ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      child: Divider(
+                        color: Colors.white,
+                        thickness: 1,
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.all(13.0),
+                    child: Text("Check Out",
+                        style: Theme.of(context).textTheme.headline3),
+                  ),
+                  Container(
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      child: Divider(
+                        color: Colors.white,
+                        thickness: 1,
+                      ))
+                ],
+              ),
+            ),
+              Padding(
             padding: const EdgeInsets.all(15.0),
             child: Container(
               width: MediaQuery.of(context).size.width,
@@ -29,7 +59,7 @@ class CartScreen extends StatelessWidget {
                   color: paymentCardBackgroundColor,
                   borderRadius: BorderRadius.circular(20)),
               child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.6,
+                  height: MediaQuery.of(context).size.height * 0.4,
                   child: Padding(
                     padding: EdgeInsets.all(10),
                     child: ListView.builder(itemBuilder: (context, index) {
@@ -78,37 +108,22 @@ class CartScreen extends StatelessWidget {
                   )),
             ),
           ),
-
-          Padding(
-            padding: const EdgeInsets.only(left:15.0,right: 15,top: 30,bottom: 30),
+            Padding(
+            padding: const EdgeInsets.all(15.0),
             child: Container(
-              height: 60,
-            
               width: MediaQuery.of(context).size.width,
+            
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: cardBackgroundColor),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Sub Total: \$23",
-                        style: Theme.of(context).textTheme.headline2,
-                      ),
-                      Text(
-                        "Tax: \$23",
-                        style: Theme.of(context).textTheme.headline2,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                  color: paymentCardBackgroundColor,
+                  borderRadius: BorderRadius.circular(20)),
+                  child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.4, 
+                    child: TabBarWidget ()),
+              
             ),
           ),
-           Align(
+          
+          Align(
           alignment: Alignment.bottomCenter,
           child: Container(
             padding: EdgeInsets.all(10),
@@ -134,42 +149,21 @@ class CartScreen extends StatelessWidget {
 
                   
                     },
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.add_shopping_cart,
-                          color: primaryColor,
-                        ),
+                    child:
                         Text(
-                          "Add To Cart",
+                          "Proceed To CheckOut",
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         )
-                      ],
-                    ),
+                      
                   )
                 ],
               ),
             ),
           ),
         )
-          //   Container(
-          //     margin: EdgeInsets.only(left: 10, right: 10),
-          //     width: MediaQuery.of(context).size.width,
-          //     // height: MediaQuery.of(context).size.height * 0.6,
-          //     decoration: BoxDecoration(
-          //         color: paymentCardBackgroundColor,
-          //         borderRadius: BorderRadius.circular(20)),
-          //     child:
-          // SizedBox(
-          //       height:MediaQuery.of(context).size.height * 0.6 ,
-          //       child: ListView.builder(itemBuilder: (context, index) {
-          //         return Container();
-          //       }
-          //
-          //       ),
-          //     ),
-          //  )
-        ],
+
+          ],
+        ),
       ),
     );
   }

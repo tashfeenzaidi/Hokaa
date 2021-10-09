@@ -120,6 +120,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 }
 
+// ignore: must_be_immutable
 class Slider extends StatelessWidget {
   String image;
   String title;
