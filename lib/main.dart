@@ -7,6 +7,8 @@ import 'package:gold_crowne/Screens/Splash/splashscreen.dart';
 import 'package:gold_crowne/Screens/cartScreen.dart';
 import 'package:gold_crowne/Screens/checkout.dart';
 import 'package:gold_crowne/Screens/mainscreen.dart';
+import 'package:gold_crowne/Screens/paymentcancel.dart';
+import 'package:gold_crowne/Screens/paymentdone.dart';
 import 'package:gold_crowne/Screens/prouctdetails.dart';
 import 'package:gold_crowne/Screens/shop.dart';
 import 'package:gold_crowne/onboarding.dart';
@@ -33,6 +35,8 @@ class MyApp extends StatelessWidget {
           GetPage(name: "/productdetail", page: () => ProductDetailScreen()),
           GetPage(name: "/cart", page: () => CartScreen()),
           GetPage(name: "/checkout", page: () => CheckOutScreen()),
+          GetPage(name: "/paymentdone", page: () => PaymentConfirm()),
+          GetPage(name: "/paymentcancel", page: () => PaymentCancel()),
         ],
         home: SplashScreen());
   }

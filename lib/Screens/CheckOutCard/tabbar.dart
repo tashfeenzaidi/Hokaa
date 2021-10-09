@@ -35,12 +35,19 @@ class TabBarWidget extends StatelessWidget {
                       "assets/mastercard.png",
                       height: 40,
                       width: 40,
-                   
                     )
                   ],
                 ),
               ),
-              Tab(child: Center(child: Image.asset("assets/cash.png",width: 80,height: 80,),),),
+              Tab(
+                child: Center(
+                  child: Image.asset(
+                    "assets/cash.png",
+                    width: 80,
+                    height: 80,
+                  ),
+                ),
+              ),
             ],
           ),
           body: TabBarView(

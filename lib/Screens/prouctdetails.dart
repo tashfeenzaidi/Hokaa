@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 import 'package:gold_crowne/constants.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -201,8 +200,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     color: Colors.black,
                     onPressed: () {
                       Get.toNamed("/cart");
-
-                  
                     },
                     child: Row(
                       children: [

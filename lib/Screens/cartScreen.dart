@@ -56,18 +56,22 @@ class CartScreen extends StatelessWidget {
                                           Theme.of(context).textTheme.subtitle1,
                                     ),
                                     Text("\$ 23",
-                                        style:
-                                            Theme.of(context).textTheme.headline3)
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline3)
                                   ],
                                 ),
                               ),
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Icon(Icons.remove_circle, color: primaryColor),
+                                  Icon(Icons.remove_circle,
+                                      color: primaryColor),
                                   Text(
                                     "1",
-                                    style: Theme.of(context).textTheme.subtitle1,
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1,
                                   ),
                                   Icon(Icons.add_box, color: primaryColor)
                                 ],
@@ -80,10 +84,10 @@ class CartScreen extends StatelessWidget {
           ),
 
           Padding(
-            padding: const EdgeInsets.only(left:15.0,right: 15,top: 30,bottom: 30),
+            padding: const EdgeInsets.only(
+                left: 15.0, right: 15, top: 30, bottom: 30),
             child: Container(
               height: 60,
-            
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -108,50 +112,49 @@ class CartScreen extends StatelessWidget {
               ),
             ),
           ),
-           Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            padding: EdgeInsets.all(10),
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.1,
-            decoration: BoxDecoration(
-              color: primaryColor,
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(10), topLeft: Radius.circular(10)),
-            ),
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "\$ 23",
-                    style: Theme.of(context).textTheme.button,
-                  ),
-                  MaterialButton(
-                    color: Colors.black,
-                    onPressed: () {
-                      Get.toNamed("/checkout");
-
-                  
-                    },
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.add_shopping_cart,
-                          color: primaryColor,
-                        ),
-                        Text(
-                          "Add To Cart",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        )
-                      ],
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 0.1,
+              decoration: BoxDecoration(
+                color: primaryColor,
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(10),
+                    topLeft: Radius.circular(10)),
+              ),
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "\$ 23",
+                      style: Theme.of(context).textTheme.button,
                     ),
-                  )
-                ],
+                    MaterialButton(
+                      color: Colors.black,
+                      onPressed: () {
+                        Get.toNamed("/checkout");
+                      },
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.add_shopping_cart,
+                            color: primaryColor,
+                          ),
+                          Text(
+                            "Add To Cart",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-        )
+          )
           //   Container(
           //     margin: EdgeInsets.only(left: 10, right: 10),
           //     width: MediaQuery.of(context).size.width,

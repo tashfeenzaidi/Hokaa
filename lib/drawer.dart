@@ -12,7 +12,12 @@ Drawer drawer(BuildContext context) {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.select_all),
+              child: GestureDetector(
+                  child: Image.asset(
+                "assets/drawer.png",
+                width: 20,
+                height: 20,
+              )),
             ),
             Padding(
               padding: EdgeInsets.only(
@@ -51,7 +56,11 @@ Drawer drawer(BuildContext context) {
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
                   children: [
-                    Icon(Icons.home),
+                    Image.asset(
+                      "assets/home.png",
+                      width: 20,
+                      height: 20,
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(left: 20.0),
                       child: Text(
@@ -67,7 +76,11 @@ Drawer drawer(BuildContext context) {
               padding: const EdgeInsets.all(10.0),
               child: Row(
                 children: [
-                  Icon(Icons.add_shopping_cart),
+                  Image.asset(
+                    "assets/mycart.png",
+                    width: 20,
+                    height: 20,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: Text(
@@ -82,7 +95,11 @@ Drawer drawer(BuildContext context) {
               padding: const EdgeInsets.all(10.0),
               child: Row(
                 children: [
-                  Icon(Icons.add_box),
+                  Image.asset(
+                    "assets/package.png",
+                    width: 20,
+                    height: 20,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: Text(
@@ -127,7 +144,11 @@ Drawer drawer(BuildContext context) {
               padding: const EdgeInsets.all(10.0),
               child: Row(
                 children: [
-                  Icon(Icons.logout),
+                  Image.asset(
+                    "assets/logout.png",
+                    width: 20,
+                    height: 20,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: Text(
