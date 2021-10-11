@@ -30,15 +30,13 @@ class _CreditCardFieldsState extends State<CreditCardFields> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 10.0, top: 10, bottom: 10),
+                    padding: cardfieldPadding,
                     child: Text("Name",
                         style: TextStyle(color: Colors.white, fontSize: 12)),
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 10.0),
                     child: Container(
-                      height: 30,
                       constraints: BoxConstraints(maxHeight: 20),
                       child: TextFormField(
                         controller: name,
@@ -74,8 +72,7 @@ class _CreditCardFieldsState extends State<CreditCardFields> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 10.0, top: 10, bottom: 10),
+                    padding: cardfieldPadding,
                     child: Text("Card Number",
                         style: TextStyle(color: Colors.white, fontSize: 12)),
                   ),
@@ -122,8 +119,7 @@ class _CreditCardFieldsState extends State<CreditCardFields> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(
-                              left: 10.0, top: 10, bottom: 10),
+                          padding: cardfieldPadding,
                           child: Text("Exp Date",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 12)),
@@ -168,8 +164,7 @@ class _CreditCardFieldsState extends State<CreditCardFields> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(
-                              left: 10.0, top: 10, bottom: 10),
+                          padding: cardfieldPadding,
                           child: Text("CVV",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 12)),

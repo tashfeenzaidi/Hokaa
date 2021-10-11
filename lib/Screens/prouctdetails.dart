@@ -228,7 +228,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         ),
                         Text(
                           "Add To Cart",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
+                          style: checkoutButtonText
                         )
                       ],
                     ),

@@ -162,10 +162,7 @@ class CartScreen extends StatelessWidget {
                             height: 22,
                             color: primaryColor,
                           ),
-                          Text(
-                            "Add To Cart",
-                            style: TextStyle(color: Colors.white, fontSize: 16),
-                          )
+                          Text("Add To Cart", style: checkoutButtonText)
                         ],
                       ),
                     )

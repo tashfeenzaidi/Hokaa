@@ -26,23 +26,24 @@ class CheckOutScreen extends StatelessWidget {
         child: ListView(
           children: [
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.only(
+                  top: 15.0, left: 20, right: 20, bottom: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                      width: MediaQuery.of(context).size.width * 0.2,
+                      width: MediaQuery.of(context).size.width * 0.1,
                       child: Divider(
                         color: Colors.white,
                         thickness: 1,
                       )),
                   Padding(
-                    padding: const EdgeInsets.all(13.0),
-                    child: Text("Check Out",
+                    padding: const EdgeInsets.only(left: 30, right: 30),
+                    child: Text("CHECKOUT",
                         style: Theme.of(context).textTheme.headline3),
                   ),
                   Container(
-                      width: MediaQuery.of(context).size.width * 0.2,
+                      width: MediaQuery.of(context).size.width * 0.1,
                       child: Divider(
                         color: Colors.white,
                         thickness: 1,
@@ -58,7 +59,7 @@ class CheckOutScreen extends StatelessWidget {
                     color: paymentCardBackgroundColor,
                     borderRadius: BorderRadius.circular(20)),
                 child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.4,
+                    height: MediaQuery.of(context).size.height * 0.3,
                     child: Padding(
                       padding: EdgeInsets.all(10),
                       child: ListView.builder(itemBuilder: (context, index) {
@@ -121,7 +122,7 @@ class CheckOutScreen extends StatelessWidget {
                     color: paymentCardBackgroundColor,
                     borderRadius: BorderRadius.circular(20)),
                 child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.4,
+                    height: MediaQuery.of(context).size.height * 0.3,
                     child: TabBarWidget()),
               ),
             ),
@@ -152,7 +153,7 @@ class CheckOutScreen extends StatelessWidget {
                           },
                           child: Text(
                             "Proceed To CheckOut",
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                            style: checkoutButtonText
                           ))
                     ],
                   ),

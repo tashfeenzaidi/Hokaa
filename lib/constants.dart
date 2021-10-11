@@ -12,3 +12,6 @@ final hintpadding = EdgeInsets.symmetric(vertical: 15, horizontal: 0);
 final drawerPadding = EdgeInsets.only(top: 25.0, left: 20);
 final validatorErrorStyle=TextStyle(height: 0.1);
 final creditCardHintTextstyle=  TextStyle(fontSize: 12, color: Colors.white54);
+final cardfieldPadding=EdgeInsets.only(left: 10.0, top: 5,bottom: 5);
+final checkoutButtonText=TextStyle(color: Colors.white, fontSize: 16);
+final priceTextStyle=TextStyle(color: Colors.black, fontSize: 16);
