@@ -70,12 +70,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   );
                 }),
           ),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                slides.length,
-                (index) => buildDot(index, context),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  slides.length,
+                  (index) => buildDot(index, context),
+                ),
               ),
             ),
           ),
@@ -83,7 +86,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             padding: const EdgeInsets.only(top: 20.0),
             child: Container(
               height: 40,
-              width: 100,
+              width: 150,
               child: ElevatedButton(
                 child: Text(
                   currentIndex == slides.length - 1 ? "Next" : "Skip",
@@ -109,12 +112,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 // container created for dots
   Container buildDot(int index, BuildContext context) {
     return Container(
-      height: currentIndex == index ? 20 : 10,
-      width: currentIndex == index ? 20 : 10,
+      height: currentIndex == index ? 10 : 10,
+      width: currentIndex == index ? 10 : 10,
       margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: primaryColor,
+        color: currentIndex == index ? primaryColor : Colors.white,
       ),
     );
   }
@@ -140,10 +143,14 @@ class Slider extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // image given in slider
-          Image(image: AssetImage(image)),
+          Image(
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.6,
+              fit: BoxFit.contain,
+              image: AssetImage(image)),
 
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(top: 40.0, bottom: 20),
             child: Text(title, style: Theme.of(context).textTheme.headline1),
           ),
           Text(body1, style: Theme.of(context).textTheme.headline2),

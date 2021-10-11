@@ -37,8 +37,24 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           color: primaryColor,
         ),
         actions: [
-          Icon(Icons.search, color: primaryColor),
-          Icon(Icons.add_shopping_cart, color: primaryColor)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              "assets/search.png",
+              width: 25,
+              height: 25,
+              color: primaryColor,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              "assets/shopping_cart.png",
+              width: 25,
+              height: 25,
+              color: primaryColor,
+            ),
+          ),
         ],
       ),
       body: ListView(children: [
@@ -197,14 +213,17 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     style: Theme.of(context).textTheme.button,
                   ),
                   MaterialButton(
+                    height: 40,
                     color: Colors.black,
                     onPressed: () {
                       Get.toNamed("/cart");
                     },
                     child: Row(
                       children: [
-                        Icon(
-                          Icons.add_shopping_cart,
+                        Image.asset(
+                          "assets/shopping_cart.png",
+                          width: 22,
+                          height: 22,
                           color: primaryColor,
                         ),
                         Text(

@@ -18,18 +18,20 @@ class CustomTheme {
         ),
         primaryIconTheme: IconThemeData(color: Colors.black),
         buttonColor: Color.fromRGBO(255, 199, 0, 10),
-  
-      
+
         //3
         appBarTheme: AppBarTheme(color: primaryColor),
         textTheme: TextTheme(
-        bodyText1: TextStyle(
-              fontSize: 20,
+            headline5: TextStyle(
+              fontSize: 30,
+              color: Colors.white,
+            ),
+            bodyText1: TextStyle(
+              fontSize: 16,
               color: Colors.black,
-            
             ),
             headline1: TextStyle(
-              fontSize: 30,
+              fontSize: 40,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
@@ -37,32 +39,31 @@ class CustomTheme {
                 color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
             headline3: TextStyle(
                 color: primaryColor,
-                fontSize: 25,
+                fontSize: 23,
                 fontWeight: FontWeight.bold,
-            
                 fontFamily: 'Helvetica'),
-                 headline4: TextStyle(
-                color: Colors.white,
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-            
-                fontFamily: 'Helvetica'),
-                subtitle2:  TextStyle(
+            headline4: TextStyle(
+                color: Colors.white, fontSize: 25, fontFamily: 'Helvetica'),
+            subtitle2: TextStyle(
                 color: Colors.white, fontSize: 16, fontFamily: 'Helvetica'),
             subtitle1: TextStyle(
                 color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
+            bodyText2: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Helvetica'),
             button: TextStyle(
-                fontSize: 25,
+                fontSize: 23,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Helvetica')),
         buttonTheme: ButtonThemeData(
             // 4
-      
-            shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.black),
-                borderRadius: BorderRadius.circular(25.0)),
 
+            shape: RoundedRectangleBorder(
+                side: BorderSide(color: Colors.black),
+                borderRadius: BorderRadius.circular(25.0)),
             colorScheme:
                 ColorScheme.light(primary: Color.fromRGBO(255, 199, 0, 10)),
             buttonColor: Color.fromRGBO(255, 199, 0, 10)));

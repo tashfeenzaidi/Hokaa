@@ -17,6 +17,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Form(
         key: formKey,
@@ -69,7 +70,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       Padding(
                         padding: EdgeInsets.only(top: 20, left: 30, right: 30),
                         child: Container(
-                          height: 90,
+                          height: height * 0.1,
                           decoration: BoxDecoration(
                               color: cardBackgroundColor,
                               borderRadius: BorderRadius.circular(20)),
@@ -86,28 +87,31 @@ class _SignInScreenState extends State<SignInScreen> {
                               ),
                               Padding(
                                 padding: EdgeInsets.only(left: 10.0),
-                                child: TextFormField(
-                                  controller: email,
-                                  decoration: InputDecoration(
-                                      hintStyle: TextStyle(
-                                          fontSize: 17, color: Colors.white),
-                                      border: InputBorder.none,
-                                      focusedBorder: InputBorder.none,
-                                      enabledBorder: InputBorder.none,
-                                      errorBorder: InputBorder.none,
-                                      disabledBorder: InputBorder.none,
-                                      hintText: "Email"),
-                                  autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
-                                  validator: (value) {
-                                    if (value!.isNotEmpty &&
-                                        RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
-                                            .hasMatch(value.trim())) {
-                                      return null;
-                                    } else {
-                                      return "Please Enter Valid Email";
-                                    }
-                                  },
+                                child: Container(
+                                  constraints: BoxConstraints(maxHeight: 30),
+                                  child: TextFormField(
+                                    controller: email,
+                                    decoration: InputDecoration(
+                                        contentPadding: hintpadding,
+                                        hintStyle: hinstyle,
+                                        border: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        enabledBorder: InputBorder.none,
+                                        errorBorder: InputBorder.none,
+                                        disabledBorder: InputBorder.none,
+                                        hintText: "Email"),
+                                    autovalidateMode:
+                                        AutovalidateMode.onUserInteraction,
+                                    validator: (value) {
+                                      if (value!.isNotEmpty &&
+                                          RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                                              .hasMatch(value.trim())) {
+                                        return null;
+                                      } else {
+                                        return "Please Enter Valid Email";
+                                      }
+                                    },
+                                  ),
                                 ),
                               ),
                             ],
@@ -117,7 +121,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       Padding(
                         padding: EdgeInsets.only(top: 20, left: 30, right: 30),
                         child: Container(
-                            height: 90,
+                            height: height * 0.1,
                             decoration: BoxDecoration(
                                 color: cardBackgroundColor,
                                 borderRadius: BorderRadius.circular(20)),
@@ -135,34 +139,42 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(left: 10.0),
-                                  child: TextFormField(
-                                    autovalidateMode:
-                                        AutovalidateMode.onUserInteraction,
-                                    controller: password,
-                                    obscureText: view,
-                                    validator: (value) {
-                                      if (value!.isNotEmpty &&
-                                          value.length > 5) {
-                                        return null;
-                                      } else {
-                                        return "Please Enter Password minimum length of 6";
-                                      }
-                                    },
-                                    decoration: InputDecoration(
-                                      hintStyle: TextStyle(
-                                          fontSize: 17, color: Colors.white),
-                                      suffixIcon: GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              view = !view;
-                                            });
-                                          },
-                                          child: view
-                                              ? Icon(Icons.visibility,
-                                                  color: primaryColor)
-                                              : Icon(Icons.visibility_off,
-                                                  color: primaryColor)),
-                                      hintText: "Password",
+                                  child: Container(
+                                    constraints: BoxConstraints(maxHeight: 30),
+                                    child: TextFormField(
+                                      autovalidateMode:
+                                          AutovalidateMode.onUserInteraction,
+                                      controller: password,
+                                      obscureText: view,
+                                      validator: (value) {
+                                        if (value!.isNotEmpty &&
+                                            value.length > 5) {
+                                          return null;
+                                        } else {
+                                          return "Please Enter Password minimum length of 6";
+                                        }
+                                      },
+                                      decoration: InputDecoration(
+                                        contentPadding: hintpadding,
+                                        hintStyle: hinstyle,
+                                        border: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        enabledBorder: InputBorder.none,
+                                        errorBorder: InputBorder.none,
+                                        disabledBorder: InputBorder.none,
+                                        suffixIcon: GestureDetector(
+                                            onTap: () {
+                                              setState(() {
+                                                view = !view;
+                                              });
+                                            },
+                                            child: view
+                                                ? Icon(Icons.visibility,
+                                                    color: primaryColor)
+                                                : Icon(Icons.visibility_off,
+                                                    color: primaryColor)),
+                                        hintText: "*******",
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -203,49 +215,65 @@ class _SignInScreenState extends State<SignInScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                  color: primaryColor,
+                            MaterialButton(
+                              color: primaryColor,
+                              height: 45,
+                              minWidth: 40,
+                              shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
+                              onPressed: () {},
                               child: Image.asset(
                                 "assets/google.png",
-                                height: 30,
-                                width: 30,
+                                height: 25,
+                                width: 20,
                                 fit: BoxFit.contain,
                               ),
                             ),
+                            // Container(
+                            //   height: 40,
+                            //   width: 40,
+                            //   decoration: BoxDecoration(
+                            //       color: primaryColor,
+                            //       borderRadius: BorderRadius.circular(10)),
+                            //   child: Image.asset(
+                            //     "assets/google.png",
+                            //     height: 30,
+                            //     width: 30,
+                            //     fit: BoxFit.contain,
+                            //   ),
+                            // ),
                             Padding(
                               padding:
                                   const EdgeInsets.only(left: 10.0, right: 10),
-                              child: Container(
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                    color: primaryColor,
+                              child: MaterialButton(
+                                color: primaryColor,
+                                height: 45,
+                                minWidth: 40,
+                                shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)),
+                                onPressed: () {},
                                 child: Image.asset(
                                   "assets/facebook.png",
-                                  height: 30,
-                                  width: 30,
+                                  height: 25,
+                                  width: 20,
                                   fit: BoxFit.contain,
                                 ),
                               ),
                             ),
-                            Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                  color: primaryColor,
+                            MaterialButton(
+                              color: primaryColor,
+                              height: 45,
+                              minWidth: 40,
+                              shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10)),
+                              onPressed: () {},
                               child: Image.asset(
                                 "assets/apple.png",
-                                fit: BoxFit.contain,
-                                width: 30,
                                 height: 30,
+                                width: 23,
+                                fit: BoxFit.cover,
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -256,8 +284,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           children: [
                             Text(
                               "Dont't have an account?",
-                              style:
-                                  TextStyle(fontSize: 15, color: Colors.white),
+                              style: smalltextStyle,
                               textAlign: TextAlign.center,
                             ),
                             GestureDetector(

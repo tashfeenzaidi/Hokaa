@@ -28,18 +28,21 @@ Drawer drawer(BuildContext context) {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.only(left: 20.0, top: 20),
               child: Text(
                 "Zotobyte",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.bodyText2,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text("Zotobyte@gmail.com"),
+              padding: EdgeInsets.only(left: 20.0, top: 10),
+              child: Text(
+                "Zotobyte@gmail.com",
+                style: Theme.of(context).textTheme.bodyText1,
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.only(top: 20.0, left: 20),
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.6,
                 child: Divider(
@@ -53,13 +56,13 @@ Drawer drawer(BuildContext context) {
                 Get.offNamed("/mainscreen");
               },
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: drawerPadding,
                 child: Row(
                   children: [
                     Image.asset(
                       "assets/home.png",
-                      width: 20,
-                      height: 20,
+                      width: 22,
+                      height: 22,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 20.0),
@@ -73,13 +76,13 @@ Drawer drawer(BuildContext context) {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: drawerPadding,
               child: Row(
                 children: [
                   Image.asset(
                     "assets/mycart.png",
-                    width: 20,
-                    height: 20,
+                    width: 22,
+                    height: 22,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
@@ -92,13 +95,13 @@ Drawer drawer(BuildContext context) {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: drawerPadding,
               child: Row(
                 children: [
                   Image.asset(
                     "assets/package.png",
-                    width: 20,
-                    height: 20,
+                    width: 22,
+                    height: 22,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
@@ -111,7 +114,7 @@ Drawer drawer(BuildContext context) {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: drawerPadding,
               child: Row(
                 children: [
                   Icon(Icons.person),
@@ -126,7 +129,7 @@ Drawer drawer(BuildContext context) {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: drawerPadding,
               child: Row(
                 children: [
                   Icon(Icons.help),
@@ -141,13 +144,13 @@ Drawer drawer(BuildContext context) {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: drawerPadding,
               child: Row(
                 children: [
                   Image.asset(
                     "assets/logout.png",
-                    width: 20,
-                    height: 20,
+                    width: 22,
+                    height: 22,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),

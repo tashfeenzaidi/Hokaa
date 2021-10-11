@@ -71,7 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 padding:
                     EdgeInsets.only(top: height * 0.04, left: 30, right: 30),
                 child: Container(
-                  height: height * 0.12,
+                  height: height * 0.1,
                   decoration: BoxDecoration(
                       color: cardBackgroundColor,
                       borderRadius: BorderRadius.circular(20)),
@@ -88,25 +88,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 10.0),
-                        child: TextFormField(
-                          controller: username,
-                          decoration: InputDecoration(
-                              hintStyle:
-                                  TextStyle(fontSize: 17, color: Colors.white),
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              hintText: "Enter Name"),
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          validator: (value) {
-                            if (value!.isNotEmpty) {
-                              return null;
-                            } else {
-                              return "Please Enter Your name";
-                            }
-                          },
+                        child: Container(
+                          constraints: BoxConstraints(maxHeight: 30),
+                          child: TextFormField(
+                            controller: username,
+                            decoration: InputDecoration(
+                                contentPadding: hintpadding,
+                                hintStyle: hinstyle,
+                                border: InputBorder.none,
+                                focusedErrorBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                hintText: "Enter Name"),
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            validator: (value) {
+                              if (value!.isNotEmpty) {
+                                return null;
+                              } else {
+                                return "Please Enter Your name";
+                              }
+                            },
+                          ),
                         ),
                       ),
                     ],
@@ -117,7 +122,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 padding:
                     EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
                 child: Container(
-                  height: height * 0.12,
+                  height: height * 0.1,
                   decoration: BoxDecoration(
                       color: cardBackgroundColor,
                       borderRadius: BorderRadius.circular(20)),
@@ -134,27 +139,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 10.0),
-                        child: TextFormField(
-                          controller: email,
-                          decoration: InputDecoration(
-                              hintStyle:
-                                  TextStyle(fontSize: 17, color: Colors.white),
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              hintText: "Email"),
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          validator: (value) {
-                            if (value!.isNotEmpty &&
-                                RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
-                                    .hasMatch(value.trim())) {
-                              return null;
-                            } else {
-                              return "Please Enter Valid Email";
-                            }
-                          },
+                        child: Container(
+                          constraints: BoxConstraints(maxHeight: 30),
+                          child: TextFormField(
+                            controller: email,
+                            decoration: InputDecoration(
+                                contentPadding: hintpadding,
+                                hintStyle: hinstyle,
+                                border: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                hintText: "Email"),
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            validator: (value) {
+                              if (value!.isNotEmpty &&
+                                  RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                                      .hasMatch(value.trim())) {
+                                return null;
+                              } else {
+                                return "Please Enter Valid Email";
+                              }
+                            },
+                          ),
                         ),
                       ),
                     ],
@@ -165,7 +174,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 padding:
                     EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
                 child: Container(
-                  height: height * 0.12,
+                  height: height * 0.1,
                   decoration: BoxDecoration(
                       color: cardBackgroundColor,
                       borderRadius: BorderRadius.circular(20)),
@@ -182,25 +191,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 10.0),
-                        child: TextFormField(
-                          controller: email,
-                          decoration: InputDecoration(
-                              hintStyle:
-                                  TextStyle(fontSize: 17, color: Colors.white),
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              hintText: "+924242424"),
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          validator: (value) {
-                            if (value!.isNotEmpty) {
-                              return null;
-                            } else {
-                              return "Please Enter Your Number";
-                            }
-                          },
+                        child: Container(
+                          constraints: BoxConstraints(maxHeight: 30),
+                          child: TextFormField(
+                            controller: phoneNumber,
+                            decoration: InputDecoration(
+                                contentPadding: hintpadding,
+                                hintStyle: hinstyle,
+                                border: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                hintText: "+924242424"),
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            validator: (value) {
+                              if (value!.isNotEmpty) {
+                                return null;
+                              } else {
+                                return "Please Enter Your Number";
+                              }
+                            },
+                          ),
                         ),
                       ),
                     ],
@@ -211,7 +224,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 padding:
                     EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
                 child: Container(
-                    height: height * 0.12,
+                    height: height * 0.1,
                     decoration: BoxDecoration(
                         color: cardBackgroundColor,
                         borderRadius: BorderRadius.circular(20)),
@@ -228,33 +241,41 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         Padding(
                           padding: EdgeInsets.only(left: 10.0),
-                          child: TextFormField(
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            controller: password,
-                            obscureText: view,
-                            validator: (value) {
-                              if (value!.isNotEmpty && value.length > 5) {
-                                return null;
-                              } else {
-                                return "Please Enter Password minimum length of 6";
-                              }
-                            },
-                            decoration: InputDecoration(
-                              hintStyle:
-                                  TextStyle(fontSize: 17, color: Colors.white),
-                              suffixIcon: GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      view = !view;
-                                    });
-                                  },
-                                  child: view
-                                      ? Icon(Icons.visibility,
-                                          color: primaryColor)
-                                      : Icon(Icons.visibility_off,
-                                          color: primaryColor)),
-                              hintText: "Password",
+                          child: Container(
+                            constraints: BoxConstraints(maxHeight: 30),
+                            child: TextFormField(
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              controller: password,
+                              obscureText: view,
+                              validator: (value) {
+                                if (value!.isNotEmpty && value.length > 5) {
+                                  return null;
+                                } else {
+                                  return "Please Enter Password minimum length of 6";
+                                }
+                              },
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                contentPadding: hintpadding,
+                                hintStyle: hinstyle,
+                                suffixIcon: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        view = !view;
+                                      });
+                                    },
+                                    child: view
+                                        ? Icon(Icons.visibility,
+                                            color: primaryColor)
+                                        : Icon(Icons.visibility_off,
+                                            color: primaryColor)),
+                                hintText: "***********",
+                              ),
                             ),
                           ),
                         ),
@@ -265,7 +286,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 padding:
                     EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
                 child: Container(
-                    height: height * 0.12,
+                    height: height * 0.1,
                     decoration: BoxDecoration(
                         color: cardBackgroundColor,
                         borderRadius: BorderRadius.circular(20)),
@@ -282,33 +303,41 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         Padding(
                           padding: EdgeInsets.only(left: 10.0),
-                          child: TextFormField(
-                            autovalidateMode:
-                                AutovalidateMode.onUserInteraction,
-                            controller: confirmpassword,
-                            obscureText: view1,
-                            validator: (value) {
-                              if (value!.isNotEmpty && value.length > 5) {
-                                return null;
-                              } else {
-                                return "Please Enter Password minimum length of 6";
-                              }
-                            },
-                            decoration: InputDecoration(
-                              hintStyle:
-                                  TextStyle(fontSize: 17, color: Colors.white),
-                              suffixIcon: GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      view1 = !view1;
-                                    });
-                                  },
-                                  child: view
-                                      ? Icon(Icons.visibility,
-                                          color: primaryColor)
-                                      : Icon(Icons.visibility_off,
-                                          color: primaryColor)),
-                              hintText: "Password",
+                          child: Container(
+                            constraints: BoxConstraints(maxHeight: 30),
+                            child: TextFormField(
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              controller: confirmpassword,
+                              obscureText: view1,
+                              validator: (value) {
+                                if (value!.isNotEmpty && value.length > 5) {
+                                  return null;
+                                } else {
+                                  return "Please Enter Password minimum length of 6";
+                                }
+                              },
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                contentPadding: hintpadding,
+                                hintStyle: hinstyle,
+                                suffixIcon: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        view1 = !view1;
+                                      });
+                                    },
+                                    child: view
+                                        ? Icon(Icons.visibility,
+                                            color: primaryColor)
+                                        : Icon(Icons.visibility_off,
+                                            color: primaryColor)),
+                                hintText: "***********",
+                              ),
                             ),
                           ),
                         ),
@@ -317,7 +346,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               Padding(
                 padding:
-                    EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
+                    EdgeInsets.only(top: height * 0.03, left: 90, right: 90),
                 child: Container(
                   height: 45,
                   width: 100,

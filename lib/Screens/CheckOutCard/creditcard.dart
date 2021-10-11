@@ -108,91 +108,104 @@ class _CreditCardFieldsState extends State<CreditCardFields> {
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 10.0, top: 10, bottom: 10),
-                    child: Text("Exp Date",
-                        style: TextStyle(color: Colors.white, fontSize: 12)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 10,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Container(
-                      height: 30,
-                      child: TextFormField(
-                        controller: date,
-                        decoration: InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.4,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 10.0, top: 10, bottom: 10),
+                          child: Text("Exp Date",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10.0),
+                          child: Container(
+                            height: 30,
+                            child: TextFormField(
+                              controller: date,
+                              decoration: InputDecoration(
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.white),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.white),
+                                  ),
+                                  hintStyle: TextStyle(
+                                      fontSize: 12, color: Colors.white),
+                                  hintText: "Exp Date"),
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: (value) {
+                                if (value!.isNotEmpty) {
+                                  return null;
+                                } else {
+                                  return "Please Enter your expire date";
+                                }
+                              },
                             ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            hintStyle:
-                                TextStyle(fontSize: 12, color: Colors.white),
-                            hintText: "Exp Date"),
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        validator: (value) {
-                          if (value!.isNotEmpty) {
-                            return null;
-                          } else {
-                            return "Please Enter your expire date";
-                          }
-                        },
-                      ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 10.0, top: 10, bottom: 10),
-                    child: Text("CVV",
-                        style: TextStyle(color: Colors.white, fontSize: 12)),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Container(
-                      height: 30,
-                      child: TextFormField(
-                        controller: cvv,
-                        decoration: InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10, right: 10),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.4,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 10.0, top: 10, bottom: 10),
+                          child: Text("CVV",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10.0),
+                          child: Container(
+                            height: 30,
+                            child: TextFormField(
+                              controller: date,
+                              decoration: InputDecoration(
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.white),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.white),
+                                  ),
+                                  hintStyle: TextStyle(
+                                      fontSize: 12, color: Colors.white),
+                                  hintText: "CVV"),
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: (value) {
+                                if (value!.isNotEmpty) {
+                                  return null;
+                                } else {
+                                  return "Please Enter your cvv code";
+                                }
+                              },
                             ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            hintStyle:
-                                TextStyle(fontSize: 12, color: Colors.white),
-                            hintText: "CVV"),
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        validator: (value) {
-                          if (value!.isNotEmpty) {
-                            return null;
-                          } else {
-                            return "Please Enter your Cvv";
-                          }
-                        },
-                      ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),

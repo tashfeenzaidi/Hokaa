@@ -15,14 +15,31 @@ class CartScreen extends StatelessWidget {
           color: primaryColor,
         ),
         actions: [
-          Icon(Icons.search, color: primaryColor),
-          Icon(Icons.add_shopping_cart, color: primaryColor)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              "assets/search.png",
+              width: 25,
+              height: 25,
+              color: primaryColor,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              "assets/shopping_cart.png",
+              width: 25,
+              height: 25,
+              color: primaryColor,
+            ),
+          ),
         ],
       ),
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.only(
+                left: 10.0, right: 10, top: 15, bottom: 15),
             child: Container(
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
@@ -139,8 +156,10 @@ class CartScreen extends StatelessWidget {
                       },
                       child: Row(
                         children: [
-                          Icon(
-                            Icons.add_shopping_cart,
+                          Image.asset(
+                            "assets/shopping_cart.png",
+                            width: 22,
+                            height: 22,
                             color: primaryColor,
                           ),
                           Text(

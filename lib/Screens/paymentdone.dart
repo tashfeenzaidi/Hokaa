@@ -42,13 +42,16 @@ class PaymentConfirm extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(top: 40.0),
-            child: ElevatedButton(
-              onPressed: () {
-                Get.toNamed("/paymentcancel");
-              },
-              child: Text(
-                "Back to Home",
-                style: Theme.of(context).textTheme.button,
+            child: Container(
+              width: 200,
+              child: ElevatedButton(
+                onPressed: () {
+                  Get.toNamed("/paymentcancel");
+                },
+                child: Text(
+                  "Back to Home",
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
               ),
             ),
           )

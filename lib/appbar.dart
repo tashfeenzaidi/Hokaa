@@ -13,6 +13,23 @@ AppBar appbar(BuildContext context) {
       ),
     ),
     elevation: 0,
-    actions: [Icon(Icons.search), Icon(Icons.add_shopping_cart)],
+    actions: [
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Image.asset(
+          "assets/search.png",
+          width: 25,
+          height: 25,
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Image.asset(
+          "assets/shopping_cart.png",
+          width: 25,
+          height: 25,
+        ),
+      ),
+    ],
   );
 }

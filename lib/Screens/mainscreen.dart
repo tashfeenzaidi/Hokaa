@@ -35,7 +35,7 @@ class MainScreen extends StatelessWidget {
                       left: 10,
                       child: Text(
                         "Melenia",
-                        style: Theme.of(context).textTheme.headline1,
+                        style: Theme.of(context).textTheme.headline5,
                       )),
                   Positioned(
                       bottom: 10,
@@ -47,13 +47,16 @@ class MainScreen extends StatelessWidget {
                   Positioned(
                       right: 10,
                       bottom: 10,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Get.toNamed("/shop");
-                        },
-                        child: Text(
-                          "Select",
-                          style: Theme.of(context).textTheme.button,
+                      child: Container(
+                        width: 150,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Get.toNamed("/shop");
+                          },
+                          child: Text(
+                            "Select",
+                            style: Theme.of(context).textTheme.button,
+                          ),
                         ),
                       ))
                 ],
