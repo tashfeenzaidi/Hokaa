@@ -39,17 +39,18 @@ class _CreditCardFieldsState extends State<CreditCardFields> {
                     padding: EdgeInsets.only(left: 10.0),
                     child: Container(
                       height: 30,
+                      constraints: BoxConstraints(maxHeight: 20),
                       child: TextFormField(
                         controller: name,
                         decoration: InputDecoration(
+                            errorStyle: validatorErrorStyle,
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                             ),
                             focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                             ),
-                            hintStyle:
-                                TextStyle(fontSize: 12, color: Colors.white),
+                            hintStyle: creditCardHintTextstyle,
                             hintText: "Name"),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         validator: (value) {
@@ -81,18 +82,18 @@ class _CreditCardFieldsState extends State<CreditCardFields> {
                   Padding(
                     padding: EdgeInsets.only(left: 10.0),
                     child: Container(
-                      height: 30,
+                      constraints: BoxConstraints(maxHeight: 20),
                       child: TextFormField(
                         controller: cardnumber,
                         decoration: InputDecoration(
+                            errorStyle: validatorErrorStyle,
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                             ),
                             focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.white),
                             ),
-                            hintStyle:
-                                TextStyle(fontSize: 12, color: Colors.white),
+                            hintStyle: creditCardHintTextstyle,
                             hintText: "CardNumber"),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         validator: (value) {
@@ -130,18 +131,18 @@ class _CreditCardFieldsState extends State<CreditCardFields> {
                         Padding(
                           padding: EdgeInsets.only(left: 10.0),
                           child: Container(
-                            height: 30,
+                            constraints: BoxConstraints(maxHeight: 20),
                             child: TextFormField(
                               controller: date,
                               decoration: InputDecoration(
+                                  errorStyle: validatorErrorStyle,
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(color: Colors.white),
                                   ),
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(color: Colors.white),
                                   ),
-                                  hintStyle: TextStyle(
-                                      fontSize: 12, color: Colors.white),
+                                  hintStyle: creditCardHintTextstyle,
                                   hintText: "Exp Date"),
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
@@ -176,18 +177,18 @@ class _CreditCardFieldsState extends State<CreditCardFields> {
                         Padding(
                           padding: EdgeInsets.only(left: 10.0),
                           child: Container(
-                            height: 30,
+                            constraints: BoxConstraints(maxHeight: 20),
                             child: TextFormField(
-                              controller: date,
+                              controller: cvv,
                               decoration: InputDecoration(
+                                  errorStyle: validatorErrorStyle,
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(color: Colors.white),
                                   ),
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(color: Colors.white),
                                   ),
-                                  hintStyle: TextStyle(
-                                      fontSize: 12, color: Colors.white),
+                                  hintStyle: creditCardHintTextstyle,
                                   hintText: "CVV"),
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,

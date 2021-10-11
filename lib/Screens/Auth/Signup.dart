@@ -101,6 +101,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 enabledBorder: InputBorder.none,
                                 errorBorder: InputBorder.none,
                                 disabledBorder: InputBorder.none,
+                                errorStyle: validatorErrorStyle,
                                 hintText: "Enter Name"),
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
@@ -151,6 +152,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 enabledBorder: InputBorder.none,
                                 errorBorder: InputBorder.none,
                                 disabledBorder: InputBorder.none,
+                                errorStyle: validatorErrorStyle,
                                 hintText: "Email"),
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
@@ -203,6 +205,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 enabledBorder: InputBorder.none,
                                 errorBorder: InputBorder.none,
                                 disabledBorder: InputBorder.none,
+                                errorStyle: validatorErrorStyle,
                                 hintText: "+924242424"),
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
@@ -262,6 +265,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 errorBorder: InputBorder.none,
                                 disabledBorder: InputBorder.none,
                                 contentPadding: hintpadding,
+                                errorStyle: validatorErrorStyle,
                                 hintStyle: hinstyle,
                                 suffixIcon: GestureDetector(
                                     onTap: () {
@@ -324,6 +328,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 errorBorder: InputBorder.none,
                                 disabledBorder: InputBorder.none,
                                 contentPadding: hintpadding,
+                                errorStyle: validatorErrorStyle,
                                 hintStyle: hinstyle,
                                 suffixIcon: GestureDetector(
                                     onTap: () {

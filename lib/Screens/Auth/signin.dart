@@ -99,9 +99,13 @@ class _SignInScreenState extends State<SignInScreen> {
                                         enabledBorder: InputBorder.none,
                                         errorBorder: InputBorder.none,
                                         disabledBorder: InputBorder.none,
+                                        focusedErrorBorder: InputBorder.none,
+                                        isCollapsed: true,
+                                     errorStyle:validatorErrorStyle,
                                         hintText: "Email"),
                                     autovalidateMode:
                                         AutovalidateMode.onUserInteraction,
+                                      
                                     validator: (value) {
                                       if (value!.isNotEmpty &&
                                           RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
@@ -162,6 +166,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                         enabledBorder: InputBorder.none,
                                         errorBorder: InputBorder.none,
                                         disabledBorder: InputBorder.none,
+                                            errorStyle:validatorErrorStyle,
                                         suffixIcon: GestureDetector(
                                             onTap: () {
                                               setState(() {

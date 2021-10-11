@@ -10,3 +10,5 @@ final smalltextStyle = TextStyle(fontSize: 15, color: Colors.white60);
 final hinstyle = TextStyle(fontSize: 14, color: Colors.white54);
 final hintpadding = EdgeInsets.symmetric(vertical: 15, horizontal: 0);
 final drawerPadding = EdgeInsets.only(top: 25.0, left: 20);
+final validatorErrorStyle=TextStyle(height: 0.1);
+final creditCardHintTextstyle=  TextStyle(fontSize: 12, color: Colors.white54);
