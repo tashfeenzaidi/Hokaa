@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gold_crowne/constants.dart';
 
 class CustomTheme {
   static ThemeData get lightTheme {
@@ -11,26 +12,58 @@ class CustomTheme {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0)),
+                borderRadius: BorderRadius.circular(25.0)),
             primary: Color.fromRGBO(255, 199, 0, 10),
           ),
         ),
+        primaryIconTheme: IconThemeData(color: Colors.black),
         buttonColor: Color.fromRGBO(255, 199, 0, 10),
+
         //3
+        appBarTheme: AppBarTheme(color: primaryColor),
         textTheme: TextTheme(
-            headline1: TextStyle(
+            headline5: TextStyle(
               fontSize: 30,
+              color: Colors.white,
+            ),
+            bodyText1: TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+            ),
+            headline1: TextStyle(
+              fontSize: 40,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            button: TextStyle(
-                fontSize: 18,
+            headline2: TextStyle(
+                color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
+            headline3: TextStyle(
+                color: primaryColor,
+                fontSize: 23,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Helvetica'),
+            headline4: TextStyle(
+                color: Colors.white, fontSize: 25, fontFamily: 'Helvetica'),
+            subtitle2: TextStyle(
+                color: Colors.white, fontSize: 16, fontFamily: 'Helvetica'),
+            subtitle1: TextStyle(
+                color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
+            bodyText2: TextStyle(
+                fontSize: 20,
                 color: Colors.black,
-                fontWeight: FontWeight.bold)),
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Helvetica'),
+            button: TextStyle(
+                fontSize: 23,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Helvetica')),
         buttonTheme: ButtonThemeData(
             // 4
+
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0)),
+                side: BorderSide(color: Colors.black),
+                borderRadius: BorderRadius.circular(25.0)),
             colorScheme:
                 ColorScheme.light(primary: Color.fromRGBO(255, 199, 0, 10)),
             buttonColor: Color.fromRGBO(255, 199, 0, 10)));
