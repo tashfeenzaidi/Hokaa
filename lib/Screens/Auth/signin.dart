@@ -101,11 +101,10 @@ class _SignInScreenState extends State<SignInScreen> {
                                         disabledBorder: InputBorder.none,
                                         focusedErrorBorder: InputBorder.none,
                                         isCollapsed: true,
-                                     errorStyle:validatorErrorStyle,
+                                        errorStyle: validatorErrorStyle,
                                         hintText: "Email"),
                                     autovalidateMode:
                                         AutovalidateMode.onUserInteraction,
-                                      
                                     validator: (value) {
                                       if (value!.isNotEmpty &&
                                           RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
@@ -166,7 +165,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                         enabledBorder: InputBorder.none,
                                         errorBorder: InputBorder.none,
                                         disabledBorder: InputBorder.none,
-                                            errorStyle:validatorErrorStyle,
+                                        errorStyle: validatorErrorStyle,
                                         suffixIcon: GestureDetector(
                                             onTap: () {
                                               setState(() {
@@ -203,12 +202,17 @@ class _SignInScreenState extends State<SignInScreen> {
                           ),
                         ),
                       ),
-                      Padding(
-                          padding: EdgeInsets.only(top: 17.0),
-                          child: Text(
-                            "Forgot Password?",
-                            style: Theme.of(context).textTheme.subtitle2,
-                          )),
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed("/forgotPassword");
+                        },
+                        child: Padding(
+                            padding: EdgeInsets.only(top: 17.0),
+                            child: Text(
+                              "Forgot Password?",
+                              style: Theme.of(context).textTheme.subtitle2,
+                            )),
+                      ),
                       Padding(
                           padding: EdgeInsets.only(top: 30.0),
                           child: Text(
