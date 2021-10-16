@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gold_crowne/Orders/ordershistory.dart';
 import 'package:gold_crowne/Screens/Auth/Signup.dart';
 
 import 'package:gold_crowne/Screens/Auth/signin.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
           GetPage(name: "/paymentdone", page: () => PaymentConfirm()),
           GetPage(name: "/paymentcancel", page: () => PaymentCancel()),
           GetPage(name: "/forgotPassword", page: () => ForgotPassword()),
+          GetPage(name: "/ordershistory", page: () => OrderHistory()),
         ],
         home: SplashScreen());
   }

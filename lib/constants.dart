@@ -17,3 +17,6 @@ final checkoutButtonText = TextStyle(color: Colors.white, fontSize: 16);
 final priceTextStyle = TextStyle(color: Colors.black, fontSize: 16);
 final lightTextstyle =
     TextStyle(color: paymentCardBackgroundColor, fontSize: 14);
+final historyTextstyle =
+    TextStyle(color: Colors.white, fontSize: 14, fontFamily: "Helvetica");
+final littleDateStyle = TextStyle(color: primaryColor, fontSize: 10);
