@@ -17,7 +17,7 @@ AppBar appbar(BuildContext context) {
     actions: [
       GestureDetector(
         onTap: () {
-          Get.toNamed("/noevent");
+          // Get.toNamed("/noevent");
         },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -30,7 +30,7 @@ AppBar appbar(BuildContext context) {
       ),
       GestureDetector(
         onTap: () {
-          Get.toNamed("/outofradius");
+          Get.toNamed("/cart");
         },
         child: Padding(
           padding: const EdgeInsets.all(8.0),

@@ -75,23 +75,28 @@ Drawer drawer(BuildContext context) {
                 ),
               ),
             ),
-            Padding(
-              padding: drawerPadding,
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/mycart.png",
-                    width: 22,
-                    height: 22,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Text(
-                      "My Cart",
-                      style: Theme.of(context).textTheme.bodyText1,
+            GestureDetector(
+              onTap: () {
+                Get.toNamed("/cart");
+              },
+              child: Padding(
+                padding: drawerPadding,
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/mycart.png",
+                      width: 22,
+                      height: 22,
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Text(
+                        "My Cart",
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             GestureDetector(
