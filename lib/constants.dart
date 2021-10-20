@@ -20,3 +20,5 @@ final lightTextstyle =
 final historyTextstyle =
     TextStyle(color: Colors.white, fontSize: 14, fontFamily: "Helvetica");
 final littleDateStyle = TextStyle(color: primaryColor, fontSize: 10);
+final littleTextStyle = TextStyle(color: Colors.white, fontSize: 10);
+
