@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gold_crowne/Account/myaccount.dart';
 import 'package:gold_crowne/Orders/orderdetails.dart';
 import 'package:gold_crowne/Orders/ordershistory.dart';
 import 'package:gold_crowne/Orders/orderstatus.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
           GetPage(name: "/ordershistory", page: () => OrderHistory()),
           GetPage(name: "/orderdetail", page: () => OrderDetails()),
           GetPage(name: "/orderstatus", page: () => OrderStatus()),
+          GetPage(name: "/myaccount", page: () => MyAccount()),
         ],
         home: SplashScreen());
   }

@@ -118,19 +118,24 @@ Drawer drawer(BuildContext context) {
                 ),
               ),
             ),
-            Padding(
-              padding: drawerPadding,
-              child: Row(
-                children: [
-                  Icon(Icons.person),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Text(
-                      "My Account",
-                      style: Theme.of(context).textTheme.bodyText1,
-                    ),
-                  )
-                ],
+            GestureDetector(
+              onTap: () {
+                Get.toNamed("/myaccount");
+              },
+              child: Padding(
+                padding: drawerPadding,
+                child: Row(
+                  children: [
+                    Icon(Icons.person),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Text(
+                        "My Account",
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(
