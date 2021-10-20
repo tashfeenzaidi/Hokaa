@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/Orders/orderdetails.dart';
 import 'package:gold_crowne/Orders/ordershistory.dart';
+import 'package:gold_crowne/Orders/orderstatus.dart';
 import 'package:gold_crowne/Screens/Auth/Signup.dart';
 
 import 'package:gold_crowne/Screens/Auth/signin.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
           GetPage(name: "/forgotPassword", page: () => ForgotPassword()),
           GetPage(name: "/ordershistory", page: () => OrderHistory()),
           GetPage(name: "/orderdetail", page: () => OrderDetails()),
+          GetPage(name: "/orderstatus", page: () => OrderStatus()),
         ],
         home: SplashScreen());
   }

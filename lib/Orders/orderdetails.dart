@@ -8,6 +8,11 @@ class OrderDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+        ),
+        extendBodyBehindAppBar: true,
         body: Container(
             color: primaryColor,
             child: ListView(padding: EdgeInsets.zero, children: [
@@ -64,11 +69,17 @@ class OrderDetails extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    Image.asset(
-                                      "assets/hookah.png",
-                                      height: 100,
-                                      width: 100,
-                                      fit: BoxFit.fill,
+                                    Column(
+                                      children: [
+                                        Image.asset(
+                                          "assets/hookah.png",
+                                          height: 100,
+                                          width: 100,
+                                          fit: BoxFit.fill,
+                                        ),
+                                        Text("WterMelon",
+                                            style: littleTextStyle)
+                                      ],
                                     ),
                                     Expanded(
                                       child: Column(
