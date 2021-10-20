@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 AppBar appbar(BuildContext context) {
   return AppBar(
@@ -14,20 +15,30 @@ AppBar appbar(BuildContext context) {
     ),
     elevation: 0,
     actions: [
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Image.asset(
-          "assets/search.png",
-          width: 25,
-          height: 25,
+      GestureDetector(
+        onTap: () {
+          Get.toNamed("/noevent");
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset(
+            "assets/search.png",
+            width: 25,
+            height: 25,
+          ),
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Image.asset(
-          "assets/shopping_cart.png",
-          width: 25,
-          height: 25,
+      GestureDetector(
+        onTap: () {
+          Get.toNamed("/outofradius");
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset(
+            "assets/shopping_cart.png",
+            width: 25,
+            height: 25,
+          ),
         ),
       ),
     ],
