@@ -22,18 +22,23 @@ class _SignInScreenState extends State<SignInScreen> {
       body: Form(
         key: formKey,
         child: Container(
-          color: primaryColor,
-          child: ListView(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/backgorund_pic.png"),
+                  fit: BoxFit.cover)),
+          child: Column(
             children: [
               Container(
-                  padding: EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.only(top: height * 0.02),
                   child: Image.asset(
                     "assets/signin.png",
                     height: 200,
                     width: 200,
                   )),
               SizedBox(
-                height: MediaQuery.of(context).size.height,
+                height: MediaQuery.of(context).size.height * 0.73,
                 child: Container(
                   decoration: BoxDecoration(
                       color: primayBackgroundColor,
@@ -68,7 +73,8 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 20, left: 30, right: 30),
+                        padding: EdgeInsets.only(
+                            top: height * 0.02, left: 30, right: 30),
                         child: Container(
                           height: height * 0.1,
                           decoration: BoxDecoration(
@@ -79,14 +85,14 @@ class _SignInScreenState extends State<SignInScreen> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(
-                                    left: 10.0, top: 10, bottom: 10),
+                                    left: 15.0, top: 10, bottom: 10),
                                 child: Text(
                                   "UserName",
                                   style: Theme.of(context).textTheme.subtitle1,
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(left: 10.0),
+                                padding: EdgeInsets.only(left: 15.0),
                                 child: Container(
                                   constraints: BoxConstraints(maxHeight: 30),
                                   child: TextFormField(
@@ -133,7 +139,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      left: 10.0, top: 10, bottom: 10),
+                                      left: 15.0, top: 10, bottom: 10),
                                   child: Text(
                                     "Password",
                                     style:
@@ -141,7 +147,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 10.0),
+                                  padding: EdgeInsets.only(left: 15.0),
                                   child: Container(
                                     constraints: BoxConstraints(maxHeight: 30),
                                     child: TextFormField(
@@ -173,10 +179,27 @@ class _SignInScreenState extends State<SignInScreen> {
                                               });
                                             },
                                             child: view
-                                                ? Icon(Icons.visibility,
-                                                    color: primaryColor)
-                                                : Icon(Icons.visibility_off,
-                                                    color: primaryColor)),
+                                                ? Transform.translate(
+                                                    offset: Offset(0, -15),
+                                                    child: Padding(
+                                                      padding: EdgeInsets.only(
+                                                          right: 30),
+                                                      child: Icon(
+                                                          Icons.visibility,
+                                                          color: primaryColor),
+                                                    ),
+                                                  )
+                                                : Transform.translate(
+                                                    offset: Offset(0, -15),
+                                                    child: Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                right: 30),
+                                                        child: Image.asset(
+                                                            "assets/eye-off.png",
+                                                            color:
+                                                                primaryColor)),
+                                                  )),
                                         hintText: "*******",
                                       ),
                                     ),
@@ -235,6 +258,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 "assets/google.png",
                                 height: 25,
                                 width: 20,
+                                color: Colors.black,
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -265,6 +289,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   "assets/facebook.png",
                                   height: 25,
                                   width: 20,
+                                  color: Colors.black,
                                   fit: BoxFit.contain,
                                 ),
                               ),
@@ -280,7 +305,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 "assets/apple.png",
                                 height: 30,
                                 width: 23,
-                                fit: BoxFit.cover,
+                                fit: BoxFit.fill,
                               ),
                             ),
                           ],
@@ -292,8 +317,8 @@ class _SignInScreenState extends State<SignInScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Dont't have an account?",
-                              style: smalltextStyle,
+                              "Don't have an account?",
+                              style: smalltextStyle2,
                               textAlign: TextAlign.center,
                             ),
                             GestureDetector(
@@ -303,7 +328,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  "Sign Up",
+                                  "Signup!",
                                   style: TextStyle(
                                       color: primaryColor,
                                       fontSize: 18,
