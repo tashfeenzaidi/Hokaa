@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 
 AppBar appbar(BuildContext context) {
   return AppBar(
+    backgroundColor: Colors.transparent,
+  
     leading: Builder(
       builder: (context) => IconButton(
         icon: Image.asset(
