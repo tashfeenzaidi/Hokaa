@@ -32,7 +32,10 @@ class ShopWidget extends StatelessWidget {
                     onPressed: () {},
                     child: Row(
                       children: [
-                        Image.asset("assets/small.png"),
+                        Padding(
+                          padding: EdgeInsets.only(right: 3.0),
+                          child: Image.asset("assets/small.png"),
+                        ),
                         Text(
                           "Single",
                           style: TextStyle(color: Colors.white, fontSize: 18),
@@ -45,13 +48,16 @@ class ShopWidget extends StatelessWidget {
                     onPressed: () {},
                     child: Row(
                       children: [
-                        Row(
-                          children: [
-                            Image.asset("assets/small.png",
-                                color: Colors.black),
-                            Image.asset("assets/small.png",
-                                color: Colors.black),
-                          ],
+                        Padding(
+                          padding: EdgeInsets.only(right: 3.0),
+                          child: Row(
+                            children: [
+                              Image.asset("assets/small.png",
+                                  color: Colors.black),
+                              Image.asset("assets/small.png",
+                                  color: Colors.black),
+                            ],
+                          ),
                         ),
                         Text(
                           "Mix",
@@ -65,7 +71,10 @@ class ShopWidget extends StatelessWidget {
                     onPressed: () {},
                     child: Row(
                       children: [
-                        Image.asset("assets/up.png"),
+                        Padding(
+                          padding: EdgeInsets.only(right: 3.0),
+                          child: Image.asset("assets/up.png"),
+                        ),
                         Text(
                           "Sort by",
                           style: TextStyle(fontSize: 18),
