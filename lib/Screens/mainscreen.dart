@@ -36,15 +36,15 @@ class MainScreen extends StatelessWidget {
                               fit: BoxFit.cover)),
                     ),
                     Positioned(
-                        bottom: 50,
-                        left: 10,
+                        bottom: 45,
+                        left: 15,
                         child: Text(
                           "Melenia",
                           style: Theme.of(context).textTheme.headline5,
                         )),
                     Positioned(
                         bottom: 10,
-                        left: 10,
+                        left: 15,
                         child: Text(
                           "05.10.21",
                           style: Theme.of(context).textTheme.headline4,
@@ -55,6 +55,8 @@ class MainScreen extends StatelessWidget {
                         child: Container(
                           width: 150,
                           child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                minimumSize: Size(50, 50)),
                             onPressed: () {
                               Get.toNamed("/shop");
                             },
@@ -66,34 +68,37 @@ class MainScreen extends StatelessWidget {
                         ))
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.arrow_back_ios,
-                          color: primaryColor,
-                        ),
-                        Text(
-                          "Back",
-                          style: Theme.of(context).textTheme.subtitle1,
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "Naxt",
-                          style: Theme.of(context).textTheme.subtitle1,
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: primaryColor,
-                        ),
-                      ],
-                    )
-                  ],
+                Padding(
+                  padding: EdgeInsets.only(left: 15.0, right: 15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.arrow_back_ios,
+                            color: primaryColor,
+                          ),
+                          Text(
+                            "Back",
+                            style: Theme.of(context).textTheme.subtitle1,
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "Naxt",
+                            style: Theme.of(context).textTheme.subtitle1,
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: primaryColor,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
