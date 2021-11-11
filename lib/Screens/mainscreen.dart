@@ -22,54 +22,56 @@ class MainScreen extends StatelessWidget {
                   fit: BoxFit.fill)),
           child: SafeArea(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Stack(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.7,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          image: DecorationImage(
-                              image: AssetImage("assets/more.png"),
-                              fit: BoxFit.cover)),
-                    ),
-                    Positioned(
-                        bottom: 45,
-                        left: 15,
-                        child: Text(
-                          "Melenia",
-                          style: Theme.of(context).textTheme.headline5,
-                        )),
-                    Positioned(
-                        bottom: 10,
-                        left: 15,
-                        child: Text(
-                          "05.10.21",
-                          style: Theme.of(context).textTheme.headline4,
-                        )),
-                    Positioned(
-                        right: 10,
-                        bottom: 10,
-                        child: Container(
-                          width: 150,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                minimumSize: Size(50, 50)),
-                            onPressed: () {
-                              Get.toNamed("/shop");
-                            },
-                            child: Text(
-                              "Select",
-                              style: Theme.of(context).textTheme.button,
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        height: MediaQuery.of(context).size.height * 0.75,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                            image: DecorationImage(
+                                image: AssetImage("assets/more.png"),
+                                fit: BoxFit.cover)),
+                      ),
+                      Positioned(
+                          bottom: 45,
+                          left: 15,
+                          child: Text(
+                            "Melenia",
+                            style: Theme.of(context).textTheme.headline5,
+                          )),
+                      Positioned(
+                          bottom: 10,
+                          left: 15,
+                          child: Text(
+                            "05.10.21",
+                            style: Theme.of(context).textTheme.headline4,
+                          )),
+                      Positioned(
+                          right: 10,
+                          bottom: 10,
+                          child: Container(
+                            width: 150,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  minimumSize: Size(50, 50)),
+                              onPressed: () {
+                                Get.toNamed("/shop");
+                              },
+                              child: Text(
+                                "Select",
+                                style: Theme.of(context).textTheme.button,
+                              ),
                             ),
-                          ),
-                        ))
-                  ],
+                          ))
+                    ],
+                  ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 15.0, right: 15),
+                  padding: EdgeInsets.only(left: 15.0, right: 15, top: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

@@ -32,10 +32,7 @@ class ShopWidget extends StatelessWidget {
                     onPressed: () {},
                     child: Row(
                       children: [
-                        Icon(
-                          Icons.umbrella,
-                          color: Colors.white,
-                        ),
+                        Image.asset("assets/small.png"),
                         Text(
                           "Single",
                           style: TextStyle(color: Colors.white, fontSize: 18),
@@ -48,7 +45,14 @@ class ShopWidget extends StatelessWidget {
                     onPressed: () {},
                     child: Row(
                       children: [
-                        Icon(Icons.umbrella),
+                        Row(
+                          children: [
+                            Image.asset("assets/small.png",
+                                color: Colors.black),
+                            Image.asset("assets/small.png",
+                                color: Colors.black),
+                          ],
+                        ),
                         Text(
                           "Mix",
                           style: TextStyle(fontSize: 18),
@@ -61,9 +65,7 @@ class ShopWidget extends StatelessWidget {
                     onPressed: () {},
                     child: Row(
                       children: [
-                        Icon(
-                          Icons.umbrella,
-                        ),
+                        Image.asset("assets/up.png"),
                         Text(
                           "Sort by",
                           style: TextStyle(fontSize: 18),
@@ -78,7 +80,7 @@ class ShopWidget extends StatelessWidget {
                 child: GridView.builder(
                     itemCount: 10,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 0.7, crossAxisCount: 2),
+                        childAspectRatio: 0.8, crossAxisCount: 2),
                     itemBuilder: (context, index) {
                       return Padding(
                           padding: const EdgeInsets.all(8.0),

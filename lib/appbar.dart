@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 AppBar appbar(BuildContext context) {
   return AppBar(
     backgroundColor: Colors.transparent,
-  
     leading: Builder(
       builder: (context) => IconButton(
         icon: Image.asset(
@@ -35,7 +34,8 @@ AppBar appbar(BuildContext context) {
           Get.toNamed("/cart");
         },
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:
+              EdgeInsets.only(left: 8.0, right: 14.0, top: 8.0, bottom: 8.0),
           child: Image.asset(
             "assets/shopping_cart.png",
             width: 25,
