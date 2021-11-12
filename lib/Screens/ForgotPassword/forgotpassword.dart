@@ -19,20 +19,29 @@ class ForgotPassword extends StatelessWidget {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/backgorund_pic.png"),
-                  fit: BoxFit.cover)),
+          color: primaryColor,
           child: Container(
             child: ListView(
               children: [
-                Container(
-                    padding: EdgeInsets.only(top: 20),
-                    child: Image.asset(
-                      "assets/forgot.png",
+                Stack(
+                  children: [
+                    Image.asset(
+                      "assets/back.png",
                       height: 200,
-                      width: 200,
-                    )),
+                      width: MediaQuery.of(context).size.width,
+                      fit: BoxFit.cover,
+                    ),
+                    Center(
+                      child: Container(
+                          padding: EdgeInsets.only(top: 20),
+                          child: Image.asset(
+                            "assets/forgot.png",
+                            height: 200,
+                            width: 200,
+                          )),
+                    ),
+                  ],
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height,
                   child: Container(

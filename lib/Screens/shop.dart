@@ -4,9 +4,16 @@ import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constants.dart';
 import 'package:gold_crowne/drawer.dart';
 
-class ShopWidget extends StatelessWidget {
+class ShopWidget extends StatefulWidget {
   const ShopWidget({Key? key}) : super(key: key);
 
+  @override
+  State<ShopWidget> createState() => _ShopWidgetState();
+}
+
+class _ShopWidgetState extends State<ShopWidget> {
+  int selected = -1;
+  int tab = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +34,13 @@ class ShopWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   MaterialButton(
-                    color: Colors.black,
+                    color: tab == 1 ? Colors.black : primaryColor,
                     minWidth: 100,
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        tab = 1;
+                      });
+                    },
                     child: Row(
                       children: [
                         Padding(
@@ -38,14 +49,21 @@ class ShopWidget extends StatelessWidget {
                         ),
                         Text(
                           "Single",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                          style: TextStyle(
+                              color: tab == 1 ? Colors.white : Colors.black,
+                              fontSize: 18),
                         ),
                       ],
                     ),
                   ),
                   MaterialButton(
+                    color: tab == 2 ? Colors.black : primaryColor,
                     minWidth: 100,
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        tab = 2;
+                      });
+                    },
                     child: Row(
                       children: [
                         Padding(
@@ -53,31 +71,44 @@ class ShopWidget extends StatelessWidget {
                           child: Row(
                             children: [
                               Image.asset("assets/small.png",
-                                  color: Colors.black),
+                                  color:
+                                      tab == 2 ? primaryColor : Colors.black),
                               Image.asset("assets/small.png",
-                                  color: Colors.black),
+                                  color:
+                                      tab == 2 ? primaryColor : Colors.black),
                             ],
                           ),
                         ),
                         Text(
                           "Mix",
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: tab == 2 ? Colors.white : Colors.black,
+                          ),
                         ),
                       ],
                     ),
                   ),
                   MaterialButton(
+                    color: tab == 3 ? Colors.black : primaryColor,
                     minWidth: 100,
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        tab = 3;
+                      });
+                    },
                     child: Row(
                       children: [
                         Padding(
                           padding: EdgeInsets.only(right: 3.0),
-                          child: Image.asset("assets/up.png"),
+                          child: Image.asset("assets/up.png",
+                              color: tab == 3 ? primaryColor : Colors.black),
                         ),
                         Text(
                           "Sort by",
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(
+                              fontSize: 18,
+                              color: tab == 3 ? primaryColor : Colors.black),
                         ),
                       ],
                     ),
@@ -91,62 +122,73 @@ class ShopWidget extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         childAspectRatio: 0.8, crossAxisCount: 2),
                     itemBuilder: (context, index) {
-                      return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  Get.toNamed("/productdetail");
-                                },
-                                child: Container(
+                      return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              selected = index;
+                            });
+                            Get.toNamed("/productdetail");
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Container(
                                   width:
                                       MediaQuery.of(context).size.width * 0.43,
                                   height:
                                       MediaQuery.of(context).size.height * 0.6,
                                   decoration: BoxDecoration(
-                                      color: paymentCardBackgroundColor,
+                                      color: Color(0xFF242424),
+                                      border: Border.all(
+                                          color: selected == index
+                                              ? primaryColor
+                                              : Color(0xFF242424)),
                                       borderRadius: BorderRadius.circular(25)),
                                 ),
-                              ),
-                              Positioned(
-                                bottom: 60,
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.3,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.2,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage("assets/hookah.png"),
-                                        fit: BoxFit.fill),
+                                Positioned(
+                                  top: 20,
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.3,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.15,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image:
+                                              AssetImage("assets/hookah.png"),
+                                          fit: BoxFit.fill),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Positioned(
-                                  bottom: 30,
-                                  child: Text(
-                                    "Love",
-                                    style:
-                                        Theme.of(context).textTheme.subtitle1,
-                                  )),
-                              Positioned(
-                                  bottom: 10,
-                                  left: 20,
-                                  child: Text(
-                                    "\$ 23",
-                                    style:
-                                        Theme.of(context).textTheme.subtitle1,
-                                  )),
-                              Positioned(
+                                Positioned(
+                                    bottom: 40,
+                                    child: Text(
+                                      "Love",
+                                      style:
+                                          Theme.of(context).textTheme.subtitle1,
+                                    )),
+                                Positioned(
+                                    bottom: 10,
+                                    left: 25,
+                                    child: Text(
+                                      "\$ 23",
+                                      style:
+                                          Theme.of(context).textTheme.subtitle1,
+                                    )),
+                                Positioned(
                                   bottom: 10,
                                   right: 20,
-                                  child: Icon(
-                                    Icons.add_shopping_cart,
+                                  child: Image.asset(
+                                    "assets/shopping_cart.png",
+                                    width: 25,
+                                    height: 25,
                                     color: primaryColor,
-                                  ))
-                            ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ));
                     }),
               )
