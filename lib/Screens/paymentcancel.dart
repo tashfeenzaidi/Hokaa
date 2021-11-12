@@ -19,8 +19,8 @@ class PaymentCancel extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Image.asset(
                   "assets/payment-denied.png",
-                  height: 200,
-                  width: 200,
+                  height: 250,
+                  width: 250,
                   fit: BoxFit.fill,
                 )),
           ),
@@ -46,6 +46,7 @@ class PaymentCancel extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 40.0),
             child: Container(
+              height: 50,
               width: 200,
               child: ElevatedButton(
                 onPressed: () {

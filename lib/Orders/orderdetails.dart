@@ -21,7 +21,7 @@ class OrderDetails extends StatelessWidget {
                   image: AssetImage("assets/backgorund_pic.png"),
                   fit: BoxFit.cover)),
           child: Container(
-              child: ListView(padding: EdgeInsets.zero, children: [
+              child: Column(children: [
             Container(
                 padding: EdgeInsets.only(top: 20),
                 child: Image.asset(
@@ -30,7 +30,7 @@ class OrderDetails extends StatelessWidget {
                   width: 200,
                 )),
             SizedBox(
-                height: MediaQuery.of(context).size.height,
+                height: MediaQuery.of(context).size.height * 0.7,
                 child: Container(
                     decoration: BoxDecoration(
                         color: primayBackgroundColor,

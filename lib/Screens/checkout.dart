@@ -12,7 +12,15 @@ class CheckOutScreen extends StatelessWidget {
       backgroundColor: primaryColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: Icon(Icons.arrow_back_ios),
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
+        ),
         elevation: 0,
       ),
       extendBodyBehindAppBar: true,
@@ -33,7 +41,8 @@ class CheckOutScreen extends StatelessWidget {
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
                 )),
-            child: ListView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(
@@ -80,18 +89,42 @@ class CheckOutScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10)),
                               child: Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Image.asset(
-                                      "assets/hookah.png",
+                                    Container(
                                       height: 100,
-                                      width: 100,
-                                      fit: BoxFit.fill,
+                                      width: 80,
+                                      child: Stack(
+                                        children: [
+                                          Center(
+                                            child: Image.asset(
+                                              "assets/hookah.png",
+                                              height: 70,
+                                              width: 60,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                          Positioned(
+                                            top: 10,
+                                            left: 10,
+                                            child: Image.asset(
+                                              "assets/cancel.png",
+                                              width: 10,
+                                              height: 10,
+                                            ),
+                                          )
+                                          // Icon(Icons.cancel_outlined,fonts, color: primaryColor)
+                                        ],
+                                      ),
                                     ),
-                                    Flexible(
+                                    Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.5,
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Text(
                                             "An exclusive flovour with lemon and peach flovour",
@@ -99,27 +132,36 @@ class CheckOutScreen extends StatelessWidget {
                                                 .textTheme
                                                 .subtitle1,
                                           ),
-                                          Text("\$ 23",
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .headline3)
+                                          Transform.translate(
+                                            offset: Offset(0, 10),
+                                            child: Text("\$ 23",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .headline3),
+                                          )
                                         ],
                                       ),
                                     ),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Icon(Icons.remove_circle,
-                                            color: primaryColor),
-                                        Text(
-                                          "1",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .subtitle1,
-                                        ),
-                                        Icon(Icons.add_box, color: primaryColor)
-                                      ],
+                                    Transform.translate(
+                                      offset: Offset(-20, 0),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Icon(Icons.remove_circle,
+                                              color: primaryColor),
+                                          Padding(
+                                            padding: const EdgeInsets.all(5.0),
+                                            child: Text(
+                                              "1",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .subtitle1,
+                                            ),
+                                          ),
+                                          Image.asset("assets/plus.png")
+                                        ],
+                                      ),
                                     )
                                   ]),
                             );
@@ -142,15 +184,18 @@ class CheckOutScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.only(
+                        left: 20, right: 10, top: 10, bottom: 10),
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.1,
                     decoration: BoxDecoration(
-                      color: primaryColor,
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(10),
-                          topLeft: Radius.circular(10)),
-                    ),
+                        color: primaryColor,
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10),
+                            topLeft: Radius.circular(10)),
+                        image: DecorationImage(
+                            image: AssetImage("assets/back.png"),
+                            fit: BoxFit.fill)),
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -164,7 +209,7 @@ class CheckOutScreen extends StatelessWidget {
                               onPressed: () {
                                 Get.toNamed("/paymentdone");
                               },
-                              child: Text("Proceed To CheckOut",
+                              child: Text("PROCEED TO CONFIRM",
                                   style: checkoutButtonText))
                         ],
                       ),

@@ -31,7 +31,7 @@ class CustomTheme {
               color: Colors.black,
             ),
             headline1: TextStyle(
-              fontSize: 40,
+              fontSize: 30,
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
@@ -47,7 +47,7 @@ class CustomTheme {
             subtitle2: TextStyle(
                 color: Colors.white, fontSize: 16, fontFamily: 'Helvetica'),
             subtitle1: TextStyle(
-                color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
+                color: Colors.white, fontSize: 14, fontFamily: 'Helvetica'),
             bodyText2: TextStyle(
                 fontSize: 20,
                 color: Colors.black,

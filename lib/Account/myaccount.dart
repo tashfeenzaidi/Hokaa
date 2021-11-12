@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:gold_crowne/constants.dart';
 
 class MyAccount extends StatelessWidget {
@@ -13,7 +14,15 @@ class MyAccount extends StatelessWidget {
         backgroundColor: primaryColor,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          leading: Icon(Icons.arrow_back_ios),
+          leading: GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
+          ),
           elevation: 0,
         ),
         extendBodyBehindAppBar: true,
@@ -69,7 +78,7 @@ class MyAccount extends StatelessWidget {
                         backgroundImage: AssetImage("assets/onboard1.png"),
                       ),
                       Transform.translate(
-                          offset: Offset(5, 30),
+                          offset: Offset(-10, 20),
                           child: Image.asset(
                             "assets/edit.png",
                             width: 20,
@@ -80,7 +89,7 @@ class MyAccount extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(top: 20, left: 30, right: 30),
                     child: Container(
-                      height: height * 0.1,
+                      height: height * 0.09,
                       decoration: BoxDecoration(
                           color: cardBackgroundColor,
                           borderRadius: BorderRadius.circular(20)),
@@ -111,11 +120,6 @@ class MyAccount extends StatelessWidget {
                                     errorBorder: InputBorder.none,
                                     disabledBorder: InputBorder.none,
                                     errorStyle: validatorErrorStyle,
-                                    suffixIcon: Image.asset(
-                                      "assets/edit.png",
-                                      width: 20,
-                                      height: 20,
-                                    ),
                                     suffixIconConstraints: BoxConstraints(
                                         maxWidth: 20, maxHeight: 20),
                                     hintText: "Enter Name"),
@@ -138,7 +142,7 @@ class MyAccount extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(top: 20, left: 30, right: 30),
                     child: Container(
-                      height: height * 0.1,
+                      height: height * 0.09,
                       decoration: BoxDecoration(
                           color: cardBackgroundColor,
                           borderRadius: BorderRadius.circular(20)),
@@ -169,11 +173,6 @@ class MyAccount extends StatelessWidget {
                                     disabledBorder: InputBorder.none,
                                     focusedErrorBorder: InputBorder.none,
                                     isCollapsed: true,
-                                    suffixIcon: Image.asset(
-                                      "assets/edit.png",
-                                      width: 20,
-                                      height: 20,
-                                    ),
                                     suffixIconConstraints: BoxConstraints(
                                         maxWidth: 20, maxHeight: 20),
                                     errorStyle: validatorErrorStyle,
@@ -200,7 +199,7 @@ class MyAccount extends StatelessWidget {
                     padding: EdgeInsets.only(
                         top: height * 0.03, left: 30, right: 30),
                     child: Container(
-                      height: height * 0.1,
+                      height: height * 0.09,
                       decoration: BoxDecoration(
                           color: cardBackgroundColor,
                           borderRadius: BorderRadius.circular(20)),
@@ -230,11 +229,6 @@ class MyAccount extends StatelessWidget {
                                     errorBorder: InputBorder.none,
                                     disabledBorder: InputBorder.none,
                                     errorStyle: validatorErrorStyle,
-                                    suffixIcon: Image.asset(
-                                      "assets/edit.png",
-                                      width: 20,
-                                      height: 20,
-                                    ),
                                     suffixIconConstraints: BoxConstraints(
                                         maxWidth: 20, maxHeight: 20),
                                     hintText: "+924242424"),

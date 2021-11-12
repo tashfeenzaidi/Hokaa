@@ -71,7 +71,7 @@ class MainScreen extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 15.0, right: 15, top: 10),
+                  padding: EdgeInsets.only(left: 15.0, right: 15, top: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
