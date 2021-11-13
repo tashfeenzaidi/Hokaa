@@ -57,7 +57,7 @@ class CustomTheme {
             subtitle1: TextStyle(
                 color: Colors.white, fontSize: 12, fontFamily: 'Helvetica'),
             bodyText2: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Helvetica'),

@@ -26,3 +26,14 @@ final noEventTextStyle = TextStyle(color: primaryColor, fontSize: 18);
 final priceStyle =
     TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30);
 final smallStyle = TextStyle(color: Colors.white, fontSize: 6);
+final nameStyle = TextStyle(
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Helvetica');
+final pricenameStyle = TextStyle(
+    color: primaryColor,
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Helvetica');
+final smallblack = TextStyle(color: Colors.black, fontSize: 12);
