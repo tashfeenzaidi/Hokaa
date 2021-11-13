@@ -33,15 +33,20 @@ class _ShopWidgetState extends State<ShopWidget> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  MaterialButton(
-                    color: tab == 1 ? Colors.black : primaryColor,
-                    minWidth: 100,
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      side: BorderSide(color: Colors.black),
+                      fixedSize:
+                          Size(MediaQuery.of(context).size.width * 0.3, 40),
+                      primary: tab == 1 ? Colors.black : primaryColor,
+                    ),
                     onPressed: () {
                       setState(() {
                         tab = 1;
                       });
                     },
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
                           padding: EdgeInsets.only(right: 3.0),
@@ -56,15 +61,20 @@ class _ShopWidgetState extends State<ShopWidget> {
                       ],
                     ),
                   ),
-                  MaterialButton(
-                    color: tab == 2 ? Colors.black : primaryColor,
-                    minWidth: 100,
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      side: BorderSide(color: Colors.black),
+                      fixedSize:
+                          Size(MediaQuery.of(context).size.width * 0.3, 40),
+                      primary: tab == 2 ? Colors.black : primaryColor,
+                    ),
                     onPressed: () {
                       setState(() {
                         tab = 2;
                       });
                     },
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
                           padding: EdgeInsets.only(right: 3.0),
@@ -89,15 +99,20 @@ class _ShopWidgetState extends State<ShopWidget> {
                       ],
                     ),
                   ),
-                  MaterialButton(
-                    color: tab == 3 ? Colors.black : primaryColor,
-                    minWidth: 100,
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      side: BorderSide(color: Colors.black),
+                      fixedSize:
+                          Size(MediaQuery.of(context).size.width * 0.3, 40),
+                      primary: tab == 3 ? Colors.black : primaryColor,
+                    ),
                     onPressed: () {
                       setState(() {
                         tab = 3;
                       });
                     },
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
                           padding: EdgeInsets.only(right: 3.0),
@@ -148,12 +163,13 @@ class _ShopWidgetState extends State<ShopWidget> {
                                       borderRadius: BorderRadius.circular(25)),
                                 ),
                                 Positioned(
-                                  top: 20,
+                                  top:
+                                      MediaQuery.of(context).size.height * 0.03,
                                   child: Container(
                                     width:
                                         MediaQuery.of(context).size.width * 0.3,
                                     height: MediaQuery.of(context).size.height *
-                                        0.15,
+                                        0.16,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                           image:
@@ -163,14 +179,16 @@ class _ShopWidgetState extends State<ShopWidget> {
                                   ),
                                 ),
                                 Positioned(
-                                    bottom: 40,
+                                    bottom: MediaQuery.of(context).size.height *
+                                        0.04,
                                     child: Text(
                                       "Love",
                                       style:
                                           Theme.of(context).textTheme.subtitle1,
                                     )),
                                 Positioned(
-                                    bottom: 10,
+                                    bottom: MediaQuery.of(context).size.height *
+                                        0.01,
                                     left: 25,
                                     child: Text(
                                       "\$ 23",
@@ -178,7 +196,8 @@ class _ShopWidgetState extends State<ShopWidget> {
                                           Theme.of(context).textTheme.subtitle1,
                                     )),
                                 Positioned(
-                                  bottom: 10,
+                                  bottom:
+                                      MediaQuery.of(context).size.height * 0.01,
                                   right: 20,
                                   child: Image.asset(
                                     "assets/shopping_cart.png",

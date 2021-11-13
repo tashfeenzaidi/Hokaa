@@ -81,7 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     padding: EdgeInsets.only(
                         top: height * 0.04, left: 30, right: 30),
                     child: Container(
-                      height: height * 0.1,
+                      height: height * 0.085,
                       decoration: BoxDecoration(
                           color: cardBackgroundColor,
                           borderRadius: BorderRadius.circular(20)),
@@ -133,7 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     padding: EdgeInsets.only(
                         top: height * 0.03, left: 30, right: 30),
                     child: Container(
-                      height: height * 0.1,
+                      height: height * 0.085,
                       decoration: BoxDecoration(
                           color: cardBackgroundColor,
                           borderRadius: BorderRadius.circular(20)),
@@ -186,7 +186,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     padding: EdgeInsets.only(
                         top: height * 0.03, left: 30, right: 30),
                     child: Container(
-                      height: height * 0.1,
+                      height: height * 0.085,
                       decoration: BoxDecoration(
                           color: cardBackgroundColor,
                           borderRadius: BorderRadius.circular(20)),
@@ -237,7 +237,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     padding: EdgeInsets.only(
                         top: height * 0.03, left: 30, right: 30),
                     child: Container(
-                        height: height * 0.1,
+                        height: height * 0.085,
                         decoration: BoxDecoration(
                             color: cardBackgroundColor,
                             borderRadius: BorderRadius.circular(20)),
@@ -314,7 +314,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     padding: EdgeInsets.only(
                         top: height * 0.03, left: 30, right: 30),
                     child: Container(
-                        height: height * 0.1,
+                        height: height * 0.085,
                         decoration: BoxDecoration(
                             color: cardBackgroundColor,
                             borderRadius: BorderRadius.circular(20)),

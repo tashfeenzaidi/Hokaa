@@ -54,6 +54,7 @@ class PaymentConfirm extends StatelessWidget {
                 },
                 child: Text(
                   "Back to Home",
+                  textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
               ),

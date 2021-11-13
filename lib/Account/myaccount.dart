@@ -89,7 +89,7 @@ class MyAccount extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(top: 20, left: 30, right: 30),
                     child: Container(
-                      height: height * 0.09,
+                      height: height * 0.08,
                       decoration: BoxDecoration(
                           color: cardBackgroundColor,
                           borderRadius: BorderRadius.circular(20)),
@@ -142,7 +142,7 @@ class MyAccount extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(top: 20, left: 30, right: 30),
                     child: Container(
-                      height: height * 0.09,
+                      height: height * 0.08,
                       decoration: BoxDecoration(
                           color: cardBackgroundColor,
                           borderRadius: BorderRadius.circular(20)),
@@ -199,7 +199,7 @@ class MyAccount extends StatelessWidget {
                     padding: EdgeInsets.only(
                         top: height * 0.03, left: 30, right: 30),
                     child: Container(
-                      height: height * 0.09,
+                      height: height * 0.08,
                       decoration: BoxDecoration(
                           color: cardBackgroundColor,
                           borderRadius: BorderRadius.circular(20)),

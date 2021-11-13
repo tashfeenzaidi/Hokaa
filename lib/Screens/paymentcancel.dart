@@ -54,6 +54,7 @@ class PaymentCancel extends StatelessWidget {
                 },
                 child: Text(
                   "Back to Checkout",
+                  textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
               ),

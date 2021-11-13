@@ -67,7 +67,7 @@ class OrderHistory extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: GestureDetector(
                                   onTap: () {
-                                    Get.toNamed("/orderdetail");
+                                    Get.toNamed("/orderDetailsNew");
                                   },
                                   child: Container(
                                       height: 100,

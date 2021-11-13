@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/Account/myaccount.dart';
 import 'package:gold_crowne/Orders/orderdetails.dart';
+import 'package:gold_crowne/Orders/orderdetailsnew.dart';
 import 'package:gold_crowne/Orders/ordershistory.dart';
 import 'package:gold_crowne/Orders/orderstatus.dart';
 import 'package:gold_crowne/Screens/Auth/Signup.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
           GetPage(name: "/myaccount", page: () => MyAccount()),
           GetPage(name: "/noevent", page: () => NoEventScreen()),
           GetPage(name: "/outofradius", page: () => OutOfRadiusScreen()),
+          GetPage(name: "/orderDetailsNew", page: () => OrderDetailsNew()),
         ],
         home: SplashScreen());
   }

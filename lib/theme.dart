@@ -5,6 +5,14 @@ class CustomTheme {
   static ThemeData get lightTheme {
     //1
     return ThemeData(
+        scrollbarTheme: ScrollbarThemeData(
+          interactive: true,
+          isAlwaysShown: true,
+          radius: const Radius.circular(10.0),
+          thumbColor: MaterialStateProperty.all(primaryColor),
+          thickness: MaterialStateProperty.all(5.0),
+          minThumbLength: 10,
+        ),
         // primaryColor: Colors.black,
         iconTheme: IconThemeData(color: Colors.black),
         scaffoldBackgroundColor: Colors.white,
@@ -36,18 +44,18 @@ class CustomTheme {
               fontWeight: FontWeight.bold,
             ),
             headline2: TextStyle(
-                color: Colors.white, fontSize: 18, fontFamily: 'Helvetica'),
+                color: Colors.white, fontSize: 20, fontFamily: 'Helvetica'),
             headline3: TextStyle(
                 color: primaryColor,
-                fontSize: 23,
+                fontSize: 25,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Helvetica'),
             headline4: TextStyle(
-                color: Colors.white, fontSize: 25, fontFamily: 'Helvetica'),
+                color: Colors.white, fontSize: 20, fontFamily: 'Helvetica'),
             subtitle2: TextStyle(
-                color: Colors.white, fontSize: 16, fontFamily: 'Helvetica'),
+                color: Colors.white, fontSize: 12, fontFamily: 'Helvetica'),
             subtitle1: TextStyle(
-                color: Colors.white, fontSize: 14, fontFamily: 'Helvetica'),
+                color: Colors.white, fontSize: 12, fontFamily: 'Helvetica'),
             bodyText2: TextStyle(
                 fontSize: 20,
                 color: Colors.black,

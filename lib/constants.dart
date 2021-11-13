@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const primaryColor = Color.fromRGBO(255, 199, 0, 10);
 const lightDarkColor = Color.fromRGBO(12, 12, 12, 10);
-const cardBackgroundColor = Color.fromRGBO(36, 36, 36, 10);
+const cardBackgroundColor = Color(0xFF242424);
 const paymentCardBackgroundColor = Color(0xFF4B4B4B);
 const primayBackgroundColor = Colors.black;
 const drawerBackgroundImageColor = Color.fromRGBO(253, 210, 53, 10);
@@ -23,3 +23,6 @@ final historyTextstyle =
 final littleDateStyle = TextStyle(color: primaryColor, fontSize: 10);
 final littleTextStyle = TextStyle(color: Colors.white, fontSize: 10);
 final noEventTextStyle = TextStyle(color: primaryColor, fontSize: 18);
+final priceStyle =
+    TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 30);
+final smallStyle = TextStyle(color: Colors.white, fontSize: 6);

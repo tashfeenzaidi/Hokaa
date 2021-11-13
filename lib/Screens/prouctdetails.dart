@@ -115,7 +115,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.11,
             decoration: BoxDecoration(
-                color: paymentCardBackgroundColor,
+                color: cardBackgroundColor,
                 borderRadius: BorderRadius.circular(25)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,6 +144,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 Text(
                   "An Exclusive flower that is available for limited time",
                   style: Theme.of(context).textTheme.subtitle2,
+                  textAlign: TextAlign.left,
                 )
               ],
             ),
@@ -169,10 +170,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 children: [
                   Text(
                     "\$ 23",
-                    style: Theme.of(context).textTheme.button,
+                    style: priceStyle,
                   ),
                   MaterialButton(
-                    height: 50,
+                    height: 43,
+                    minWidth: 153,
                     color: Colors.black,
                     onPressed: () {
                       Get.toNamed("/cart");

@@ -86,7 +86,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           padding: EdgeInsets.only(
                               top: height * 0.02, left: 30, right: 30),
                           child: Container(
-                            height: height * 0.1,
+                            height: height * 0.085,
                             decoration: BoxDecoration(
                                 color: cardBackgroundColor,
                                 borderRadius: BorderRadius.circular(20)),
@@ -142,7 +142,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           padding:
                               EdgeInsets.only(top: 20, left: 30, right: 30),
                           child: Container(
-                              height: height * 0.1,
+                              height: height * 0.085,
                               decoration: BoxDecoration(
                                   color: cardBackgroundColor,
                                   borderRadius: BorderRadius.circular(20)),

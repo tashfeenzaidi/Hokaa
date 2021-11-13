@@ -3,7 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/constants.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+  ScrollController _scrollController = ScrollController();
+  int val = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,86 +57,127 @@ class CartScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.6,
                   child: Padding(
                     padding: EdgeInsets.all(10),
-                    child: ListView.builder(itemBuilder: (context, index) {
-                      return Card(
-                        color: cardBackgroundColor,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                height: 100,
-                                width: 80,
-                                child: Stack(
-                                  children: [
-                                    Center(
-                                      child: Image.asset(
-                                        "assets/hookah.png",
-                                        height: 70,
-                                        width: 60,
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Positioned(
-                                      top: 10,
-                                      left: 10,
-                                      child: Image.asset(
-                                        "assets/cancel.png",
-                                        width: 10,
-                                        height: 10,
-                                      ),
-                                    )
-                                    // Icon(Icons.cancel_outlined,fonts, color: primaryColor)
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.5,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Scrollbar(
+                      controller: _scrollController,
+                      thickness: 2,
+                      isAlwaysShown: true,
+                      child: ListView.builder(
+                          controller: _scrollController,
+                          itemCount: 30,
+                          itemBuilder: (context, index) {
+                            return Card(
+                              color: cardBackgroundColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Text(
-                                      "An exclusive flovour with lemon and peach flovour",
-                                      style:
-                                          Theme.of(context).textTheme.subtitle1,
-                                    ),
-                                    Transform.translate(
-                                      offset: Offset(0, 10),
-                                      child: Text("\$ 23",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline3),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Transform.translate(
-                                offset: Offset(-20, 0),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Icon(Icons.remove_circle,
-                                        color: primaryColor),
-                                    Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Text(
-                                        "1",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .subtitle1,
+                                    Container(
+                                      height: 100,
+                                      width: 80,
+                                      alignment: Alignment.center,
+                                      child: Center(
+                                        child: Stack(
+                                          children: [
+                                            Align(
+                                              alignment: Alignment.center,
+                                              child: Image.asset(
+                                                "assets/hookah.png",
+                                                height: 70,
+                                                width: 60,
+                                                fit: BoxFit.fill,
+                                              ),
+                                            ),
+
+                                            Positioned(
+                                              top: 10,
+                                              left: 10,
+                                              child: Image.asset(
+                                                "assets/cancel.png",
+                                                width: 10,
+                                                height: 10,
+                                              ),
+                                            ),
+                                            Positioned(
+                                              bottom: 5,
+                                              left: 30,
+                                              child: Text(
+                                                "Watermelon",
+                                                style: smallStyle,
+                                              ),
+                                            ),
+
+                                            // Icon(Icons.cancel_outlined,fonts, color: primaryColor)
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                    Image.asset("assets/plus.png")
-                                  ],
-                                ),
-                              )
-                            ]),
-                      );
-                    }),
+                                    Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.5,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Text(
+                                            "An exclusive flovour with lemon and peach flovour",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .subtitle1,
+                                          ),
+                                          Transform.translate(
+                                            offset: Offset(0, 10),
+                                            child: Text("\$ 23",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .headline3),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Transform.translate(
+                                      offset: Offset(-13, 0),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () {
+                                              if (val > 0)
+                                                setState(() {
+                                                  val--;
+                                                });
+                                            },
+                                            child: Icon(Icons.remove_circle,
+                                                color: primaryColor),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(5.0),
+                                            child: Text(
+                                              val.toString(),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .subtitle1,
+                                            ),
+                                          ),
+                                          GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  val++;
+                                                });
+                                              },
+                                              child: Image.asset(
+                                                  "assets/plus.png"))
+                                        ],
+                                      ),
+                                    )
+                                  ]),
+                            );
+                          }),
+                    ),
                   )),
             ),
           ),
@@ -140,7 +189,7 @@ class CartScreen extends StatelessWidget {
               height: 60,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(20),
                   color: cardBackgroundColor),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -182,10 +231,11 @@ class CartScreen extends StatelessWidget {
                   children: [
                     Text(
                       "\$ 23",
-                      style: Theme.of(context).textTheme.button,
+                      style: priceStyle,
                     ),
                     MaterialButton(
-                      height: 40,
+                      height: 43,
+                      minWidth: 153,
                       color: Colors.black,
                       onPressed: () {
                         Get.toNamed("/checkout");
