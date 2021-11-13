@@ -96,7 +96,7 @@ class ForgotPassword extends StatelessWidget {
                           child: Container(
                             height: height * 0.085,
                             decoration: BoxDecoration(
-                                color: cardBackgroundColor,
+                                color: cardColor,
                                 borderRadius: BorderRadius.circular(25)),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

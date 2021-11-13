@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/Screens/CheckOutCard/tabbar.dart';
+import 'package:gold_crowne/Screens/Widgets/cardwidget.dart';
 import 'package:gold_crowne/constants.dart';
 
 class CheckOutScreen extends StatefulWidget {
@@ -94,122 +95,13 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                                 itemCount: 10,
                                 controller: _scrollController,
                                 itemBuilder: (context, index) {
-                                  return Card(
-                                    color: cardBackgroundColor,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Container(
-                                            height: 100,
-                                            width: 80,
-                                            alignment: Alignment.center,
-                                            child: Center(
-                                              child: Stack(
-                                                children: [
-                                                  Align(
-                                                    alignment: Alignment.center,
-                                                    child: Image.asset(
-                                                      "assets/hookah.png",
-                                                      height: 70,
-                                                      width: 60,
-                                                      fit: BoxFit.fill,
-                                                    ),
-                                                  ),
-
-                                                  Positioned(
-                                                    top: 10,
-                                                    left: 10,
-                                                    child: Image.asset(
-                                                      "assets/cancel.png",
-                                                      width: 10,
-                                                      height: 10,
-                                                    ),
-                                                  ),
-                                                  Positioned(
-                                                    bottom: 5,
-                                                    left: 30,
-                                                    child: Text(
-                                                      "Watermelon",
-                                                      style: smallStyle,
-                                                    ),
-                                                  ),
-
-                                                  // Icon(Icons.cancel_outlined,fonts, color: primaryColor)
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.5,
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                Text(
-                                                  "An exclusive flovour with lemon and peach flovour",
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .subtitle1,
-                                                ),
-                                                Transform.translate(
-                                                  offset: Offset(0, 10),
-                                                  child: Text("\$ 23",
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .headline3),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Transform.translate(
-                                            offset: Offset(-13, 0),
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                GestureDetector(
-                                                  onTap: () {
-                                                    if (val > 0)
-                                                      setState(() {
-                                                        val--;
-                                                      });
-                                                  },
-                                                  child: Icon(
-                                                      Icons.remove_circle,
-                                                      color: primaryColor),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(5.0),
-                                                  child: Text(
-                                                    val.toString(),
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .subtitle1,
-                                                  ),
-                                                ),
-                                                GestureDetector(
-                                                    onTap: () {
-                                                      setState(() {
-                                                        val++;
-                                                      });
-                                                    },
-                                                    child: Image.asset(
-                                                        "assets/plus.png"))
-                                              ],
-                                            ),
-                                          )
-                                        ]),
+                                  return CardWidget(
+                                    val: val,
+                                    onPressed: (value) {
+                                      setState(() {
+                                        val = value;
+                                      });
+                                    },
                                   );
                                 }),
                           ),
@@ -248,7 +140,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "\$ 23",
+                            "\$23",
                             style: priceStyle,
                           ),
                           MaterialButton(

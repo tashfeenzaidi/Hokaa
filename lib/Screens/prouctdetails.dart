@@ -169,7 +169,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "\$ 23",
+                    "\$23",
                     style: priceStyle,
                   ),
                   MaterialButton(

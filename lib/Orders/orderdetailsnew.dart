@@ -137,8 +137,8 @@ class OrderDetailsNew extends StatelessWidget {
                                       Text("WATERMELON", style: nameStyle),
                                       Transform.translate(
                                         offset: Offset(0, 10),
-                                        child: Text("\$ 23",
-                                            style: pricenameStyle),
+                                        child:
+                                            Text("\$23", style: pricenameStyle),
                                       )
                                     ],
                                   ),
@@ -195,8 +195,8 @@ class OrderDetailsNew extends StatelessWidget {
                                       Text("WATERMELON", style: nameStyle),
                                       Transform.translate(
                                         offset: Offset(0, 10),
-                                        child: Text("\$ 23",
-                                            style: pricenameStyle),
+                                        child:
+                                            Text("\$23", style: pricenameStyle),
                                       )
                                     ],
                                   ),
@@ -253,8 +253,8 @@ class OrderDetailsNew extends StatelessWidget {
                                       Text("WATERMELON", style: nameStyle),
                                       Transform.translate(
                                         offset: Offset(0, 10),
-                                        child: Text("\$ 23",
-                                            style: pricenameStyle),
+                                        child:
+                                            Text("\$23", style: pricenameStyle),
                                       )
                                     ],
                                   ),
@@ -295,7 +295,7 @@ class OrderDetailsNew extends StatelessWidget {
                                     style:
                                         Theme.of(context).textTheme.headline2,
                                   ),
-                                  Image.asset("assets/visa1 (1).png")
+                                  Image.asset("assets/visa1.png")
                                 ],
                               ),
                             ),
@@ -361,7 +361,7 @@ class OrderDetailsNew extends StatelessWidget {
                                       style: smallblack,
                                     ),
                                     Text(
-                                      "\$ 23",
+                                      "\$23",
                                       style: smallblack,
                                     ),
                                   ],
@@ -375,7 +375,7 @@ class OrderDetailsNew extends StatelessWidget {
                                       style: smallblack,
                                     ),
                                     Text(
-                                      "\$ 0.30",
+                                      "\$0.30",
                                       style: smallblack,
                                     ),
                                   ],
@@ -389,7 +389,7 @@ class OrderDetailsNew extends StatelessWidget {
                                       style: priceTextStyle,
                                     ),
                                     Text(
-                                      "\$ 23.30",
+                                      "\$23.30",
                                       style: priceTextStyle,
                                     ),
                                   ],

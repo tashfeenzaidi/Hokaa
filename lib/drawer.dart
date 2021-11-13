@@ -5,7 +5,11 @@ import 'package:gold_crowne/constants.dart';
 Drawer drawer(BuildContext context) {
   return Drawer(
     child: Container(
-      color: primaryColor,
+      decoration: BoxDecoration(
+        color: primaryColor,
+        image: DecorationImage(
+            image: AssetImage("assets/dback.png"), fit: BoxFit.cover),
+      ),
       child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -88,7 +88,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           child: Container(
                             height: height * 0.085,
                             decoration: BoxDecoration(
-                                color: cardBackgroundColor,
+                                color: cardColor,
                                 borderRadius: BorderRadius.circular(20)),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,7 +144,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           child: Container(
                               height: height * 0.085,
                               decoration: BoxDecoration(
-                                  color: cardBackgroundColor,
+                                  color:cardColor,
                                   borderRadius: BorderRadius.circular(20)),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,

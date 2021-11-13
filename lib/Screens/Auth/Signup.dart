@@ -83,7 +83,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Container(
                       height: height * 0.085,
                       decoration: BoxDecoration(
-                          color: cardBackgroundColor,
+                          color: cardColor,
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,7 +135,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Container(
                       height: height * 0.085,
                       decoration: BoxDecoration(
-                          color: cardBackgroundColor,
+                          color: cardColor,
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -188,7 +188,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Container(
                       height: height * 0.085,
                       decoration: BoxDecoration(
-                          color: cardBackgroundColor,
+                          color: cardColor,
                           borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -239,7 +239,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Container(
                         height: height * 0.085,
                         decoration: BoxDecoration(
-                            color: cardBackgroundColor,
+                            color: cardColor,
                             borderRadius: BorderRadius.circular(20)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -316,7 +316,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: Container(
                         height: height * 0.085,
                         decoration: BoxDecoration(
-                            color: cardBackgroundColor,
+                            color: cardColor,
                             borderRadius: BorderRadius.circular(20)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
