@@ -14,16 +14,19 @@ class PaymentConfirm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Align(
-              alignment: Alignment.center,
+              alignment: Alignment.topCenter,
               child: Image.asset(
                 "assets/done.png",
-                height: 200,
-                width: 200,
+                height: 250,
+                width: 250,
                 fit: BoxFit.fill,
               )),
-          Text(
-            "Your Order",
-            style: Theme.of(context).textTheme.headline1,
+          Padding(
+            padding: const EdgeInsets.only(top: 30.0),
+            child: Text(
+              "Your Order",
+              style: Theme.of(context).textTheme.headline1,
+            ),
           ),
           Text(
             "Has Been Accepted",
@@ -43,6 +46,7 @@ class PaymentConfirm extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 40.0),
             child: Container(
+              height: 50,
               width: 200,
               child: ElevatedButton(
                 onPressed: () {
@@ -50,6 +54,7 @@ class PaymentConfirm extends StatelessWidget {
                 },
                 child: Text(
                   "Back to Home",
+                  textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
               ),

@@ -5,7 +5,11 @@ import 'package:gold_crowne/constants.dart';
 Drawer drawer(BuildContext context) {
   return Drawer(
     child: Container(
-      color: primaryColor,
+      decoration: BoxDecoration(
+        color: primaryColor,
+        image: DecorationImage(
+            image: AssetImage("assets/dback.png"), fit: BoxFit.cover),
+      ),
       child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,57 +79,72 @@ Drawer drawer(BuildContext context) {
                 ),
               ),
             ),
-            Padding(
-              padding: drawerPadding,
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/mycart.png",
-                    width: 22,
-                    height: 22,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Text(
-                      "My Cart",
-                      style: Theme.of(context).textTheme.bodyText1,
+            GestureDetector(
+              onTap: () {
+                Get.toNamed("/cart");
+              },
+              child: Padding(
+                padding: drawerPadding,
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/mycart.png",
+                      width: 22,
+                      height: 22,
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Text(
+                        "My Cart",
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-            Padding(
-              padding: drawerPadding,
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/package.png",
-                    width: 22,
-                    height: 22,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Text(
-                      "My Orders",
-                      style: Theme.of(context).textTheme.bodyText1,
+            GestureDetector(
+              onTap: () {
+                Get.toNamed("/ordershistory");
+              },
+              child: Padding(
+                padding: drawerPadding,
+                child: Row(
+                  children: [
+                    Image.asset(
+                      "assets/package.png",
+                      width: 22,
+                      height: 22,
                     ),
-                  )
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Text(
+                        "My Orders",
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-            Padding(
-              padding: drawerPadding,
-              child: Row(
-                children: [
-                  Icon(Icons.person),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Text(
-                      "My Account",
-                      style: Theme.of(context).textTheme.bodyText1,
-                    ),
-                  )
-                ],
+            GestureDetector(
+              onTap: () {
+                Get.toNamed("/myaccount");
+              },
+              child: Padding(
+                padding: drawerPadding,
+                child: Row(
+                  children: [
+                    Icon(Icons.person),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Text(
+                        "My Account",
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Padding(
