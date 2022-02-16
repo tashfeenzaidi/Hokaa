@@ -31,7 +31,7 @@ class _CreditCardFieldsState extends State<CreditCardFields> {
                 children: [
                   Padding(
                     padding: cardfieldPadding,
-                    child: Text("Name",
+                    child: Text("Name on Card",
                         style: TextStyle(color: Colors.white, fontSize: 12)),
                   ),
                   Padding(
