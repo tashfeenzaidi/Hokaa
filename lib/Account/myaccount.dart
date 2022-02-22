@@ -31,8 +31,7 @@ class MyAccount extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/backgorund_pic.png"),
-                  fit: BoxFit.cover)),
+                  image: AssetImage("assets/background_pic.png"), fit: BoxFit.cover)),
           child: SafeArea(
             child: Container(
               height: MediaQuery.of(context).size.height,
@@ -58,8 +57,7 @@ class MyAccount extends StatelessWidget {
                             )),
                         Padding(
                           padding: const EdgeInsets.all(13.0),
-                          child: Text("MY ACCOUNT",
-                              style: Theme.of(context).textTheme.headline3),
+                          child: Text("MY ACCOUNT", style: Theme.of(context).textTheme.headline3),
                         ),
                         Container(
                             width: 40,
@@ -91,14 +89,12 @@ class MyAccount extends StatelessWidget {
                     child: Container(
                       height: height * 0.08,
                       decoration: BoxDecoration(
-                          color: cardBackgroundColor,
-                          borderRadius: BorderRadius.circular(20)),
+                          color: cardBackgroundColor, borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 10.0, top: 10, bottom: 10),
+                            padding: const EdgeInsets.only(left: 10.0, top: 10, bottom: 10),
                             child: Text(
                               "Enter Name",
                               style: Theme.of(context).textTheme.subtitle1,
@@ -111,7 +107,7 @@ class MyAccount extends StatelessWidget {
                               child: TextFormField(
                                 controller: name,
                                 decoration: InputDecoration(
-                                    contentPadding: hintpadding,
+                                    contentPadding: hintPadding,
                                     hintStyle: hinstyle,
                                     border: InputBorder.none,
                                     focusedErrorBorder: InputBorder.none,
@@ -120,11 +116,10 @@ class MyAccount extends StatelessWidget {
                                     errorBorder: InputBorder.none,
                                     disabledBorder: InputBorder.none,
                                     errorStyle: validatorErrorStyle,
-                                    suffixIconConstraints: BoxConstraints(
-                                        maxWidth: 20, maxHeight: 20),
+                                    suffixIconConstraints:
+                                        BoxConstraints(maxWidth: 20, maxHeight: 20),
                                     hintText: "Enter Name"),
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
+                                autovalidateMode: AutovalidateMode.onUserInteraction,
                                 validator: (value) {
                                   if (value!.isNotEmpty) {
                                     return null;
@@ -144,14 +139,12 @@ class MyAccount extends StatelessWidget {
                     child: Container(
                       height: height * 0.08,
                       decoration: BoxDecoration(
-                          color: cardBackgroundColor,
-                          borderRadius: BorderRadius.circular(20)),
+                          color: cardBackgroundColor, borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 10.0, top: 10, bottom: 10),
+                            padding: const EdgeInsets.only(left: 10.0, top: 10, bottom: 10),
                             child: Text(
                               "Email",
                               style: Theme.of(context).textTheme.subtitle1,
@@ -164,7 +157,7 @@ class MyAccount extends StatelessWidget {
                               child: TextFormField(
                                 controller: email,
                                 decoration: InputDecoration(
-                                    contentPadding: hintpadding,
+                                    contentPadding: hintPadding,
                                     hintStyle: hinstyle,
                                     border: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -173,12 +166,11 @@ class MyAccount extends StatelessWidget {
                                     disabledBorder: InputBorder.none,
                                     focusedErrorBorder: InputBorder.none,
                                     isCollapsed: true,
-                                    suffixIconConstraints: BoxConstraints(
-                                        maxWidth: 20, maxHeight: 20),
+                                    suffixIconConstraints:
+                                        BoxConstraints(maxWidth: 20, maxHeight: 20),
                                     errorStyle: validatorErrorStyle,
                                     hintText: "Email"),
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
+                                autovalidateMode: AutovalidateMode.onUserInteraction,
                                 validator: (value) {
                                   if (value!.isNotEmpty &&
                                       RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
@@ -196,19 +188,16 @@ class MyAccount extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: height * 0.03, left: 30, right: 30),
+                    padding: EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
                     child: Container(
                       height: height * 0.08,
                       decoration: BoxDecoration(
-                          color: cardBackgroundColor,
-                          borderRadius: BorderRadius.circular(20)),
+                          color: cardBackgroundColor, borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 10.0, top: 10, bottom: 10),
+                            padding: const EdgeInsets.only(left: 10.0, top: 10, bottom: 10),
                             child: Text(
                               "Enter Mobile Number ",
                               style: Theme.of(context).textTheme.subtitle1,
@@ -221,7 +210,7 @@ class MyAccount extends StatelessWidget {
                               child: TextFormField(
                                 controller: phoneNumber,
                                 decoration: InputDecoration(
-                                    contentPadding: hintpadding,
+                                    contentPadding: hintPadding,
                                     hintStyle: hinstyle,
                                     border: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -229,11 +218,10 @@ class MyAccount extends StatelessWidget {
                                     errorBorder: InputBorder.none,
                                     disabledBorder: InputBorder.none,
                                     errorStyle: validatorErrorStyle,
-                                    suffixIconConstraints: BoxConstraints(
-                                        maxWidth: 20, maxHeight: 20),
+                                    suffixIconConstraints:
+                                        BoxConstraints(maxWidth: 20, maxHeight: 20),
                                     hintText: "+924242424"),
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
+                                autovalidateMode: AutovalidateMode.onUserInteraction,
                                 validator: (value) {
                                   if (value!.isNotEmpty) {
                                     return null;

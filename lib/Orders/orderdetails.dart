@@ -18,8 +18,7 @@ class OrderDetails extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/backgorund_pic.png"),
-                  fit: BoxFit.cover)),
+                  image: AssetImage("assets/background_pic.png"), fit: BoxFit.cover)),
           child: Container(
               child: Column(children: [
             Container(
@@ -35,8 +34,7 @@ class OrderDetails extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: primayBackgroundColor,
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20))),
+                            topLeft: Radius.circular(20), topRight: Radius.circular(20))),
                     child: Column(children: [
                       Padding(
                         padding: const EdgeInsets.all(10.0),
@@ -87,10 +85,8 @@ class OrderDetails extends StatelessWidget {
                                   ),
                                   Expanded(
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
@@ -150,24 +146,20 @@ class OrderDetails extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(
-                                    left: 20.0, right: 20, top: 10, bottom: 10),
+                                padding:
+                                    EdgeInsets.only(left: 20.0, right: 20, top: 10, bottom: 10),
                                 child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text("PAYMENT HISTORY",
-                                        style: historyTextstyle),
-                                    Text("ORDER ID: #356253762",
-                                        style: historyTextstyle),
+                                    Text("PAYMENT HISTORY", style: historyTextstyle),
+                                    Text("ORDER ID: #356253762", style: historyTextstyle),
                                   ],
                                 ),
                               ),
                               //parent column in which dotted line and all things are done
                               Padding(
                                 padding: EdgeInsets.only(
-                                    bottom: MediaQuery.of(context).size.height *
-                                        0.1),
+                                    bottom: MediaQuery.of(context).size.height * 0.1),
                                 child: Column(
                                   children: [
                                     Column(children: [
@@ -179,8 +171,7 @@ class OrderDetails extends StatelessWidget {
                                                 width: 15,
                                                 height: 15,
                                                 decoration: BoxDecoration(
-                                                    color: primaryColor,
-                                                    shape: BoxShape.circle),
+                                                    color: primaryColor, shape: BoxShape.circle),
                                                 child: Center(
                                                   child: Icon(
                                                     Icons.done,
@@ -188,8 +179,7 @@ class OrderDetails extends StatelessWidget {
                                                   ),
                                                 )),
                                             Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 10.0),
+                                              padding: EdgeInsets.only(left: 10.0),
                                               child: Text(
                                                 "\$ 23",
                                                 style: littleTextStyle,
@@ -201,8 +191,7 @@ class OrderDetails extends StatelessWidget {
                                       Padding(
                                         padding: EdgeInsets.only(left: 35.0),
                                         child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             SizedBox(
                                               height: 50,
@@ -212,8 +201,7 @@ class OrderDetails extends StatelessWidget {
                                               ),
                                             ),
                                             Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 20.0),
+                                              padding: EdgeInsets.only(left: 20.0),
                                               child: Text(
                                                 "First payment CreditCard",
                                                 style: creditCardHintTextstyle,
@@ -232,8 +220,7 @@ class OrderDetails extends StatelessWidget {
                                                 width: 15,
                                                 height: 15,
                                                 decoration: BoxDecoration(
-                                                    color: primaryColor,
-                                                    shape: BoxShape.circle),
+                                                    color: primaryColor, shape: BoxShape.circle),
                                                 child: Center(
                                                   child: Icon(
                                                     Icons.done,
@@ -241,8 +228,7 @@ class OrderDetails extends StatelessWidget {
                                                   ),
                                                 )),
                                             Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 10.0),
+                                              padding: EdgeInsets.only(left: 10.0),
                                               child: Text(
                                                 "\$ 23",
                                                 style: littleTextStyle,
@@ -254,8 +240,7 @@ class OrderDetails extends StatelessWidget {
                                       Padding(
                                         padding: EdgeInsets.only(left: 35.0),
                                         child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             SizedBox(
                                               height: 50,
@@ -265,8 +250,7 @@ class OrderDetails extends StatelessWidget {
                                               ),
                                             ),
                                             Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 20.0),
+                                              padding: EdgeInsets.only(left: 20.0),
                                               child: Text(
                                                 "First payment CreditCard",
                                                 style: creditCardHintTextstyle,
@@ -285,8 +269,7 @@ class OrderDetails extends StatelessWidget {
                                                 width: 15,
                                                 height: 15,
                                                 decoration: BoxDecoration(
-                                                    color: primaryColor,
-                                                    shape: BoxShape.circle),
+                                                    color: primaryColor, shape: BoxShape.circle),
                                                 child: Center(
                                                   child: Icon(
                                                     Icons.done,
@@ -294,8 +277,7 @@ class OrderDetails extends StatelessWidget {
                                                   ),
                                                 )),
                                             Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 10.0),
+                                              padding: EdgeInsets.only(left: 10.0),
                                               child: Text(
                                                 "\$ 23",
                                                 style: littleTextStyle,
@@ -307,12 +289,10 @@ class OrderDetails extends StatelessWidget {
                                       Padding(
                                         padding: EdgeInsets.only(left: 35.0),
                                         child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 20.0),
+                                              padding: EdgeInsets.only(left: 20.0),
                                               child: Text(
                                                 "First payment CreditCard",
                                                 style: creditCardHintTextstyle,

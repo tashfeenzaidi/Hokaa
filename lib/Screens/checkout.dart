@@ -34,9 +34,8 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/backgorund_pic.png"),
-                fit: BoxFit.cover)),
+            image:
+                DecorationImage(image: AssetImage("assets/background_pic.png"), fit: BoxFit.cover)),
         child: SafeArea(
           child: Container(
             height: MediaQuery.of(context).size.height,
@@ -51,8 +50,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                      top: 15.0, left: 20, right: 20, bottom: 10),
+                  padding: const EdgeInsets.only(top: 15.0, left: 20, right: 20, bottom: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -64,8 +62,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                           )),
                       Padding(
                         padding: const EdgeInsets.only(left: 30, right: 30),
-                        child: Text("CHECKOUT",
-                            style: Theme.of(context).textTheme.headline3),
+                        child: Text("CHECKOUT", style: Theme.of(context).textTheme.headline3),
                       ),
                       Container(
                           width: MediaQuery.of(context).size.width * 0.1,
@@ -81,8 +78,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                        color: paymentCardBackgroundColor,
-                        borderRadius: BorderRadius.circular(20)),
+                        color: paymentCardBackgroundColor, borderRadius: BorderRadius.circular(20)),
                     child: SizedBox(
                         height: MediaQuery.of(context).size.height * 0.3,
                         child: Padding(
@@ -113,28 +109,23 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                        color: paymentCardBackgroundColor,
-                        borderRadius: BorderRadius.circular(20)),
+                        color: paymentCardBackgroundColor, borderRadius: BorderRadius.circular(20)),
                     child: SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.3,
-                        child: TabBarWidget()),
+                        height: MediaQuery.of(context).size.height * 0.3, child: TabBarWidget()),
                   ),
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
-                    padding: EdgeInsets.only(
-                        left: 20, right: 10, top: 10, bottom: 10),
+                    padding: EdgeInsets.only(left: 20, right: 10, top: 10, bottom: 10),
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.1,
                     decoration: BoxDecoration(
                         color: primaryColor,
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            topLeft: Radius.circular(10)),
+                            topRight: Radius.circular(10), topLeft: Radius.circular(10)),
                         image: DecorationImage(
-                            image: AssetImage("assets/back.png"),
-                            fit: BoxFit.fill)),
+                            image: AssetImage("assets/back.png"), fit: BoxFit.fill)),
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -150,8 +141,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                               onPressed: () {
                                 Get.toNamed("/paymentdone");
                               },
-                              child: Text("PROCEED TO CONFIRM",
-                                  style: checkoutButtonText))
+                              child: Text("PROCEED TO CONFIRM", style: checkoutButtonText))
                         ],
                       ),
                     ),

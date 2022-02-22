@@ -39,8 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/backgorund_pic.png"),
-                  fit: BoxFit.cover)),
+                  image: AssetImage("assets/background_pic.png"), fit: BoxFit.cover)),
           child: SafeArea(
             child: Container(
               decoration: BoxDecoration(
@@ -65,8 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             )),
                         Padding(
                           padding: const EdgeInsets.all(13.0),
-                          child: Text("SIGN UP",
-                              style: Theme.of(context).textTheme.headline3),
+                          child: Text("SIGN UP", style: Theme.of(context).textTheme.headline3),
                         ),
                         Container(
                             width: MediaQuery.of(context).size.width * 0.2,
@@ -78,19 +76,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: height * 0.04, left: 30, right: 30),
+                    padding: EdgeInsets.only(top: height * 0.04, left: 30, right: 30),
                     child: Container(
                       height: height * 0.085,
-                      decoration: BoxDecoration(
-                          color: cardColor,
-                          borderRadius: BorderRadius.circular(20)),
+                      decoration:
+                          BoxDecoration(color: cardColor, borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 15.0, top: 10, bottom: 10),
+                            padding: const EdgeInsets.only(left: 15.0, top: 10, bottom: 10),
                             child: Text(
                               "Enter Name",
                               style: Theme.of(context).textTheme.subtitle1,
@@ -103,7 +98,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: TextFormField(
                                 controller: username,
                                 decoration: InputDecoration(
-                                    contentPadding: hintpadding,
+                                    contentPadding: hintPadding,
                                     hintStyle: hinstyle,
                                     border: InputBorder.none,
                                     focusedErrorBorder: InputBorder.none,
@@ -113,8 +108,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     disabledBorder: InputBorder.none,
                                     errorStyle: validatorErrorStyle,
                                     hintText: "Enter Name"),
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
+                                autovalidateMode: AutovalidateMode.onUserInteraction,
                                 validator: (value) {
                                   if (value!.isNotEmpty) {
                                     return null;
@@ -130,19 +124,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: height * 0.03, left: 30, right: 30),
+                    padding: EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
                     child: Container(
                       height: height * 0.085,
-                      decoration: BoxDecoration(
-                          color: cardColor,
-                          borderRadius: BorderRadius.circular(20)),
+                      decoration:
+                          BoxDecoration(color: cardColor, borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 15.0, top: 10, bottom: 10),
+                            padding: const EdgeInsets.only(left: 15.0, top: 10, bottom: 10),
                             child: Text(
                               "Enter Email",
                               style: Theme.of(context).textTheme.subtitle1,
@@ -155,7 +146,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: TextFormField(
                                 controller: email,
                                 decoration: InputDecoration(
-                                    contentPadding: hintpadding,
+                                    contentPadding: hintPadding,
                                     hintStyle: hinstyle,
                                     border: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -164,8 +155,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     disabledBorder: InputBorder.none,
                                     errorStyle: validatorErrorStyle,
                                     hintText: "Email"),
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
+                                autovalidateMode: AutovalidateMode.onUserInteraction,
                                 validator: (value) {
                                   if (value!.isNotEmpty &&
                                       RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
@@ -183,19 +173,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: height * 0.03, left: 30, right: 30),
+                    padding: EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
                     child: Container(
                       height: height * 0.085,
-                      decoration: BoxDecoration(
-                          color: cardColor,
-                          borderRadius: BorderRadius.circular(20)),
+                      decoration:
+                          BoxDecoration(color: cardColor, borderRadius: BorderRadius.circular(20)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                                left: 15.0, top: 10, bottom: 10),
+                            padding: const EdgeInsets.only(left: 15.0, top: 10, bottom: 10),
                             child: Text(
                               "Enter Mobile Number (Optional)",
                               style: Theme.of(context).textTheme.subtitle1,
@@ -208,7 +195,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: TextFormField(
                                 controller: phoneNumber,
                                 decoration: InputDecoration(
-                                    contentPadding: hintpadding,
+                                    contentPadding: hintPadding,
                                     hintStyle: hinstyle,
                                     border: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -217,8 +204,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     disabledBorder: InputBorder.none,
                                     errorStyle: validatorErrorStyle,
                                     hintText: "+924242424"),
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
+                                autovalidateMode: AutovalidateMode.onUserInteraction,
                                 validator: (value) {
                                   if (value!.isNotEmpty) {
                                     return null;
@@ -234,19 +220,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: height * 0.03, left: 30, right: 30),
+                    padding: EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
                     child: Container(
                         height: height * 0.085,
                         decoration: BoxDecoration(
-                            color: cardColor,
-                            borderRadius: BorderRadius.circular(20)),
+                            color: cardColor, borderRadius: BorderRadius.circular(20)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 15.0, top: 10, bottom: 10),
+                              padding: const EdgeInsets.only(left: 15.0, top: 10, bottom: 10),
                               child: Text(
                                 "Password",
                                 style: Theme.of(context).textTheme.subtitle1,
@@ -257,8 +240,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: Container(
                                 constraints: BoxConstraints(maxHeight: 30),
                                 child: TextFormField(
-                                  autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
+                                  autovalidateMode: AutovalidateMode.onUserInteraction,
                                   controller: password,
                                   obscureText: view,
                                   validator: (value) {
@@ -274,7 +256,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     enabledBorder: InputBorder.none,
                                     errorBorder: InputBorder.none,
                                     disabledBorder: InputBorder.none,
-                                    contentPadding: hintpadding,
+                                    contentPadding: hintPadding,
                                     errorStyle: validatorErrorStyle,
                                     hintStyle: hinstyle,
                                     suffixIcon: GestureDetector(
@@ -287,19 +269,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                             ? Transform.translate(
                                                 offset: Offset(0, -15),
                                                 child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      right: 30),
-                                                  child: Icon(Icons.visibility,
-                                                      color: primaryColor),
+                                                  padding: EdgeInsets.only(right: 30),
+                                                  child:
+                                                      Icon(Icons.visibility, color: primaryColor),
                                                 ),
                                               )
                                             : Transform.translate(
                                                 offset: Offset(0, -15),
                                                 child: Padding(
-                                                    padding: EdgeInsets.only(
-                                                        right: 30),
-                                                    child: Image.asset(
-                                                        "assets/eye-off.png",
+                                                    padding: EdgeInsets.only(right: 30),
+                                                    child: Image.asset("assets/eye-off.png",
                                                         color: primaryColor)),
                                               )),
                                     hintText: "***********",
@@ -311,19 +290,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: height * 0.03, left: 30, right: 30),
+                    padding: EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
                     child: Container(
                         height: height * 0.085,
                         decoration: BoxDecoration(
-                            color: cardColor,
-                            borderRadius: BorderRadius.circular(20)),
+                            color: cardColor, borderRadius: BorderRadius.circular(20)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 15.0, top: 10, bottom: 10),
+                              padding: const EdgeInsets.only(left: 15.0, top: 10, bottom: 10),
                               child: Text(
                                 "Confirm Password",
                                 style: Theme.of(context).textTheme.subtitle1,
@@ -334,8 +310,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: Container(
                                 constraints: BoxConstraints(maxHeight: 30),
                                 child: TextFormField(
-                                  autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
+                                  autovalidateMode: AutovalidateMode.onUserInteraction,
                                   controller: confirmpassword,
                                   obscureText: view1,
                                   validator: (value) {
@@ -351,7 +326,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     enabledBorder: InputBorder.none,
                                     errorBorder: InputBorder.none,
                                     disabledBorder: InputBorder.none,
-                                    contentPadding: hintpadding,
+                                    contentPadding: hintPadding,
                                     errorStyle: validatorErrorStyle,
                                     hintStyle: hinstyle,
                                     suffixIcon: GestureDetector(
@@ -364,19 +339,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                             ? Transform.translate(
                                                 offset: Offset(0, -15),
                                                 child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      right: 30),
-                                                  child: Icon(Icons.visibility,
-                                                      color: primaryColor),
+                                                  padding: EdgeInsets.only(right: 30),
+                                                  child:
+                                                      Icon(Icons.visibility, color: primaryColor),
                                                 ),
                                               )
                                             : Transform.translate(
                                                 offset: Offset(0, -15),
                                                 child: Padding(
-                                                    padding: EdgeInsets.only(
-                                                        right: 30),
-                                                    child: Image.asset(
-                                                        "assets/eye-off.png",
+                                                    padding: EdgeInsets.only(right: 30),
+                                                    child: Image.asset("assets/eye-off.png",
                                                         color: primaryColor)),
                                               )),
                                     hintText: "***********",
@@ -388,8 +360,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         )),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: height * 0.03, left: 90, right: 90),
+                    padding: EdgeInsets.only(top: height * 0.03, left: 90, right: 90),
                     child: Container(
                       height: 45,
                       width: 100,

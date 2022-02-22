@@ -18,8 +18,7 @@ class MainScreen extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/backgorund_pic.png"),
-                  fit: BoxFit.fill)),
+                  image: AssetImage("assets/background_pic.png"), fit: BoxFit.fill)),
           child: SafeArea(
             child: Column(
               children: [
@@ -33,8 +32,7 @@ class MainScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25),
                             image: DecorationImage(
-                                image: AssetImage("assets/more.png"),
-                                fit: BoxFit.cover)),
+                                image: AssetImage("assets/more.png"), fit: BoxFit.cover)),
                       ),
                       Positioned(
                           bottom: 45,
@@ -56,8 +54,7 @@ class MainScreen extends StatelessWidget {
                           child: Container(
                             width: 150,
                             child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  minimumSize: Size(50, 50)),
+                              style: ElevatedButton.styleFrom(minimumSize: Size(50, 50)),
                               onPressed: () {
                                 Get.toNamed("/shop");
                               },

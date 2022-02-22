@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:gold_crowne/Screens/Widgets/text_form_field_container.dart';
 import 'package:gold_crowne/constants.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -18,42 +20,37 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: Scaffold(
-        body: Form(
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      resizeToAvoidBottomInset: true,
+      backgroundColor: primayBackgroundColor,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
+      body: SingleChildScrollView(
+        child: Form(
           key: formKey,
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color: primaryColor,
+            decoration: BoxDecoration(
+                color: primayBackgroundColor,
+                image: DecorationImage(
+                    image: AssetImage("assets/background_pic.png"), fit: BoxFit.cover)),
             child: Column(
               children: [
-                Stack(
-                  children: [
-                    Image.asset(
-                      "assets/back.png",
-                      height: 200,
-                      width: MediaQuery.of(context).size.width,
-                      fit: BoxFit.cover,
-                    ),
-                    Center(
-                      child: Image.asset(
-                        "assets/signin.png",
-                        height: 200,
-                        width: 200,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.73,
-                  width: MediaQuery.of(context).size.width,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: primayBackgroundColor,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20))),
+                Center(
+                    child: Container(
+                        margin: EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top + 5),
+                        child: Image.asset('assets/signin.png'))),
+                Container(
+                  decoration: BoxDecoration(
+                      color: primayBackgroundColor,
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20), topLeft: Radius.circular(20))),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.7,
                     child: Column(
                       children: [
                         Padding(
@@ -69,9 +66,8 @@ class _SignInScreenState extends State<SignInScreen> {
                                   )),
                               Padding(
                                 padding: const EdgeInsets.all(13.0),
-                                child: Text("SIGN IN",
-                                    style:
-                                        Theme.of(context).textTheme.headline3),
+                                child:
+                                    Text("SIGN IN", style: Theme.of(context).textTheme.headline3),
                               ),
                               Container(
                                   width: 80,
@@ -82,146 +78,96 @@ class _SignInScreenState extends State<SignInScreen> {
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                              top: height * 0.02, left: 30, right: 30),
-                          child: Container(
-                            height: height * 0.085,
-                            decoration: BoxDecoration(
-                                color: cardColor,
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 15.0, top: 10, bottom: 10),
-                                  child: Text(
-                                    "UserName",
-                                    style:
-                                        Theme.of(context).textTheme.subtitle1,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 15.0),
-                                  child: Container(
-                                    constraints: BoxConstraints(maxHeight: 30),
-                                    child: TextFormField(
-                                      controller: email,
-                                      decoration: InputDecoration(
-                                          contentPadding: hintpadding,
-                                          hintStyle: hinstyle,
-                                          border: InputBorder.none,
-                                          focusedBorder: InputBorder.none,
-                                          enabledBorder: InputBorder.none,
-                                          errorBorder: InputBorder.none,
-                                          disabledBorder: InputBorder.none,
-                                          focusedErrorBorder: InputBorder.none,
-                                          isCollapsed: true,
-                                          errorStyle: validatorErrorStyle,
-                                          hintText: "Email"),
-                                      autovalidateMode:
-                                          AutovalidateMode.onUserInteraction,
-                                      validator: (value) {
-                                        if (value!.isNotEmpty &&
-                                            RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
-                                                .hasMatch(value.trim())) {
-                                          return null;
-                                        } else {
-                                          return "Please Enter Valid Email";
-                                        }
-                                      },
-                                    ),
-                                  ),
-                                ),
-                              ],
+                        TextFormFieldContainer(
+                          TextFormField(
+                            controller: email,
+                            decoration: InputDecoration(
+                              contentPadding: hintPadding,
+                              hintStyle: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1!
+                                  .copyWith(fontSize: hintTextSize),
+                              label: Text(
+                                'Email',
+                                style: Theme.of(context).textTheme.subtitle1,
+                              ),
+                              border: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              enabledBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                              focusedErrorBorder: InputBorder.none,
+                              isCollapsed: false,
+                              errorStyle: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1!
+                                  .copyWith(fontSize: 11.0, color: Colors.red),
                             ),
+                            textAlignVertical: TextAlignVertical.center,
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle1!
+                                .copyWith(color: Colors.white70, fontSize: 14.0),
+                            autovalidateMode: AutovalidateMode.onUserInteraction,
+                            validator: (value) {
+                              if (value!.isNotEmpty &&
+                                  !RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                                      .hasMatch(value.trim())) {
+                                return 'please enter correct format';
+                              }
+                              return null;
+                            },
                           ),
                         ),
-                        Padding(
-                          padding:
-                              EdgeInsets.only(top: 20, left: 30, right: 30),
-                          child: Container(
-                              height: height * 0.085,
-                              decoration: BoxDecoration(
-                                  color:cardColor,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 15.0, top: 10, bottom: 10),
-                                    child: Text(
-                                      "Password",
-                                      style:
-                                          Theme.of(context).textTheme.subtitle1,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 15.0),
-                                    child: Container(
-                                      constraints:
-                                          BoxConstraints(maxHeight: 30),
-                                      child: TextFormField(
-                                        autovalidateMode:
-                                            AutovalidateMode.onUserInteraction,
-                                        controller: password,
-                                        obscureText: view,
-                                        validator: (value) {
-                                          if (value!.isNotEmpty &&
-                                              value.length > 5) {
-                                            return null;
-                                          } else {
-                                            return "Please Enter Password minimum length of 6";
-                                          }
-                                        },
-                                        decoration: InputDecoration(
-                                          contentPadding: hintpadding,
-                                          hintStyle: hinstyle,
-                                          border: InputBorder.none,
-                                          focusedBorder: InputBorder.none,
-                                          enabledBorder: InputBorder.none,
-                                          errorBorder: InputBorder.none,
-                                          disabledBorder: InputBorder.none,
-                                          errorStyle: validatorErrorStyle,
-                                          suffixIcon: GestureDetector(
-                                              onTap: () {
-                                                setState(() {
-                                                  view = !view;
-                                                });
-                                              },
-                                              child: view
-                                                  ? Transform.translate(
-                                                      offset: Offset(0, -15),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsets.only(
-                                                                right: 30),
-                                                        child: Icon(
-                                                            Icons.visibility,
-                                                            color:
-                                                                primaryColor),
-                                                      ),
-                                                    )
-                                                  : Transform.translate(
-                                                      offset: Offset(0, -15),
-                                                      child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  right: 30),
-                                                          child: Image.asset(
-                                                              "assets/eye-off.png",
-                                                              color:
-                                                                  primaryColor)),
-                                                    )),
-                                          hintText: "*******",
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              )),
+                        TextFormFieldContainer(
+                          TextFormField(
+                            autovalidateMode: AutovalidateMode.onUserInteraction,
+                            controller: password,
+                            obscureText: view,
+                            validator: (value) {
+                              if (value!.isNotEmpty && value.length < 5) {
+                                return "Please Enter Password minimum length of 6";
+                              }
+                              return null;
+                            },
+                            textAlignVertical: TextAlignVertical.center,
+                            style: Theme.of(context)
+                                .textTheme
+                                .subtitle1!
+                                .copyWith(color: Colors.white70, fontSize: 14.0),
+                            decoration: InputDecoration(
+                              contentPadding: hintPadding,
+                              hintStyle: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1!
+                                  .copyWith(fontSize: hintTextSize),
+                              label: Text(
+                                'Password',
+                                style: Theme.of(context).textTheme.subtitle1,
+                              ),
+                              border: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              enabledBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                              errorStyle: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1!
+                                  .copyWith(fontSize: 11.0, color: Colors.red),
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    view = view ? false : true;
+                                  });
+                                },
+                                icon: Icon(
+                                  view ? Icons.visibility : Icons.visibility_off,
+                                  color: primaryColor,
+                                ),
+                              ),
+                              hintText: "*******",
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.only(top: 20.0),
@@ -251,10 +197,11 @@ class _SignInScreenState extends State<SignInScreen> {
                                 style: Theme.of(context).textTheme.subtitle2,
                               )),
                         ),
+                        Spacer(),
                         Padding(
                             padding: EdgeInsets.only(top: 26.0),
                             child: Text(
-                              "OR Login  With",
+                              "Or Login  With",
                               style: Theme.of(context).textTheme.subtitle1,
                             )),
                         Padding(
@@ -266,8 +213,8 @@ class _SignInScreenState extends State<SignInScreen> {
                                 color: primaryColor,
                                 height: 45,
                                 minWidth: 40,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
+                                shape:
+                                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                                 onPressed: () {},
                                 child: Image.asset(
                                   "assets/google.png",
@@ -277,22 +224,8 @@ class _SignInScreenState extends State<SignInScreen> {
                                   fit: BoxFit.contain,
                                 ),
                               ),
-                              // Container(
-                              //   height: 40,
-                              //   width: 40,
-                              //   decoration: BoxDecoration(
-                              //       color: primaryColor,
-                              //       borderRadius: BorderRadius.circular(10)),
-                              //   child: Image.asset(
-                              //     "assets/google.png",
-                              //     height: 30,
-                              //     width: 30,
-                              //     fit: BoxFit.contain,
-                              //   ),
-                              // ),
                               Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 10.0, right: 10),
+                                padding: const EdgeInsets.only(left: 10.0, right: 10),
                                 child: MaterialButton(
                                   color: primaryColor,
                                   height: 45,
@@ -309,25 +242,30 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),
                                 ),
                               ),
-                              MaterialButton(
-                                color: primaryColor,
-                                height: 45,
-                                minWidth: 40,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                onPressed: () {},
-                                child: Image.asset(
-                                  "assets/apple.png",
-                                  height: 30,
-                                  width: 23,
-                                  fit: BoxFit.fill,
+                              Visibility(
+                                visible:
+                                    Theme.of(context).platform == TargetPlatform.iOS ? true : false,
+                                child: MaterialButton(
+                                  color: primaryColor,
+                                  height: 45,
+                                  minWidth: 40,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  onPressed: () {},
+                                  child: Image.asset(
+                                    "assets/apple.png",
+                                    height: 30,
+                                    width: 23,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ),
                             ],
                           ),
                         ),
+                        Spacer(),
                         Padding(
-                          padding: const EdgeInsets.all(24.0),
+                          padding: const EdgeInsets.all(0.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -347,7 +285,8 @@ class _SignInScreenState extends State<SignInScreen> {
                                     style: TextStyle(
                                         color: primaryColor,
                                         fontSize: 18,
-                                        fontWeight: FontWeight.bold),
+                                        fontFamily: 'Helvetica',
+                                        fontWeight: FontWeight.w700),
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
@@ -358,7 +297,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),

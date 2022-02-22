@@ -19,8 +19,7 @@ class OrderDetailsNew extends StatelessWidget {
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/backgorund_pic.png"),
-                    fit: BoxFit.cover)),
+                    image: AssetImage("assets/background_pic.png"), fit: BoxFit.cover)),
             child: SafeArea(
                 child: Container(
                     height: MediaQuery.of(context).size.height,
@@ -34,63 +33,51 @@ class OrderDetailsNew extends StatelessWidget {
                     child: Column(children: [
                       Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                    width: 30,
-                                    child: Divider(
-                                      color: Colors.white,
-                                      thickness: 1,
-                                    )),
-                                Padding(
-                                  padding: const EdgeInsets.all(13.0),
-                                  child: Text("ORDER Details",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline3),
-                                ),
-                                Container(
-                                    width: 30,
-                                    child: Divider(
-                                      color: Colors.white,
-                                      thickness: 1,
-                                    ))
-                              ])),
+                          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                            Container(
+                                width: 30,
+                                child: Divider(
+                                  color: Colors.white,
+                                  thickness: 1,
+                                )),
+                            Padding(
+                              padding: const EdgeInsets.all(13.0),
+                              child: Text("ORDER Details",
+                                  style: Theme.of(context).textTheme.headline3),
+                            ),
+                            Container(
+                                width: 30,
+                                child: Divider(
+                                  color: Colors.white,
+                                  thickness: 1,
+                                ))
+                          ])),
                       Padding(
-                        padding: const EdgeInsets.only(
-                            left: 15.0, right: 15, top: 5, bottom: 30),
+                        padding: const EdgeInsets.only(left: 15.0, right: 15, top: 5, bottom: 30),
                         child: Container(
                           height: 60,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: primaryColor),
+                              borderRadius: BorderRadius.circular(10), color: primaryColor),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Center(
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     "Today,3:31 PM",
-                                    style:
-                                        Theme.of(context).textTheme.bodyText2,
+                                    style: Theme.of(context).textTheme.bodyText2,
                                   ),
                                   Column(
                                     children: [
                                       Text(
                                         "Order ID",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
+                                        style: Theme.of(context).textTheme.bodyText1,
                                       ),
                                       Text(
                                         "#1234555555",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyText1,
+                                        style: Theme.of(context).textTheme.bodyText1,
                                       ),
                                     ],
                                   ),
@@ -107,55 +94,47 @@ class OrderDetailsNew extends StatelessWidget {
                         ),
                         child: Card(
                           color: cardBackgroundColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Row(
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                            Container(
+                              height: 80,
+                              width: 80,
+                              alignment: Alignment.center,
+                              child: Center(
+                                child: Image.asset(
+                                  "assets/hookah.png",
+                                  height: 60,
+                                  width: 60,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text("WATERMELON", style: nameStyle),
+                                  Transform.translate(
+                                    offset: Offset(0, 10),
+                                    child: Text("\$23", style: pricenameStyle),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Container(
-                                  height: 80,
-                                  width: 80,
-                                  alignment: Alignment.center,
-                                  child: Center(
-                                    child: Image.asset(
-                                      "assets/hookah.png",
-                                      height: 60,
-                                      width: 60,
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.5,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Text("WATERMELON", style: nameStyle),
-                                      Transform.translate(
-                                        offset: Offset(0, 10),
-                                        child:
-                                            Text("\$23", style: pricenameStyle),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text("QTY", style: nameStyle),
-                                    Transform.translate(
-                                      offset: Offset(0, 10),
-                                      child: Text("1", style: pricenameStyle),
-                                    )
-                                  ],
-                                ),
-                              ]),
+                                Text("QTY", style: nameStyle),
+                                Transform.translate(
+                                  offset: Offset(0, 10),
+                                  child: Text("1", style: pricenameStyle),
+                                )
+                              ],
+                            ),
+                          ]),
                         ),
                       ),
                       Padding(
@@ -165,55 +144,47 @@ class OrderDetailsNew extends StatelessWidget {
                         ),
                         child: Card(
                           color: cardBackgroundColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Row(
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                            Container(
+                              height: 80,
+                              width: 80,
+                              alignment: Alignment.center,
+                              child: Center(
+                                child: Image.asset(
+                                  "assets/hookah.png",
+                                  height: 60,
+                                  width: 60,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text("WATERMELON", style: nameStyle),
+                                  Transform.translate(
+                                    offset: Offset(0, 10),
+                                    child: Text("\$23", style: pricenameStyle),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Container(
-                                  height: 80,
-                                  width: 80,
-                                  alignment: Alignment.center,
-                                  child: Center(
-                                    child: Image.asset(
-                                      "assets/hookah.png",
-                                      height: 60,
-                                      width: 60,
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.5,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Text("WATERMELON", style: nameStyle),
-                                      Transform.translate(
-                                        offset: Offset(0, 10),
-                                        child:
-                                            Text("\$23", style: pricenameStyle),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text("QTY", style: nameStyle),
-                                    Transform.translate(
-                                      offset: Offset(0, 10),
-                                      child: Text("1", style: pricenameStyle),
-                                    )
-                                  ],
-                                ),
-                              ]),
+                                Text("QTY", style: nameStyle),
+                                Transform.translate(
+                                  offset: Offset(0, 10),
+                                  child: Text("1", style: pricenameStyle),
+                                )
+                              ],
+                            ),
+                          ]),
                         ),
                       ),
                       Padding(
@@ -223,77 +194,65 @@ class OrderDetailsNew extends StatelessWidget {
                         ),
                         child: Card(
                           color: cardBackgroundColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Row(
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                            Container(
+                              height: 80,
+                              width: 80,
+                              alignment: Alignment.center,
+                              child: Center(
+                                child: Image.asset(
+                                  "assets/hookah.png",
+                                  height: 60,
+                                  width: 60,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text("WATERMELON", style: nameStyle),
+                                  Transform.translate(
+                                    offset: Offset(0, 10),
+                                    child: Text("\$23", style: pricenameStyle),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Container(
-                                  height: 80,
-                                  width: 80,
-                                  alignment: Alignment.center,
-                                  child: Center(
-                                    child: Image.asset(
-                                      "assets/hookah.png",
-                                      height: 60,
-                                      width: 60,
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.5,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Text("WATERMELON", style: nameStyle),
-                                      Transform.translate(
-                                        offset: Offset(0, 10),
-                                        child:
-                                            Text("\$23", style: pricenameStyle),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text("QTY", style: nameStyle),
-                                    Transform.translate(
-                                      offset: Offset(0, 10),
-                                      child: Text("1", style: pricenameStyle),
-                                    )
-                                  ],
-                                ),
-                              ]),
+                                Text("QTY", style: nameStyle),
+                                Transform.translate(
+                                  offset: Offset(0, 10),
+                                  child: Text("1", style: pricenameStyle),
+                                )
+                              ],
+                            ),
+                          ]),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                            left: 15.0, right: 15, top: 30, bottom: 10),
+                        padding: const EdgeInsets.only(left: 15.0, right: 15, top: 30, bottom: 10),
                         child: Container(
                           height: 60,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: cardBackgroundColor),
+                              borderRadius: BorderRadius.circular(10), color: cardBackgroundColor),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Center(
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     "Payment Method",
-                                    style:
-                                        Theme.of(context).textTheme.headline2,
+                                    style: Theme.of(context).textTheme.headline2,
                                   ),
                                   Image.asset("assets/visa1.png")
                                 ],
@@ -303,25 +262,21 @@ class OrderDetailsNew extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                            left: 15.0, right: 15, bottom: 10),
+                        padding: const EdgeInsets.only(left: 15.0, right: 15, bottom: 10),
                         child: Container(
                           height: 60,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: cardBackgroundColor),
+                              borderRadius: BorderRadius.circular(10), color: cardBackgroundColor),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Center(
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     "Order Status",
-                                    style:
-                                        Theme.of(context).textTheme.headline2,
+                                    style: Theme.of(context).textTheme.headline2,
                                   ),
                                   Image.asset("assets/done1.png")
                                 ],
@@ -343,18 +298,15 @@ class OrderDetailsNew extends StatelessWidget {
                           decoration: BoxDecoration(
                               color: primaryColor,
                               borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(10),
-                                  topLeft: Radius.circular(10)),
+                                  topRight: Radius.circular(10), topLeft: Radius.circular(10)),
                               image: DecorationImage(
-                                  image: AssetImage("assets/back.png"),
-                                  fit: BoxFit.fill)),
+                                  image: AssetImage("assets/back.png"), fit: BoxFit.fill)),
                           child: Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       "Sub Total",
@@ -367,8 +319,7 @@ class OrderDetailsNew extends StatelessWidget {
                                   ],
                                 ),
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       "Text",
@@ -381,8 +332,7 @@ class OrderDetailsNew extends StatelessWidget {
                                   ],
                                 ),
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       "Total",

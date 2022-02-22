@@ -24,9 +24,8 @@ class _ShopWidgetState extends State<ShopWidget> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/backgorund_pic.png"),
-                fit: BoxFit.fill)),
+            image:
+                DecorationImage(image: AssetImage("assets/background_pic.png"), fit: BoxFit.fill)),
         child: SafeArea(
           child: Column(
             children: [
@@ -36,8 +35,7 @@ class _ShopWidgetState extends State<ShopWidget> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       side: BorderSide(color: Colors.black),
-                      fixedSize:
-                          Size(MediaQuery.of(context).size.width * 0.3, 40),
+                      fixedSize: Size(MediaQuery.of(context).size.width * 0.3, 40),
                       primary: tab == 1 ? Colors.black : primaryColor,
                     ),
                     onPressed: () {
@@ -55,8 +53,7 @@ class _ShopWidgetState extends State<ShopWidget> {
                         Text(
                           "Single",
                           style: TextStyle(
-                              color: tab == 1 ? Colors.white : Colors.black,
-                              fontSize: 18),
+                              color: tab == 1 ? Colors.white : Colors.black, fontSize: 18),
                         ),
                       ],
                     ),
@@ -64,8 +61,7 @@ class _ShopWidgetState extends State<ShopWidget> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       side: BorderSide(color: Colors.black),
-                      fixedSize:
-                          Size(MediaQuery.of(context).size.width * 0.3, 40),
+                      fixedSize: Size(MediaQuery.of(context).size.width * 0.3, 40),
                       primary: tab == 2 ? Colors.black : primaryColor,
                     ),
                     onPressed: () {
@@ -81,11 +77,9 @@ class _ShopWidgetState extends State<ShopWidget> {
                           child: Row(
                             children: [
                               Image.asset("assets/small.png",
-                                  color:
-                                      tab == 2 ? primaryColor : Colors.black),
+                                  color: tab == 2 ? primaryColor : Colors.black),
                               Image.asset("assets/small.png",
-                                  color:
-                                      tab == 2 ? primaryColor : Colors.black),
+                                  color: tab == 2 ? primaryColor : Colors.black),
                             ],
                           ),
                         ),
@@ -102,8 +96,7 @@ class _ShopWidgetState extends State<ShopWidget> {
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       side: BorderSide(color: Colors.black),
-                      fixedSize:
-                          Size(MediaQuery.of(context).size.width * 0.3, 40),
+                      fixedSize: Size(MediaQuery.of(context).size.width * 0.3, 40),
                       primary: tab == 3 ? Colors.black : primaryColor,
                     ),
                     onPressed: () {
@@ -122,8 +115,7 @@ class _ShopWidgetState extends State<ShopWidget> {
                         Text(
                           "Sort by",
                           style: TextStyle(
-                              fontSize: 18,
-                              color: tab == 3 ? primaryColor : Colors.black),
+                              fontSize: 18, color: tab == 3 ? primaryColor : Colors.black),
                         ),
                       ],
                     ),
@@ -150,54 +142,41 @@ class _ShopWidgetState extends State<ShopWidget> {
                               alignment: Alignment.center,
                               children: [
                                 Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.43,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.6,
+                                  width: MediaQuery.of(context).size.width * 0.43,
+                                  height: MediaQuery.of(context).size.height * 0.6,
                                   decoration: BoxDecoration(
                                       color: Color(0xFF242424),
                                       border: Border.all(
-                                          color: selected == index
-                                              ? primaryColor
-                                              : Color(0xFF242424)),
+                                          color:
+                                              selected == index ? primaryColor : Color(0xFF242424)),
                                       borderRadius: BorderRadius.circular(25)),
                                 ),
                                 Positioned(
-                                  top:
-                                      MediaQuery.of(context).size.height * 0.03,
+                                  top: MediaQuery.of(context).size.height * 0.03,
                                   child: Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.3,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.16,
+                                    width: MediaQuery.of(context).size.width * 0.3,
+                                    height: MediaQuery.of(context).size.height * 0.16,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
-                                          image:
-                                              AssetImage("assets/hookah.png"),
-                                          fit: BoxFit.fill),
+                                          image: AssetImage("assets/hookah.png"), fit: BoxFit.fill),
                                     ),
                                   ),
                                 ),
                                 Positioned(
-                                    bottom: MediaQuery.of(context).size.height *
-                                        0.04,
+                                    bottom: MediaQuery.of(context).size.height * 0.04,
                                     child: Text(
                                       "Love",
-                                      style:
-                                          Theme.of(context).textTheme.subtitle1,
+                                      style: Theme.of(context).textTheme.subtitle1,
                                     )),
                                 Positioned(
-                                    bottom: MediaQuery.of(context).size.height *
-                                        0.01,
+                                    bottom: MediaQuery.of(context).size.height * 0.01,
                                     left: 25,
                                     child: Text(
                                       "\$ 23",
-                                      style:
-                                          Theme.of(context).textTheme.subtitle1,
+                                      style: Theme.of(context).textTheme.subtitle1,
                                     )),
                                 Positioned(
-                                  bottom:
-                                      MediaQuery.of(context).size.height * 0.01,
+                                  bottom: MediaQuery.of(context).size.height * 0.01,
                                   right: 20,
                                   child: Image.asset(
                                     "assets/shopping_cart.png",

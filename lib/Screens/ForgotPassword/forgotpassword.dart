@@ -48,8 +48,7 @@ class ForgotPassword extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: primayBackgroundColor,
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20))),
+                            topLeft: Radius.circular(20), topRight: Radius.circular(20))),
                     child: Column(
                       children: [
                         Padding(
@@ -66,8 +65,7 @@ class ForgotPassword extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.all(13.0),
                                 child: Text("FORGOT PASSWORD",
-                                    style:
-                                        Theme.of(context).textTheme.headline3),
+                                    style: Theme.of(context).textTheme.headline3),
                               ),
                               Container(
                                   width: 60,
@@ -90,24 +88,19 @@ class ForgotPassword extends StatelessWidget {
                         )),
                         Padding(
                           padding: EdgeInsets.only(
-                              top: MediaQuery.of(context).size.height * 0.1,
-                              left: 30,
-                              right: 30),
+                              top: MediaQuery.of(context).size.height * 0.1, left: 30, right: 30),
                           child: Container(
                             height: height * 0.085,
                             decoration: BoxDecoration(
-                                color: cardColor,
-                                borderRadius: BorderRadius.circular(25)),
+                                color: cardColor, borderRadius: BorderRadius.circular(25)),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 10.0, top: 10, bottom: 10),
+                                  padding: const EdgeInsets.only(left: 10.0, top: 10, bottom: 10),
                                   child: Text(
                                     "Enter Email",
-                                    style:
-                                        Theme.of(context).textTheme.subtitle1,
+                                    style: Theme.of(context).textTheme.subtitle1,
                                   ),
                                 ),
                                 Padding(
@@ -117,7 +110,7 @@ class ForgotPassword extends StatelessWidget {
                                     child: TextFormField(
                                       controller: email,
                                       decoration: InputDecoration(
-                                          contentPadding: hintpadding,
+                                          contentPadding: hintPadding,
                                           hintStyle: hinstyle,
                                           border: InputBorder.none,
                                           focusedBorder: InputBorder.none,
@@ -128,8 +121,7 @@ class ForgotPassword extends StatelessWidget {
                                           isCollapsed: true,
                                           errorStyle: validatorErrorStyle,
                                           hintText: "Email"),
-                                      autovalidateMode:
-                                          AutovalidateMode.onUserInteraction,
+                                      autovalidateMode: AutovalidateMode.onUserInteraction,
                                       validator: (value) {
                                         if (value!.isNotEmpty &&
                                             RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
@@ -147,8 +139,7 @@ class ForgotPassword extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(
-                              top: MediaQuery.of(context).size.height * 0.1),
+                          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
                           child: Container(
                             height: 45,
                             child: ElevatedButton(

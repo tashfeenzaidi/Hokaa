@@ -19,8 +19,7 @@ class CustomTheme {
         fontFamily: 'Helvetica',
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25.0)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
             primary: Color.fromRGBO(255, 199, 0, 10),
           ),
         ),
@@ -43,37 +42,39 @@ class CustomTheme {
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
-            headline2: TextStyle(
-                color: Colors.white, fontSize: 20, fontFamily: 'Helvetica'),
+            headline2: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Helvetica'),
             headline3: TextStyle(
                 color: primaryColor,
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
                 fontFamily: 'Helvetica'),
-            headline4: TextStyle(
-                color: Colors.white, fontSize: 20, fontFamily: 'Helvetica'),
+            headline4: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Helvetica'),
             subtitle2: TextStyle(
-                color: Colors.white, fontSize: 12, fontFamily: 'Helvetica'),
+                color: Colors.white,
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'Helvetica'),
             subtitle1: TextStyle(
-                color: Colors.white, fontSize: 12, fontFamily: 'Helvetica'),
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'Helvetica'),
             bodyText2: TextStyle(
                 fontSize: 18,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Helvetica'),
             button: TextStyle(
-                fontSize: 23,
+                fontSize: 20,
                 color: Colors.black,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w700,
                 fontFamily: 'Helvetica')),
         buttonTheme: ButtonThemeData(
             // 4
 
             shape: RoundedRectangleBorder(
-                side: BorderSide(color: Colors.black),
-                borderRadius: BorderRadius.circular(25.0)),
-            colorScheme:
-                ColorScheme.light(primary: Color.fromRGBO(255, 199, 0, 10)),
+                side: BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(25.0)),
+            colorScheme: ColorScheme.light(primary: Color.fromRGBO(255, 199, 0, 10)),
             buttonColor: Color.fromRGBO(255, 199, 0, 10)));
   }
 }
