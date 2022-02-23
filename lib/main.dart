@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/outOfRadius", page: () => OutOfRadiusScreen()),
         GetPage(name: "/orderDetailsNew", page: () => OrderDetailsNew()),
       ],
-      initialRoute: '/signIn',
+      initialRoute: '/signup',
     );
   }
 }

@@ -9,8 +9,8 @@ class TextFormFieldContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(horizontal: 28.0, vertical: 12.0),
-        padding: EdgeInsets.symmetric(horizontal: 18.0, vertical: 8.0),
+        margin: EdgeInsets.symmetric(horizontal: 48.0, vertical: 12.0),
+        padding: EdgeInsets.symmetric(horizontal: 18.0, vertical: 13.0),
         decoration: BoxDecoration(
             color: textFormFieldBackgroundColor, borderRadius: BorderRadius.circular(20)),
         child: child);

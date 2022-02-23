@@ -4,7 +4,7 @@ const primaryColor = Color.fromRGBO(255, 199, 0, 10);
 const lightDarkColor = Color.fromRGBO(12, 12, 12, 10);
 const cardBackgroundColor = Color(0xFF242424);
 const cardColor = Color(0xFF0C0C0C);
-const textFormFieldBackgroundColor = Color(0xFF242321);
+const textFormFieldBackgroundColor = Color(0xFF131313);
 
 const paymentCardBackgroundColor = Color(0xFF4B4B4B);
 const primayBackgroundColor = Colors.black;

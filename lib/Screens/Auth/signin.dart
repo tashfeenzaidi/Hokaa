@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
 import 'package:gold_crowne/Screens/Widgets/text_form_field_container.dart';
 import 'package:gold_crowne/constants.dart';
 
@@ -42,7 +43,7 @@ class _SignInScreenState extends State<SignInScreen> {
               children: [
                 Center(
                     child: Container(
-                        margin: EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top + 5),
+                        margin: EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top * 2),
                         child: Image.asset('assets/signin.png'))),
                 Container(
                   decoration: BoxDecoration(
@@ -53,31 +54,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     height: MediaQuery.of(context).size.height * 0.7,
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                  width: 80,
-                                  child: Divider(
-                                    color: Colors.white,
-                                    thickness: 1,
-                                  )),
-                              Padding(
-                                padding: const EdgeInsets.all(13.0),
-                                child:
-                                    Text("SIGN IN", style: Theme.of(context).textTheme.headline3),
-                              ),
-                              Container(
-                                  width: 80,
-                                  child: Divider(
-                                    color: Colors.white,
-                                    thickness: 1,
-                                  ))
-                            ],
-                          ),
-                        ),
+                        PageTopHeading('SIGN IN'),
                         TextFormFieldContainer(
                           TextFormField(
                             controller: email,
