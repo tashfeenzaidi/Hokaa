@@ -49,7 +49,11 @@ class CustomTheme {
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
-          headline2: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Helvetica'),
+          headline2: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontFamily: 'Helvetica',
+              fontWeight: FontWeight.w400),
           headline3: TextStyle(
               color: primaryColor,
               fontSize: 20,

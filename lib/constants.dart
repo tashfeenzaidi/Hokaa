@@ -27,7 +27,8 @@ final littleDateStyle = TextStyle(color: primaryColor, fontSize: 10);
 final littleTextStyle = TextStyle(color: Colors.white, fontSize: 10);
 final noEventTextStyle = TextStyle(color: primaryColor, fontSize: 18);
 final priceStyle = TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 30);
-final smallStyle = TextStyle(color: Colors.white, fontSize: 6);
+final smallStyle = TextStyle(
+    color: Colors.white, fontSize: 8, fontWeight: FontWeight.w400, fontFamily: 'Helvetica');
 final nameStyle = TextStyle(
     color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'Helvetica');
 

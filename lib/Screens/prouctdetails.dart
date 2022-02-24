@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 
 import 'package:gold_crowne/constants.dart';
 
+import 'Widgets/bottom_bar.dart';
+
 class ProductDetailScreen extends StatefulWidget {
   const ProductDetailScreen({Key? key}) : super(key: key);
 
@@ -146,77 +148,81 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             ],
           ),
         ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            padding: EdgeInsets.all(20),
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.1,
-            decoration: BoxDecoration(
-                color: primaryColor,
-                borderRadius: BorderRadius.horizontal(
-                  left: Radius.circular(20),
-                  right: Radius.circular(20),
-                ),
-                image: DecorationImage(image: AssetImage("assets/back.png"), fit: BoxFit.fill)),
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "\$23",
-                    style: priceStyle,
-                  ),
-                  ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-                        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                            EdgeInsets.symmetric(vertical: 13, horizontal: 19)),
-                      ),
-                      onPressed: () {
-                        Get.toNamed("/cart");
-                      },
-                      child: Row(
-                        children: [
-                          Container(
-                            child: Image.asset(
-                              'assets/shopping_cart.png',
-                              height: 22,
-                              width: 22,
-                              color: primaryColor,
-                            ),
-                            margin: EdgeInsets.only(right: 3),
-                          ),
-                          Text(
-                            'Add To Cart',
-                            style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 13),
-                          ),
-                        ],
-                      )),
-                  // MaterialButton(
-                  //   height: 43,
-                  //   minWidth: 153,
-                  //   color: Colors.black,
-                  //   onPressed: () {
-                  //     Get.toNamed("/cart");
-                  //   },
-                  //   child: Row(
-                  //     children: [
-                  //       Image.asset(
-                  //         "assets/shopping_cart.png",
-                  //         width: 22,
-                  //         height: 22,
-                  //         color: primaryColor,
-                  //       ),
-                  //       Text("Add To Cart", style: checkoutButtonText)
-                  //     ],
-                  //   ),
-                  // )
-                ],
-              ),
-            ),
-          ),
-        )
+        BottomBar(
+          buttonLabel: 'ADD tO CART',
+          price: '23',
+          onButtonPressed: () {
+            Get.toNamed("/cart");
+          },
+        ),
+        // Container(
+        //   padding: EdgeInsets.all(20),
+        //   width: MediaQuery.of(context).size.width,
+        //   height: MediaQuery.of(context).size.height * 0.07,
+        //   decoration: BoxDecoration(
+        //       color: primaryColor,
+        //       borderRadius: BorderRadius.only(
+        //         topLeft: Radius.circular(20),
+        //         topRight: Radius.circular(20),
+        //       ),
+        //       image: DecorationImage(image: AssetImage("assets/back.png"), fit: BoxFit.fill)),
+        //   child: Center(
+        //     child: Row(
+        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //       children: [
+        //         Text(
+        //           "\$23",
+        //           style: priceStyle,
+        //         ),
+        //         ElevatedButton(
+        //             style: ButtonStyle(
+        //               backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+        //               padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+        //                   EdgeInsets.symmetric(vertical: 13, horizontal: 19)),
+        //             ),
+        //             onPressed: () {
+        //               Get.toNamed("/cart");
+        //             },
+        //             child: Row(
+        //               children: [
+        //                 Container(
+        //                   child: Image.asset(
+        //                     'assets/shopping_cart.png',
+        //                     height: 22,
+        //                     width: 22,
+        //                     color: primaryColor,
+        //                   ),
+        //                   margin: EdgeInsets.only(right: 3),
+        //                 ),
+        //                 Text(
+        //                   'Add To Cart',
+        //                   style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 13),
+        //                 ),
+        //               ],
+        //             )),
+        //         // MaterialButton(
+        //         //   height: 43,
+        //         //   minWidth: 153,
+        //         //   color: Colors.black,
+        //         //   onPressed: () {
+        //         //     Get.toNamed("/cart");
+        //         //   },
+        //         //   child: Row(
+        //         //     children: [
+        //         //       Image.asset(
+        //         //         "assets/shopping_cart.png",
+        //         //         width: 22,
+        //         //         height: 22,
+        //         //         color: primaryColor,
+        //         //       ),
+        //         //       Text("Add To Cart", style: checkoutButtonText)
+        //         //     ],
+        //         //   ),
+        //         // )
+        //       ],
+        //     ),
+        //   ),
+        // )
       ]),
     );
   }

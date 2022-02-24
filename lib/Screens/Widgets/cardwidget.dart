@@ -15,40 +15,35 @@ class _CardWidgetState extends State<CardWidget> {
   Widget build(BuildContext context) {
     return Card(
       color: cardBackgroundColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         Container(
           height: 100,
           width: 80,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 8.0, left: 8.0),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Image.asset(
-                    "assets/cancel.png",
-                    width: 10,
-                    height: 10,
+              Row(
+                children: [
+                  Icon(Icons.delete_forever, color: Colors.red, size: 20),
+                  Column(
+                    children: [
+                      Image.asset(
+                        "assets/hookah.png",
+                        height: 70,
+                        width: 60,
+                        fit: BoxFit.fill,
+                      ),
+                      Text(
+                        "Watermelon",
+                        style: smallStyle,
+                      ),
+                    ],
                   ),
-                ),
+                ],
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               ),
-              Align(
-                alignment: Alignment.center,
-                child: Image.asset(
-                  "assets/hookah.png",
-                  height: 70,
-                  width: 60,
-                  fit: BoxFit.fill,
-                ),
-              ),
-
-              Text(
-                "Watermelon",
-                style: smallStyle,
-              ),
-
-              // Icon(Icons.cancel_outlined,fonts, color: primaryColor)
             ],
           ),
         ),
@@ -59,13 +54,12 @@ class _CardWidgetState extends State<CardWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "An exclusive flovour with lemon and peach flovour",
-                style: Theme.of(context).textTheme.subtitle1,
+                "An exclusive flavor with the combination on Peach & Two Apples & Some Love",
+                style: Theme.of(context).textTheme.subtitle2!.copyWith(fontWeight: FontWeight.w300),
               ),
               Transform.translate(
                 offset: Offset(0, 10),
-                child:
-                    Text("\$23", style: Theme.of(context).textTheme.headline3),
+                child: Text("\$23", style: Theme.of(context).textTheme.headline3),
               )
             ],
           ),
