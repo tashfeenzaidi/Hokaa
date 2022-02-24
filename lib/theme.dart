@@ -55,7 +55,11 @@ class CustomTheme {
               fontSize: 20,
               fontWeight: FontWeight.w700,
               fontFamily: 'Helvetica'),
-          headline4: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Helvetica'),
+          headline4: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontFamily: 'Helvetica',
+              fontWeight: FontWeight.w700),
           subtitle2: TextStyle(
               color: Colors.white,
               fontSize: 12,

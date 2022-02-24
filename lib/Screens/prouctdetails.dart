@@ -62,8 +62,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           ),
         ],
       ),
-      body:
-          Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      body: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -82,8 +81,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           height: MediaQuery.of(context).size.height,
                           width: MediaQuery.of(context).size.width * 0.8,
                           decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage("assets/hookah.png"))),
+                              image: DecorationImage(image: AssetImage("assets/hookah.png"))),
                         ),
                       );
                     })),
@@ -99,8 +97,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     margin: EdgeInsets.only(right: 5),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color:
-                          currentIndex == index ? primaryColor : Colors.white,
+                      color: currentIndex == index ? primaryColor : Colors.white,
                     ),
                   ),
                 ),
@@ -108,62 +105,60 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             ),
           ],
         ),
-        Padding(
-          padding: EdgeInsets.only(top: 50.0, left: 10, right: 10),
-          child: Container(
-            padding: EdgeInsets.all(10),
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.11,
-            decoration: BoxDecoration(
-                color: cardBackgroundColor,
-                borderRadius: BorderRadius.circular(25)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Love 66",
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.star,
-                          color: primaryColor,
-                        ),
-                        Text(
-                          "(4.5)",
-                          style: Theme.of(context).textTheme.subtitle1,
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                Text(
-                  "An Exclusive flower that is available for limited time",
-                  style: Theme.of(context).textTheme.subtitle2,
-                  textAlign: TextAlign.left,
-                )
-              ],
-            ),
+        Spacer(),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 0.11,
+          decoration:
+              BoxDecoration(color: cardBackgroundColor, borderRadius: BorderRadius.circular(25)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Love 66",
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: primaryColor,
+                      ),
+                      Text(
+                        "(4.5)",
+                        style: Theme.of(context).textTheme.bodyText2!.copyWith(color: Colors.white),
+                      )
+                    ],
+                  )
+                ],
+              ),
+              Text(
+                "An exclusive flavor with the combination of Peach & Two Apples & Some Love",
+                style: Theme.of(context).textTheme.subtitle2,
+                textAlign: TextAlign.left,
+              )
+            ],
           ),
         ),
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            padding: EdgeInsets.only(left: 20, right: 10, top: 10, bottom: 10),
+            padding: EdgeInsets.all(20),
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.1,
             decoration: BoxDecoration(
                 color: primaryColor,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(10),
-                  topLeft: Radius.circular(10),
+                borderRadius: BorderRadius.horizontal(
+                  left: Radius.circular(20),
+                  right: Radius.circular(20),
                 ),
-                image: DecorationImage(
-                    image: AssetImage("assets/back.png"), fit: BoxFit.fill)),
+                image: DecorationImage(image: AssetImage("assets/back.png"), fit: BoxFit.fill)),
             child: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -172,25 +167,51 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     "\$23",
                     style: priceStyle,
                   ),
-                  MaterialButton(
-                    height: 43,
-                    minWidth: 153,
-                    color: Colors.black,
-                    onPressed: () {
-                      Get.toNamed("/cart");
-                    },
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          "assets/shopping_cart.png",
-                          width: 22,
-                          height: 22,
-                          color: primaryColor,
-                        ),
-                        Text("Add To Cart", style: checkoutButtonText)
-                      ],
-                    ),
-                  )
+                  ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+                        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+                            EdgeInsets.symmetric(vertical: 13, horizontal: 19)),
+                      ),
+                      onPressed: () {
+                        Get.toNamed("/cart");
+                      },
+                      child: Row(
+                        children: [
+                          Container(
+                            child: Image.asset(
+                              'assets/shopping_cart.png',
+                              height: 22,
+                              width: 22,
+                              color: primaryColor,
+                            ),
+                            margin: EdgeInsets.only(right: 3),
+                          ),
+                          Text(
+                            'Add To Cart',
+                            style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 13),
+                          ),
+                        ],
+                      )),
+                  // MaterialButton(
+                  //   height: 43,
+                  //   minWidth: 153,
+                  //   color: Colors.black,
+                  //   onPressed: () {
+                  //     Get.toNamed("/cart");
+                  //   },
+                  //   child: Row(
+                  //     children: [
+                  //       Image.asset(
+                  //         "assets/shopping_cart.png",
+                  //         width: 22,
+                  //         height: 22,
+                  //         color: primaryColor,
+                  //       ),
+                  //       Text("Add To Cart", style: checkoutButtonText)
+                  //     ],
+                  //   ),
+                  // )
                 ],
               ),
             ),
