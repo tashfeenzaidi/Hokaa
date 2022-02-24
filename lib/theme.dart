@@ -21,11 +21,12 @@ class CustomTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(primaryColor),
+        foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
         textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(
-            fontFamily: 'Helvetica',
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-            color: Colors.black)),
+          fontFamily: 'Helvetica',
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+        )),
         padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
             EdgeInsets.symmetric(vertical: 13, horizontal: 45)),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
@@ -68,7 +69,7 @@ class CustomTheme {
           bodyText2: TextStyle(
               fontSize: 18,
               color: Colors.black,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w700,
               fontFamily: 'Helvetica'),
           button: TextStyle(
               fontSize: 20,

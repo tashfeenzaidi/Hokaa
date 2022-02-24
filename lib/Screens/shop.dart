@@ -4,6 +4,8 @@ import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constants.dart';
 import 'package:gold_crowne/drawer.dart';
 
+import 'Widgets/tab_button_widget.dart';
+
 class ShopWidget extends StatefulWidget {
   const ShopWidget({Key? key}) : super(key: key);
 
@@ -11,9 +13,16 @@ class ShopWidget extends StatefulWidget {
   State<ShopWidget> createState() => _ShopWidgetState();
 }
 
-class _ShopWidgetState extends State<ShopWidget> {
+class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateMixin {
   int selected = -1;
   int tab = 1;
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,101 +38,43 @@ class _ShopWidgetState extends State<ShopWidget> {
         child: SafeArea(
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      side: BorderSide(color: Colors.black),
-                      fixedSize: Size(MediaQuery.of(context).size.width * 0.3, 40),
-                      primary: tab == 1 ? Colors.black : primaryColor,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        tab = 1;
-                      });
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(right: 3.0),
-                          child: Image.asset("assets/small.png"),
-                        ),
-                        Text(
-                          "Single",
-                          style: TextStyle(
-                              color: tab == 1 ? Colors.white : Colors.black, fontSize: 18),
-                        ),
-                      ],
+              TabBar(
+                controller: _tabController,
+                padding: EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+                unselectedLabelStyle: Theme.of(context).textTheme.button!.copyWith(fontSize: 14),
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    30.0,
+                  ),
+                  color: primayBackgroundColor,
+                ),
+                indicatorSize: TabBarIndicatorSize.label,
+                // indicatorColor: primaryColor,
+                unselectedLabelColor: primayBackgroundColor,
+                labelColor: primaryColor,
+                labelStyle: Theme.of(context).textTheme.button!.copyWith(fontSize: 14),
+                isScrollable: false,
+                onTap: (val) {
+                  setState(() {});
+                },
+                tabs: [
+                  Tab(
+                    height: 35,
+                    child: TabButton(_tabController.index == 0 ? primaryColor : Colors.black,
+                        'Single', "assets/small.png"),
+                  ),
+                  Tab(
+                    height: 35,
+                    child: TabButton(
+                      _tabController.index == 1 ? primaryColor : Colors.black,
+                      'Mix',
+                      "assets/small.png",
+                      secondIcon: "assets/small.png",
                     ),
                   ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      side: BorderSide(color: Colors.black),
-                      fixedSize: Size(MediaQuery.of(context).size.width * 0.3, 40),
-                      primary: tab == 2 ? Colors.black : primaryColor,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        tab = 2;
-                      });
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(right: 3.0),
-                          child: Row(
-                            children: [
-                              Image.asset("assets/small.png",
-                                  color: tab == 2 ? primaryColor : Colors.black),
-                              Image.asset("assets/small.png",
-                                  color: tab == 2 ? primaryColor : Colors.black),
-                            ],
-                          ),
-                        ),
-                        Text(
-                          "Mix",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: tab == 2 ? Colors.white : Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      side: BorderSide(color: Colors.black),
-                      fixedSize: Size(MediaQuery.of(context).size.width * 0.3, 40),
-                      primary: tab == 3 ? Colors.black : primaryColor,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        tab = 3;
-                      });
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(right: 3.0),
-                          child: Image.asset("assets/up.png",
-                              color: tab == 3 ? primaryColor : Colors.black),
-                        ),
-                        Text(
-                          "Sort by",
-                          style: TextStyle(
-                              fontSize: 18, color: tab == 3 ? primaryColor : Colors.black),
-                        ),
-                      ],
-                    ),
-                  )
                 ],
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.8,
+              Expanded(
                 child: GridView.builder(
                     itemCount: 10,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -134,7 +85,7 @@ class _ShopWidgetState extends State<ShopWidget> {
                             setState(() {
                               selected = index;
                             });
-                            Get.toNamed("/productdetail");
+                            Get.toNamed("/productDetail");
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),

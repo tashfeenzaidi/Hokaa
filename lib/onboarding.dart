@@ -84,24 +84,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20.0),
-            child: Container(
-              height: 40,
-              width: 150,
-              child: ElevatedButton(
-                child: Text(
-                  currentIndex == slides.length - 1 ? "Next" : "Skip",
-                  style: Theme.of(context).textTheme.button,
-                ),
-                onPressed: () {
-                  if (currentIndex == slides.length - 1) {
-                    Get.offAllNamed("/signIn");
-                  }
-
-                  _controller.nextPage(
-                      duration: Duration(milliseconds: 100),
-                      curve: Curves.bounceIn);
-                },
+            child: ElevatedButton(
+              child: Text(
+                currentIndex == slides.length - 1 ? "Next" : "Skip",
               ),
+              onPressed: () {
+                if (currentIndex == slides.length - 1) {
+                  Get.offAllNamed("/signIn");
+                }
+
+                _controller.nextPage(duration: Duration(milliseconds: 100), curve: Curves.bounceIn);
+              },
             ),
           ),
         ],
@@ -130,11 +123,7 @@ class Slider extends StatelessWidget {
   String body1;
   String body2;
 
-  Slider(
-      {required this.image,
-      required this.title,
-      required this.body1,
-      required this.body2});
+  Slider({required this.image, required this.title, required this.body1, required this.body2});
 
   @override
   Widget build(BuildContext context) {

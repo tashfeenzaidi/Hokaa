@@ -154,11 +154,10 @@ class _SignInScreenState extends State<SignInScreen> {
                             child: ElevatedButton(
                               onPressed: () {
                                 // if (formKey.currentState!.validate()) {}
-                                Get.toNamed("/mainscreen");
+                                Get.toNamed("/mainScreen");
                               },
                               child: Text(
                                 "SIGN IN",
-                                style: Theme.of(context).textTheme.button,
                               ),
                             ),
                           ),

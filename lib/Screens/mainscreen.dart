@@ -52,15 +52,12 @@ class MainScreen extends StatelessWidget {
                           right: 10,
                           bottom: 10,
                           child: Container(
-                            width: 150,
                             child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(minimumSize: Size(50, 50)),
                               onPressed: () {
                                 Get.toNamed("/shop");
                               },
                               child: Text(
                                 "Select",
-                                style: Theme.of(context).textTheme.button,
                               ),
                             ),
                           ))
