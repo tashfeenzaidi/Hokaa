@@ -20,6 +20,8 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
 
   @override
   void initState() {
+    super.initState();
+
     _tabController = TabController(length: 2, vsync: this);
   }
 

@@ -110,55 +110,6 @@ class _CartScreenState extends State<CartScreen> {
               Get.toNamed("/checkout");
             },
           ),
-          // Container(
-          //   padding: EdgeInsets.symmetric(horizontal: 20),
-          //   width: MediaQuery.of(context).size.width,
-          //   height: MediaQuery.of(context).size.height * 0.07,
-          //   decoration: BoxDecoration(
-          //       color: primaryColor,
-          //       borderRadius: BorderRadius.only(
-          //         topLeft: Radius.circular(20),
-          //         topRight: Radius.circular(20),
-          //       ),
-          //       image: DecorationImage(image: AssetImage("assets/back.png"), fit: BoxFit.fill)),
-          //   child: Center(
-          //     child: Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //       children: [
-          //         Text(
-          //           "\$23",
-          //           style: priceStyle,
-          //         ),
-          //         ElevatedButton(
-          //             style: ButtonStyle(
-          //               backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-          //               padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-          //                   EdgeInsets.symmetric(vertical: 13, horizontal: 19)),
-          //             ),
-          //             onPressed: () {
-          //               Get.toNamed("/checkout");
-          //             },
-          //             child: Row(
-          //               children: [
-          //                 Container(
-          //                   child: Image.asset(
-          //                     'assets/shopping_cart.png',
-          //                     height: 22,
-          //                     width: 22,
-          //                     color: primaryColor,
-          //                   ),
-          //                   margin: EdgeInsets.only(right: 3),
-          //                 ),
-          //                 Text(
-          //                   'CHECKOUT',
-          //                   style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 13),
-          //                 ),
-          //               ],
-          //             )),
-          //       ],
-          //     ),
-          //   ),
-          // )
         ],
       ),
     );
