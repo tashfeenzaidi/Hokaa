@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:gold_crowne/constant/constants.dart';
 
 class CustomTheme {
   static ThemeData get lightTheme {
@@ -45,9 +45,10 @@ class CustomTheme {
             color: Colors.black,
           ),
           headline1: TextStyle(
-            fontSize: 30,
+            fontSize: 25,
             color: Colors.white,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w700,
+            fontFamily: 'Helvetica',
           ),
           headline2: TextStyle(
               color: Colors.white,
@@ -66,8 +67,8 @@ class CustomTheme {
               fontWeight: FontWeight.w700),
           subtitle2: TextStyle(
               color: Colors.white,
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
+              fontSize: 15,
+              fontWeight: FontWeight.w300,
               fontFamily: 'Helvetica'),
           subtitle1: TextStyle(
               color: Colors.white,

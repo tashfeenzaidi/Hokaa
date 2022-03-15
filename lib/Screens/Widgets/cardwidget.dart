@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:gold_crowne/constant/constants.dart';
 
 class CardWidget extends StatefulWidget {
   int val;

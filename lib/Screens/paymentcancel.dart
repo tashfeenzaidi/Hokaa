@@ -1,6 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:gold_crowne/constant/constants.dart';
 
 class PaymentCancel extends StatelessWidget {
   const PaymentCancel({Key? key}) : super(key: key);
@@ -24,40 +25,38 @@ class PaymentCancel extends StatelessWidget {
                   fit: BoxFit.fill,
                 )),
           ),
-          Text(
-            "Your Payment",
-            style: Theme.of(context).textTheme.headline1,
-          ),
-          Text(
-            "Has Been Rejected",
-            style: Theme.of(context).textTheme.headline1,
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 20.0),
-            child: Text(
-              "We are sorry for the inconvenience",
-              style: Theme.of(context).textTheme.subtitle2,
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 30),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 12),
+                  child: Text(
+                    "Your Payment\nHas Been Rejected",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline1,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 12),
+                  child: Text(
+                    "We are sorry for the inconvenience\nPlease Try again",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.subtitle2,
+                  ),
+                ),
+              ],
             ),
           ),
-          Text(
-            "Please Try again",
-            style: Theme.of(context).textTheme.subtitle2,
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 40.0),
-            child: Container(
-              height: 50,
-              width: 200,
-              child: ElevatedButton(
-                onPressed: () {
-                  Get.toNamed("/checkout");
-                },
-                child: Text(
-                  "Back to Checkout",
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText2,
-                ),
-              ),
+          ElevatedButton(
+            onPressed: () {
+              Get.toNamed("/checkout");
+            },
+            child: Text(
+              "Back to Checkout",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyText2,
             ),
           )
         ],

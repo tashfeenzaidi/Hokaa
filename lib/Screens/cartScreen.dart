@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/Screens/Widgets/cardwidget.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:gold_crowne/constant/constants.dart';
 
 import 'Widgets/bottom_bar.dart';
 import 'Widgets/label_value.dart';

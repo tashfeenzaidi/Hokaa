@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gold_crowne">
+    package="com.gold_crowne">
    <application
         android:label="gold_crowne"
         android:icon="@mipmap/ic_launcher">

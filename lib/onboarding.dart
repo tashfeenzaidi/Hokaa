@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:gold_crowne/constant/constants.dart';
 
 class OnboardingScreen extends StatefulWidget {
   @override
@@ -90,6 +91,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
               onPressed: () {
                 if (currentIndex == slides.length - 1) {
+                  GetStorage().write('isFist', false);
                   Get.offAllNamed("/signIn");
                 }
 

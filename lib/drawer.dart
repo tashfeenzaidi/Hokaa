@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:gold_crowne/constant/constants.dart';
 
 Drawer drawer(BuildContext context) {
   return Drawer(
     child: Container(
       decoration: BoxDecoration(
         color: primaryColor,
-        image: DecorationImage(
-            image: AssetImage("assets/dback.png"), fit: BoxFit.cover),
+        image: DecorationImage(image: AssetImage("assets/dback.png"), fit: BoxFit.cover),
       ),
       child: SafeArea(
         child: Column(
@@ -24,8 +23,7 @@ Drawer drawer(BuildContext context) {
               )),
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  left: 20.0, top: MediaQuery.of(context).size.height * 0.1),
+              padding: EdgeInsets.only(left: 20.0, top: MediaQuery.of(context).size.height * 0.1),
               child: CircleAvatar(
                 radius: 45,
                 backgroundImage: AssetImage("assets/onboard1.png"),

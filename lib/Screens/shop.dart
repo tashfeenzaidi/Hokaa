@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/appbar.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/drawer.dart';
 
 import 'Widgets/tab_button_widget.dart';

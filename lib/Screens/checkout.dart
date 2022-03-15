@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:gold_crowne/Screens/CheckOutCard/tabbar.dart';
 import 'package:gold_crowne/Screens/Widgets/cardwidget.dart';
 import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:gold_crowne/constant/constants.dart';
 
 import 'Widgets/bottom_bar.dart';
 

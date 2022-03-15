@@ -48,3 +48,5 @@ final textFontOblique = TextStyle(fontWeight: FontWeight.w600);
 final textFontBoldOblique = TextStyle(fontWeight: FontWeight.w800);
 
 final smallblack = TextStyle(color: Colors.black, fontSize: 12);
+
+final String baseUrl = 'https://goldcrownehookah.com/api/';

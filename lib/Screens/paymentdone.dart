@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:gold_crowne/constant/constants.dart';
 
 class PaymentConfirm extends StatelessWidget {
   const PaymentConfirm({Key? key}) : super(key: key);
@@ -21,43 +21,27 @@ class PaymentConfirm extends StatelessWidget {
                 width: 250,
                 fit: BoxFit.fill,
               )),
-          Padding(
-            padding: const EdgeInsets.only(top: 30.0),
-            child: Text(
-              "Your Order",
-              style: Theme.of(context).textTheme.headline1,
-            ),
-          ),
           Text(
-            "Has Been Accepted",
+            "Your Order\nHas Been Accepted",
+            textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headline1,
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 20.0),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 20),
             child: Text(
-              "Your item has been placed and is on",
+              "Your order has been placed and is on\nits way to be processed",
+              textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ),
-          Text(
-            "its way to be processed",
-            style: Theme.of(context).textTheme.subtitle2,
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 40.0),
-            child: Container(
-              height: 50,
-              width: 200,
-              child: ElevatedButton(
-                onPressed: () {
-                  Get.toNamed("/paymentcancel");
-                },
-                child: Text(
-                  "Back to Home",
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText2,
-                ),
-              ),
+          ElevatedButton(
+            onPressed: () {
+              Get.toNamed("/paymentCancel");
+            },
+            child: Text(
+              "Back to Home",
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyText2,
             ),
           )
         ],

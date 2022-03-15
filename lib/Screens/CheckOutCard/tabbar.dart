@@ -4,7 +4,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/instance_manager.dart';
 import 'package:gold_crowne/Screens/CheckOutCard/creditcard.dart';
 import 'package:gold_crowne/Screens/CheckOutCard/paybycash.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/tab_state_controller.dart';
 
 class TabBarWidget extends StatefulWidget {

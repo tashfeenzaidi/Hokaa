@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:gold_crowne/constant/constants.dart';
 
 class OutOfRadiusScreen extends StatelessWidget {
   const OutOfRadiusScreen({Key? key}) : super(key: key);
@@ -44,8 +44,7 @@ class OutOfRadiusScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.7,
               decoration: BoxDecoration(
-                  color: paymentCardBackgroundColor,
-                  borderRadius: BorderRadius.circular(20)),
+                  color: paymentCardBackgroundColor, borderRadius: BorderRadius.circular(20)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,9 +102,8 @@ class OutOfRadiusScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.1,
               decoration: BoxDecoration(
                 color: primaryColor,
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(10),
-                    topLeft: Radius.circular(10)),
+                borderRadius:
+                    BorderRadius.only(topRight: Radius.circular(10), topLeft: Radius.circular(10)),
               ),
               child: Center(
                 child: Row(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
-import '../../constants.dart';
+import '../../constant/constants.dart';
 
 class BottomBar extends StatelessWidget {
   String price;

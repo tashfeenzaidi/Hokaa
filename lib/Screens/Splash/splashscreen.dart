@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:gold_crowne/constant/constants.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key? key}) : super(key: key);
@@ -15,7 +16,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer.periodic(Duration(seconds: 3), (timer) {
-      Get.offNamed("/onboard");
+      bool isFirst = GetStorage().read('isFist') ?? true;
+      String route = isFirst ? '/onboard' : '/signIn';
+      Get.offNamed(route);
       timer.cancel();
     });
     super.initState();

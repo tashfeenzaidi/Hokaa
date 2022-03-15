@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gold_crowne/constants.dart';
+import 'package:gold_crowne/constant/constants.dart';
 
 class OrderStatus extends StatelessWidget {
   const OrderStatus({Key? key}) : super(key: key);
@@ -28,8 +28,7 @@ class OrderStatus extends StatelessWidget {
                     decoration: BoxDecoration(
                         color: primayBackgroundColor,
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            topRight: Radius.circular(20))),
+                            topLeft: Radius.circular(20), topRight: Radius.circular(20))),
                     child: Column(
                       children: [
                         Padding(
@@ -46,8 +45,7 @@ class OrderStatus extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.all(13.0),
                                 child: Text("ORDER STATUS",
-                                    style:
-                                        Theme.of(context).textTheme.headline3),
+                                    style: Theme.of(context).textTheme.headline3),
                               ),
                               Container(
                                   width: 40,
@@ -74,8 +72,7 @@ class OrderStatus extends StatelessWidget {
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
@@ -158,9 +155,8 @@ class OrderStatus extends StatelessWidget {
                               Container(
                                   width: 25,
                                   height: 25,
-                                  decoration: BoxDecoration(
-                                      color: primaryColor,
-                                      shape: BoxShape.circle),
+                                  decoration:
+                                      BoxDecoration(color: primaryColor, shape: BoxShape.circle),
                                   child: Center(
                                     child: Icon(
                                       Icons.done,
@@ -194,9 +190,8 @@ class OrderStatus extends StatelessWidget {
                               Container(
                                   width: 25,
                                   height: 25,
-                                  decoration: BoxDecoration(
-                                      color: primaryColor,
-                                      shape: BoxShape.circle),
+                                  decoration:
+                                      BoxDecoration(color: primaryColor, shape: BoxShape.circle),
                                   child: Center(
                                     child: Icon(
                                       Icons.done,
@@ -230,9 +225,8 @@ class OrderStatus extends StatelessWidget {
                               Container(
                                   width: 25,
                                   height: 25,
-                                  decoration: BoxDecoration(
-                                      color: primaryColor,
-                                      shape: BoxShape.circle),
+                                  decoration:
+                                      BoxDecoration(color: primaryColor, shape: BoxShape.circle),
                                   child: Center(
                                     child: Icon(
                                       Icons.done,
