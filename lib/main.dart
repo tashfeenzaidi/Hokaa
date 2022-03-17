@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: CustomTheme.lightTheme,
-      defaultTransition: Transition.zoom,
+      defaultTransition: Transition.fade,
       builder: (context, widget) => ResponsiveWrapper.builder(
         BouncingScrollWrapper.builder(context, widget!),
         maxWidth: 1700,

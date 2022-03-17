@@ -18,6 +18,10 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer.periodic(Duration(seconds: 3), (timer) {
       bool isFirst = GetStorage().read('isFist') ?? true;
       String route = isFirst ? '/onboard' : '/signIn';
+      String? token = GetStorage().read('token') ?? null;
+      if (token != null) {
+        route = '/mainScreen';
+      }
       Get.offNamed(route);
       timer.cancel();
     });

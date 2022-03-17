@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:gold_crowne/constant/constants.dart';
+import 'package:gold_crowne/controller/auth_controller.dart';
+import 'package:gold_crowne/models/user_response_model.dart';
+
+var user = AuthController.getUser();
 
 Drawer drawer(BuildContext context) {
   return Drawer(
@@ -32,7 +37,7 @@ Drawer drawer(BuildContext context) {
             Padding(
               padding: const EdgeInsets.only(left: 20.0, top: 20),
               child: Text(
-                "Zotobyte",
+                user.name!,
                 style: Theme.of(context).textTheme.bodyText2,
               ),
             ),
