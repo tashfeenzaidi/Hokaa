@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/appbar.dart';
@@ -5,10 +7,11 @@ import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/drawer.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key}) : super(key: key);
-
+  MainScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final PageController controller = PageController();
+
     return Scaffold(
         drawer: drawer(context),
         appBar: appbar(context),
@@ -22,47 +25,60 @@ class MainScreen extends StatelessWidget {
           child: SafeArea(
             child: Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Stack(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        height: MediaQuery.of(context).size.height * 0.75,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            image: DecorationImage(
-                                image: AssetImage("assets/more.png"), fit: BoxFit.cover)),
-                      ),
-                      Positioned(
-                          bottom: 45,
-                          left: 15,
-                          child: Text(
-                            "Melenia",
-                            style: Theme.of(context).textTheme.headline5,
-                          )),
-                      Positioned(
-                          bottom: 10,
-                          left: 15,
-                          child: Text(
-                            "05.10.21",
-                            style: Theme.of(context).textTheme.headline4,
-                          )),
-                      Positioned(
-                          right: 10,
-                          bottom: 10,
-                          child: Container(
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Get.toNamed("/shop");
-                              },
-                              child: Text(
-                                "Select",
-                              ),
+                Spacer(),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.70,
+                  child: PageView.builder(
+                      controller: controller,
+                      itemCount: 5,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Center(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 23.0),
+                            child: Container(
+                              height: double.infinity,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(25),
+                                  image: DecorationImage(
+                                      image: AssetImage("assets/more.png"), fit: BoxFit.cover)),
+                              child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.symmetric(horizontal: 13.0, vertical: 7),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      children: [
+                                        Wrap(
+                                          direction: Axis.vertical,
+                                          children: [
+                                            Text(
+                                              "Melenia",
+                                              style: Theme.of(context).textTheme.headline5,
+                                            ),
+                                            Text(
+                                              "05.10.21",
+                                              style: Theme.of(context).textTheme.headline4,
+                                            )
+                                          ],
+                                        ),
+                                        ElevatedButton(
+                                          onPressed: () {
+                                            Get.toNamed("/shop");
+                                          },
+                                          child: Text(
+                                            "Select",
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  )),
                             ),
-                          ))
-                    ],
-                  ),
+                          ),
+                        );
+                      }),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 15.0, right: 15, top: 20),
@@ -71,9 +87,13 @@ class MainScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Icon(
-                            Icons.arrow_back_ios,
+                          IconButton(
+                            icon: Icon(Icons.arrow_back_ios),
                             color: primaryColor,
+                            onPressed: () {
+                              controller.previousPage(
+                                  duration: Duration(seconds: 1), curve: Curves.bounceIn);
+                            },
                           ),
                           Text(
                             "Back",
@@ -87,15 +107,22 @@ class MainScreen extends StatelessWidget {
                             "Naxt",
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
-                          Icon(
-                            Icons.arrow_forward_ios,
+                          IconButton(
+                            icon: Icon(Icons.arrow_forward_ios),
                             color: primaryColor,
+                            onPressed: () {
+                              controller.nextPage(
+                                  duration: Duration(seconds: 1), curve: Curves.slowMiddle);
+                            },
                           ),
                         ],
                       )
                     ],
                   ),
-                )
+                ),
+                Spacer(),
+                Spacer(),
+                Spacer(),
               ],
             ),
           ),
