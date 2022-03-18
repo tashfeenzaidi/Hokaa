@@ -5,7 +5,7 @@ import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/auth_controller.dart';
 import 'package:gold_crowne/models/user_response_model.dart';
 
-var user = AuthController.getUser();
+User user = AuthController.getUser();
 
 Drawer drawer(BuildContext context) {
   return Drawer(

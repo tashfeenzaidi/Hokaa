@@ -23,12 +23,12 @@ class AuthController extends GetxController with StateMixin<UserResponseModel> {
       if (value.statusCode! == 200) {
         change(null, status: RxStatus.success());
         UserResponseModel user = UserResponseModel.fromJson(json.decode(value.bodyString!));
-        GetStorage().write('user', user.data!.user);
+        GetStorage().write('user', user.data!.user?.toJson());
         GetStorage().write('token', user.data!.accessToken);
         Get.offAllNamed('/mainScreen');
       } else if (value.statusCode! == 401) {
         ErrorResponseModel error = ErrorResponseModel.fromJson(json.decode(value.bodyString!));
-        Get.snackbar('Authentication Failed', error.message!);
+        Get.snackbar('Authentication', error.message!);
         change(null, status: RxStatus.error('error accoured'));
       }
     });
@@ -42,7 +42,10 @@ class AuthController extends GetxController with StateMixin<UserResponseModel> {
         Get.back();
       }
       if (value.statusCode == 422) {
-        Get.snackbar('Registration', ErrorResponseModel.fromJson(value.body).message!);
+        ErrorResponseModel error = ErrorResponseModel.fromJson(json.decode(value.bodyString!));
+        error.errors?.forEach((element) {
+          Get.snackbar('${element.key}', element.message!);
+        });
       }
     });
   }
