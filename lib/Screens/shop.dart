@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constant/constants.dart';
+import 'package:gold_crowne/controller/cart_controller.dart';
 import 'package:gold_crowne/controller/product_controller.dart';
 import 'package:gold_crowne/drawer.dart';
 
@@ -19,6 +20,7 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
   int tab = 1;
   late TabController _tabController;
   ProductController _productController = Get.put(ProductController());
+  CartController _controller = Get.put(CartController());
 
   @override
   void initState() {
@@ -89,7 +91,7 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
                               setState(() {
                                 selected = index;
                               });
-                              Get.toNamed("/productDetail");
+                              Get.toNamed("/productDetail", arguments: index);
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),

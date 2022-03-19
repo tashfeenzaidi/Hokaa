@@ -36,10 +36,7 @@ class CustomTheme {
       primaryIconTheme: IconThemeData(color: Colors.black),
       appBarTheme: AppBarTheme(color: primaryColor),
       textTheme: TextTheme(
-          headline5: TextStyle(
-            fontSize: 30,
-            color: Colors.white,
-          ),
+          headline5: TextStyle(fontSize: 27, color: Colors.white, fontWeight: FontWeight.w300),
           bodyText1: TextStyle(
             fontSize: 16,
             color: Colors.black,
@@ -64,7 +61,7 @@ class CustomTheme {
               color: Colors.white,
               fontSize: 20,
               fontFamily: 'Helvetica',
-              fontWeight: FontWeight.w300),
+              fontWeight: FontWeight.w700),
           subtitle2: TextStyle(
               color: Colors.white,
               fontSize: 15,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
 import 'package:gold_crowne/constant/constants.dart';
+import 'package:gold_crowne/controller/cart_controller.dart';
 
 class CardWidget extends StatefulWidget {
   int val;
@@ -11,6 +13,8 @@ class CardWidget extends StatefulWidget {
 }
 
 class _CardWidgetState extends State<CardWidget> {
+  CartController _cartController = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -35,7 +39,7 @@ class _CardWidgetState extends State<CardWidget> {
                         fit: BoxFit.fill,
                       ),
                       Text(
-                        "Watermelon",
+                        _cartController.itemList[widget.val].product.name!,
                         style: smallStyle,
                       ),
                     ],
@@ -54,12 +58,14 @@ class _CardWidgetState extends State<CardWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "An exclusive flavor with the combination on Peach & Two Apples & Some Love",
+                _cartController.itemList[widget.val].product.description!,
                 style: Theme.of(context).textTheme.subtitle2!.copyWith(fontWeight: FontWeight.w300),
+                maxLines: 2,
               ),
               Transform.translate(
                 offset: Offset(0, 10),
-                child: Text("\$23", style: Theme.of(context).textTheme.headline3),
+                child: Text("\$${_cartController.itemList[widget.val].product.price!}",
+                    style: Theme.of(context).textTheme.headline3),
               )
             ],
           ),
@@ -83,7 +89,7 @@ class _CardWidgetState extends State<CardWidget> {
               Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
-                  widget.val.toString(),
+                  _cartController.itemList[widget.val].quantity.toString(),
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
               ),

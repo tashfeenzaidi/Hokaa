@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/Screens/Widgets/cardwidget.dart';
 import 'package:gold_crowne/constant/constants.dart';
+import 'package:gold_crowne/controller/cart_controller.dart';
 
 import 'Widgets/bottom_bar.dart';
 import 'Widgets/label_value.dart';
@@ -14,6 +15,8 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
   ScrollController _scrollController = ScrollController();
+  CartController _cartController = Get.find();
+
   int val = 1;
 
   @override
@@ -59,19 +62,21 @@ class _CartScreenState extends State<CartScreen> {
                   height: MediaQuery.of(context).size.height * 0.6,
                   child: Padding(
                     padding: EdgeInsets.all(10),
-                    child: ListView.builder(
-                        controller: _scrollController,
-                        itemCount: 30,
-                        itemBuilder: (context, index) {
-                          return CardWidget(
-                            val: val,
-                            onPressed: (value) {
-                              setState(() {
-                                val = value;
-                              });
-                            },
-                          );
-                        }),
+                    child: Obx(
+                      () => ListView.builder(
+                          controller: _scrollController,
+                          itemCount: _cartController.itemList.length,
+                          itemBuilder: (context, index) {
+                            return CardWidget(
+                              val: index,
+                              onPressed: (value) {
+                                setState(() {
+                                  val = value;
+                                });
+                              },
+                            );
+                          }),
+                    ),
                   )),
             ),
           ),

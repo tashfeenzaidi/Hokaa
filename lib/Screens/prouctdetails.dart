@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:gold_crowne/constant/constants.dart';
+import 'package:gold_crowne/controller/cart_controller.dart';
+import 'package:gold_crowne/controller/product_controller.dart';
+import 'package:gold_crowne/models/cart_item.dart';
 
 import 'Widgets/bottom_bar.dart';
 
@@ -15,7 +18,9 @@ class ProductDetailScreen extends StatefulWidget {
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   int currentIndex = 0;
   late PageController _controller;
-
+  ProductController _productController = Get.find();
+  CartController _cartController = Get.find();
+  late int productIndex = Get.arguments;
   @override
   void initState() {
     super.initState();
@@ -83,7 +88,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           height: MediaQuery.of(context).size.height,
                           width: MediaQuery.of(context).size.width * 0.8,
                           decoration: BoxDecoration(
-                              image: DecorationImage(image: AssetImage("assets/hookah.png"))),
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      _productController.value!.data![productIndex].image!))),
                         ),
                       );
                     })),
@@ -112,7 +119,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 0.11,
+          // height: MediaQuery.of(context).size.height * 0.11,
           decoration:
               BoxDecoration(color: cardBackgroundColor, borderRadius: BorderRadius.circular(25)),
           child: Column(
@@ -123,7 +130,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Love 66",
+                    _productController.value!.data![productIndex].name!,
                     style: Theme.of(context).textTheme.headline4,
                   ),
                   Row(
@@ -141,9 +148,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 ],
               ),
               Text(
-                "An exclusive flavor with the combination of Peach & Two Apples & Some Love",
+                "${_productController.value!.data![productIndex].description!}",
                 style: Theme.of(context).textTheme.subtitle2,
                 textAlign: TextAlign.left,
+                // maxLines: 2,
               )
             ],
           ),
@@ -152,6 +160,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           buttonLabel: 'ADD tO CART',
           price: '23',
           onButtonPressed: () {
+            _cartController.itemList.value
+                .add(CartItem(product: _productController.value!.data![productIndex]));
             Get.toNamed("/cart");
           },
         ),
