@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constant/constants.dart';
+import 'package:gold_crowne/controller/product_controller.dart';
 import 'package:gold_crowne/drawer.dart';
 
 import 'Widgets/tab_button_widget.dart';
@@ -17,11 +18,11 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
   int selected = -1;
   int tab = 1;
   late TabController _tabController;
+  ProductController _productController = Get.put(ProductController());
 
   @override
   void initState() {
     super.initState();
-
     _tabController = TabController(length: 2, vsync: this);
   }
 
@@ -76,72 +77,76 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
                   ),
                 ],
               ),
-              Expanded(
-                child: GridView.builder(
-                    itemCount: 10,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 0.8, crossAxisCount: 2),
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              selected = index;
-                            });
-                            Get.toNamed("/productDetail");
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                Container(
-                                  width: MediaQuery.of(context).size.width * 0.43,
-                                  height: MediaQuery.of(context).size.height * 0.6,
-                                  decoration: BoxDecoration(
-                                      color: Color(0xFF242424),
-                                      border: Border.all(
-                                          color:
-                                              selected == index ? primaryColor : Color(0xFF242424)),
-                                      borderRadius: BorderRadius.circular(25)),
-                                ),
-                                Positioned(
-                                  top: MediaQuery.of(context).size.height * 0.03,
-                                  child: Container(
-                                    width: MediaQuery.of(context).size.width * 0.3,
-                                    height: MediaQuery.of(context).size.height * 0.16,
+              _productController.obx(
+                (products) => Expanded(
+                  child: GridView.builder(
+                      itemCount: products!.data!.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          childAspectRatio: 0.8, crossAxisCount: 2),
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selected = index;
+                              });
+                              Get.toNamed("/productDetail");
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Container(
+                                    width: MediaQuery.of(context).size.width * 0.43,
+                                    height: MediaQuery.of(context).size.height * 0.6,
                                     decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage("assets/hookah.png"), fit: BoxFit.fill),
+                                        color: Color(0xFF242424),
+                                        border: Border.all(
+                                            color: selected == index
+                                                ? primaryColor
+                                                : Color(0xFF242424)),
+                                        borderRadius: BorderRadius.circular(25)),
+                                  ),
+                                  Positioned(
+                                    top: MediaQuery.of(context).size.height * 0.03,
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width * 0.3,
+                                      height: MediaQuery.of(context).size.height * 0.16,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: NetworkImage(products.data![index].image!),
+                                            fit: BoxFit.fill),
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Positioned(
-                                    bottom: MediaQuery.of(context).size.height * 0.04,
-                                    child: Text(
-                                      "Love",
-                                      style: Theme.of(context).textTheme.subtitle1,
-                                    )),
-                                Positioned(
+                                  Positioned(
+                                      bottom: MediaQuery.of(context).size.height * 0.04,
+                                      child: Text(
+                                        products.data![index].name!,
+                                        style: Theme.of(context).textTheme.subtitle1,
+                                      )),
+                                  Positioned(
+                                      bottom: MediaQuery.of(context).size.height * 0.01,
+                                      left: 25,
+                                      child: Text(
+                                        "\$ ${products.data![index].price!}",
+                                        style: Theme.of(context).textTheme.subtitle1,
+                                      )),
+                                  Positioned(
                                     bottom: MediaQuery.of(context).size.height * 0.01,
-                                    left: 25,
-                                    child: Text(
-                                      "\$ 23",
-                                      style: Theme.of(context).textTheme.subtitle1,
-                                    )),
-                                Positioned(
-                                  bottom: MediaQuery.of(context).size.height * 0.01,
-                                  right: 20,
-                                  child: Image.asset(
-                                    "assets/shopping_cart.png",
-                                    width: 25,
-                                    height: 25,
-                                    color: primaryColor,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ));
-                    }),
+                                    right: 20,
+                                    child: Image.asset(
+                                      "assets/shopping_cart.png",
+                                      width: 25,
+                                      height: 25,
+                                      color: primaryColor,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ));
+                      }),
+                ),
               )
             ],
           ),

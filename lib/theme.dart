@@ -64,7 +64,7 @@ class CustomTheme {
               color: Colors.white,
               fontSize: 20,
               fontFamily: 'Helvetica',
-              fontWeight: FontWeight.w700),
+              fontWeight: FontWeight.w300),
           subtitle2: TextStyle(
               color: Colors.white,
               fontSize: 15,
