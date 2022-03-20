@@ -10,6 +10,7 @@ import 'package:gold_crowne/service/auth_service.dart';
 
 class AuthController extends GetxController with StateMixin<UserResponseModel> {
   static AuthController get to => Get.find();
+
   @override
   onInit() {
     change(null, status: RxStatus.empty());
@@ -48,6 +49,11 @@ class AuthController extends GetxController with StateMixin<UserResponseModel> {
         });
       }
     });
+  }
+
+  logOut() {
+    GetStorage().remove('token');
+    Get.offAllNamed('/signIn');
   }
 
   static User getUser() {

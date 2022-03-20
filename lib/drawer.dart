@@ -165,23 +165,21 @@ Drawer drawer(BuildContext context) {
                 ],
               ),
             ),
-            Padding(
-              padding: drawerPadding,
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/logout.png",
-                    width: 22,
-                    height: 22,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Text(
-                      "Logout",
-                      style: Theme.of(context).textTheme.bodyText1,
-                    ),
-                  )
-                ],
+            ListTile(
+              onTap: () {
+                AuthController _controller = Get.put(AuthController());
+                _controller.logOut();
+                Get.offAllNamed('/signIn');
+                _controller.dispose();
+              },
+              leading: Image.asset(
+                "assets/logout.png",
+                width: 22,
+                height: 22,
+              ),
+              title: Text(
+                "Logout",
+                style: Theme.of(context).textTheme.bodyText1,
               ),
             ),
           ],
