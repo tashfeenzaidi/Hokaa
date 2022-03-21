@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gold_crowne/Screens/Widgets/loading_widget.dart';
+import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
 import 'package:gold_crowne/constant/constants.dart';
+import 'package:gold_crowne/controller/order_controller.dart';
 
 class OrderHistory extends StatelessWidget {
-  const OrderHistory({Key? key}) : super(key: key);
-
+  OrderHistory({Key? key}) : super(key: key);
+  final OrderController _controller = Get.put(OrderController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: primaryColor,
         appBar: AppBar(
-          leading: Icon(Icons.arrow_back_ios),
+          leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(Icons.arrow_back_ios),
+            color: Colors.black,
+          ),
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
@@ -33,206 +42,196 @@ class OrderHistory extends StatelessWidget {
                   )),
               child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                            width: 60,
-                            child: Divider(
-                              color: Colors.white,
-                              thickness: 1,
-                            )),
-                        Padding(
-                          padding: const EdgeInsets.all(13.0),
-                          child:
-                              Text("ORDER HISTORY", style: Theme.of(context).textTheme.headline3),
-                        ),
-                        Container(
-                            width: 60,
-                            child: Divider(
-                              color: Colors.white,
-                              thickness: 1,
-                            ))
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                      child: ListView.builder(
-                          itemCount: 10,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: GestureDetector(
-                                  onTap: () {
-                                    Get.toNamed("/orderDetailsNew");
-                                  },
-                                  child: Container(
-                                      height: 100,
-                                      padding: EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                        color: cardBackgroundColor,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text(
-                                                  "15th Oct,12:24",
-                                                  style: littleDateStyle,
-                                                ),
-                                                Icon(
-                                                  Icons.arrow_forward_ios,
-                                                  color: primaryColor,
-                                                  size: 15,
-                                                ),
-                                              ],
+                  Container(margin: EdgeInsets.only(top: 15), child: PageTopHeading('MY ORDERS')),
+                  _controller.obx(
+                      (orders) => Expanded(
+                              child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 18.0),
+                            child: ListView.builder(
+                                itemCount: 10,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: GestureDetector(
+                                        onTap: () {
+                                          Get.toNamed("/orderDetailsNew");
+                                        },
+                                        child: Container(
+                                            height: 100,
+                                            padding: EdgeInsets.all(10),
+                                            decoration: BoxDecoration(
+                                              color: cardBackgroundColor,
+                                              borderRadius: BorderRadius.circular(10),
                                             ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text(
-                                                  "Order ID",
-                                                  style: historyTextstyle,
-                                                ),
-                                                Text(
-                                                  "#1234555555",
-                                                  style: historyTextstyle,
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text(
-                                                  "Status",
-                                                  style: historyTextstyle,
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  children: [
-                                                    Icon(
-                                                      Icons.cancel,
-                                                      color: Colors.red,
-                                                      size: 15,
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(left: 10.0),
-                                                      child: Text(
-                                                        "Rejetced",
+                                            child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                children: [
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        "15th Oct,12:24",
+                                                        style: littleDateStyle,
+                                                      ),
+                                                      Icon(
+                                                        Icons.arrow_forward_ios,
+                                                        color: primaryColor,
+                                                        size: 15,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        "Order ID",
                                                         style: historyTextstyle,
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text(
-                                                  "Total",
-                                                  style: historyTextstyle,
-                                                ),
-                                                Text(
-                                                  "\$80",
-                                                  style: historyTextstyle,
-                                                ),
-                                              ],
-                                            ),
-                                          ]))
+                                                      Text(
+                                                        "#1234555555",
+                                                        style: historyTextstyle,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        "Status",
+                                                        style: historyTextstyle,
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment.spaceBetween,
+                                                        children: [
+                                                          Icon(
+                                                            Icons.cancel,
+                                                            color: Colors.red,
+                                                            size: 15,
+                                                          ),
+                                                          Padding(
+                                                            padding: EdgeInsets.only(left: 10.0),
+                                                            child: Text(
+                                                              "Rejetced",
+                                                              style: historyTextstyle,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        "Total",
+                                                        style: historyTextstyle,
+                                                      ),
+                                                      Text(
+                                                        "\$80",
+                                                        style: historyTextstyle,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ]))
 
-                                  //  Padding(
-                                  //   padding:
-                                  //       EdgeInsets.only(left: 20.0, right: 20),
-                                  //   child: Column(
-                                  //     children: [
-                                  //       Row(
-                                  //         mainAxisAlignment:
-                                  //             MainAxisAlignment.spaceBetween,
-                                  //         children: [
-                                  //           Padding(
-                                  //             padding: const EdgeInsets.all(8.0),
-                                  //             child: Column(
-                                  //               crossAxisAlignment:
-                                  //                   CrossAxisAlignment.start,
-                                  //               children: [
-                                  //                 Padding(
-                                  //                   padding:
-                                  //                       const EdgeInsets.all(2.0),
-                                  //                   child: Text(
-                                  //                     "WATERMELON",
-                                  //                     style: historyTextstyle,
-                                  //                   ),
-                                  //                 ),
-                                  //                 Padding(
-                                  //                   padding:
-                                  //                       const EdgeInsets.all(2.0),
-                                  //                   child: Text(
-                                  //                     "#1234555555",
-                                  //                     style: historyTextstyle,
-                                  //                   ),
-                                  //                 ),
-                                  //                 Padding(
-                                  //                   padding:
-                                  //                       const EdgeInsets.all(2.0),
-                                  //                   child: Row(
-                                  //                     children: [
-                                  //                       Icon(
-                                  //                         Icons.calendar_today,
-                                  //                         color: primaryColor,
-                                  //                         size: 10,
-                                  //                       ),
-                                  //                       Text(
-                                  //                         "15th Oct,12:24",
-                                  //                         style: littleDateStyle,
-                                  //                       ),
-                                  //                     ],
-                                  //                   ),
-                                  //                 ),
-                                  //                 Padding(
-                                  //                   padding:
-                                  //                       const EdgeInsets.all(2.0),
-                                  //                   child: Row(
-                                  //                     children: [
-                                  //                       Text(
-                                  //                         "Status:",
-                                  //                         style: historyTextstyle,
-                                  //                       ),
-                                  //                       Icon(
-                                  //                         Icons.cancel_rounded,
-                                  //                         color: Colors.red,
-                                  //                         size: 15,
-                                  //                       ),
-                                  //                     ],
-                                  //                   ),
-                                  //                 ),
-                                  //               ],
-                                  //             ),
-                                  //           ),
-                                  //           Icon(
-                                  //             Icons.arrow_forward_ios,
-                                  //             color: primaryColor,
-                                  //           ),
-                                  //         ],
-                                  //       ),
-                                  //       Container(
-                                  //           width:
-                                  //               MediaQuery.of(context).size.width,
-                                  //           child: Divider(
-                                  //             color: Colors.white,
-                                  //             thickness: 1,
-                                  //           )),
-                                  //     ],
-                                  //   ),
-                                  // )
-                                  ),
-                            );
-                          }))
+                                        //  Padding(
+                                        //   padding:
+                                        //       EdgeInsets.only(left: 20.0, right: 20),
+                                        //   child: Column(
+                                        //     children: [
+                                        //       Row(
+                                        //         mainAxisAlignment:
+                                        //             MainAxisAlignment.spaceBetween,
+                                        //         children: [
+                                        //           Padding(
+                                        //             padding: const EdgeInsets.all(8.0),
+                                        //             child: Column(
+                                        //               crossAxisAlignment:
+                                        //                   CrossAxisAlignment.start,
+                                        //               children: [
+                                        //                 Padding(
+                                        //                   padding:
+                                        //                       const EdgeInsets.all(2.0),
+                                        //                   child: Text(
+                                        //                     "WATERMELON",
+                                        //                     style: historyTextstyle,
+                                        //                   ),
+                                        //                 ),
+                                        //                 Padding(
+                                        //                   padding:
+                                        //                       const EdgeInsets.all(2.0),
+                                        //                   child: Text(
+                                        //                     "#1234555555",
+                                        //                     style: historyTextstyle,
+                                        //                   ),
+                                        //                 ),
+                                        //                 Padding(
+                                        //                   padding:
+                                        //                       const EdgeInsets.all(2.0),
+                                        //                   child: Row(
+                                        //                     children: [
+                                        //                       Icon(
+                                        //                         Icons.calendar_today,
+                                        //                         color: primaryColor,
+                                        //                         size: 10,
+                                        //                       ),
+                                        //                       Text(
+                                        //                         "15th Oct,12:24",
+                                        //                         style: littleDateStyle,
+                                        //                       ),
+                                        //                     ],
+                                        //                   ),
+                                        //                 ),
+                                        //                 Padding(
+                                        //                   padding:
+                                        //                       const EdgeInsets.all(2.0),
+                                        //                   child: Row(
+                                        //                     children: [
+                                        //                       Text(
+                                        //                         "Status:",
+                                        //                         style: historyTextstyle,
+                                        //                       ),
+                                        //                       Icon(
+                                        //                         Icons.cancel_rounded,
+                                        //                         color: Colors.red,
+                                        //                         size: 15,
+                                        //                       ),
+                                        //                     ],
+                                        //                   ),
+                                        //                 ),
+                                        //               ],
+                                        //             ),
+                                        //           ),
+                                        //           Icon(
+                                        //             Icons.arrow_forward_ios,
+                                        //             color: primaryColor,
+                                        //           ),
+                                        //         ],
+                                        //       ),
+                                        //       Container(
+                                        //           width:
+                                        //               MediaQuery.of(context).size.width,
+                                        //           child: Divider(
+                                        //             color: Colors.white,
+                                        //             thickness: 1,
+                                        //           )),
+                                        //     ],
+                                        //   ),
+                                        // )
+                                        ),
+                                  );
+                                }),
+                          )),
+                      onLoading: LoadingWidget(child: Container()),
+                      onError: (v) => Text(
+                            v!,
+                            style: TextStyle(color: Colors.white),
+                          ))
                 ],
               ),
             ),

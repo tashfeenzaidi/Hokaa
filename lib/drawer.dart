@@ -108,7 +108,7 @@ Drawer drawer(BuildContext context) {
             ),
             GestureDetector(
               onTap: () {
-                Get.toNamed("/ordershistory");
+                Get.toNamed("/ordersHistory");
               },
               child: Padding(
                 padding: drawerPadding,
@@ -132,7 +132,7 @@ Drawer drawer(BuildContext context) {
             ),
             GestureDetector(
               onTap: () {
-                Get.toNamed("/myaccount");
+                Get.toNamed("/myAccount");
               },
               child: Padding(
                 padding: drawerPadding,

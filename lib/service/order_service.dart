@@ -6,7 +6,7 @@ import 'package:gold_crowne/controller/cart_controller.dart';
 
 class OrderService extends GetConnect {
   String token = GetStorage().read('token');
-  CartController _cartController = Get.find();
+  CartController _cartController = Get.put(CartController());
 
   Future<Response<dynamic>> createOder() async {
     Map<String, dynamic> data = Map<String, dynamic>();
@@ -22,5 +22,5 @@ class OrderService extends GetConnect {
   }
 
   Future<Response<dynamic>> getOrder() async =>
-      await get(baseUrl + 'order', headers: {'token': token});
+      await get(baseUrl + 'order', headers: {'Authorization': token});
 }
