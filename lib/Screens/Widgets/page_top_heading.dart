@@ -5,8 +5,8 @@ class PageTopHeading extends StatelessWidget {
   PageTopHeading(this.heading);
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 25.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,

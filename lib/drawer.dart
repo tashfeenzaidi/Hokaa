@@ -8,6 +8,9 @@ import 'package:gold_crowne/models/user_response_model.dart';
 // User user = AuthController.getUser();
 
 Drawer drawer(BuildContext context) {
+  var box = GetStorage();
+  User user = User.fromJson(box.read('user'));
+
   return Drawer(
     child: Container(
       decoration: BoxDecoration(
@@ -37,14 +40,14 @@ Drawer drawer(BuildContext context) {
             Padding(
               padding: const EdgeInsets.only(left: 20.0, top: 20),
               child: Text(
-                'user.name!',
+                user.name!,
                 style: Theme.of(context).textTheme.bodyText2,
               ),
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.0, top: 10),
               child: Text(
-                "Zotobyte@gmail.com",
+                user.email!,
                 style: Theme.of(context).textTheme.bodyText1,
               ),
             ),

@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
+import 'package:gold_crowne/Screens/Widgets/text_form_field_container.dart';
 import 'package:gold_crowne/constant/constants.dart';
+import 'package:gold_crowne/models/user_response_model.dart';
 
 class MyAccount extends StatelessWidget {
   TextEditingController email = TextEditingController();
-  TextEditingController name = TextEditingController();
+  TextEditingController username = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
+  var box = GetStorage();
 
   @override
   Widget build(BuildContext context) {
+    User user = User.fromJson(box.read('user'));
+    username.text = user.name!;
+    email.text = user.email!;
+    phoneNumber.text = user.phoneNo!;
+
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
         backgroundColor: primaryColor,
@@ -44,30 +54,7 @@ class MyAccount extends StatelessWidget {
                   )),
               child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                            width: 40,
-                            child: Divider(
-                              color: Colors.white,
-                              thickness: 1,
-                            )),
-                        Padding(
-                          padding: const EdgeInsets.all(13.0),
-                          child: Text("MY ACCOUNT", style: Theme.of(context).textTheme.headline3),
-                        ),
-                        Container(
-                            width: 40,
-                            child: Divider(
-                              color: Colors.white,
-                              thickness: 1,
-                            ))
-                      ],
-                    ),
-                  ),
+                  PageTopHeading('MY ACCOUNT'),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -84,158 +71,118 @@ class MyAccount extends StatelessWidget {
                           ))
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 20, left: 30, right: 30),
-                    child: Container(
-                      height: height * 0.08,
-                      decoration: BoxDecoration(
-                          color: cardBackgroundColor, borderRadius: BorderRadius.circular(20)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10.0, top: 10, bottom: 10),
-                            child: Text(
-                              "Enter Name",
-                              style: Theme.of(context).textTheme.subtitle1,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.0, right: 10),
-                            child: Container(
-                              constraints: BoxConstraints(maxHeight: 30),
-                              child: TextFormField(
-                                controller: name,
-                                decoration: InputDecoration(
-                                    contentPadding: hintPadding,
-                                    hintStyle: hinstyle,
-                                    border: InputBorder.none,
-                                    focusedErrorBorder: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    errorStyle: validatorErrorStyle,
-                                    suffixIconConstraints:
-                                        BoxConstraints(maxWidth: 20, maxHeight: 20),
-                                    hintText: "Enter Name"),
-                                autovalidateMode: AutovalidateMode.onUserInteraction,
-                                validator: (value) {
-                                  if (value!.isNotEmpty) {
-                                    return null;
-                                  } else {
-                                    return "Please Enter Your name";
-                                  }
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
+                  TextFormFieldContainer(TextFormField(
+                    controller: username,
+                    decoration: InputDecoration(
+                      contentPadding: hintPadding,
+                      hintStyle:
+                          Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: hintTextSize),
+                      label: Text(
+                        'Name',
+                        style: Theme.of(context).textTheme.subtitle1,
                       ),
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                      focusedErrorBorder: InputBorder.none,
+                      isCollapsed: false,
+                      errorStyle: Theme.of(context)
+                          .textTheme
+                          .subtitle1!
+                          .copyWith(fontSize: 11.0, color: Colors.red),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 20, left: 30, right: 30),
-                    child: Container(
-                      height: height * 0.08,
-                      decoration: BoxDecoration(
-                          color: cardBackgroundColor, borderRadius: BorderRadius.circular(20)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10.0, top: 10, bottom: 10),
-                            child: Text(
-                              "Email",
-                              style: Theme.of(context).textTheme.subtitle1,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.0, right: 10),
-                            child: Container(
-                              constraints: BoxConstraints(maxHeight: 30),
-                              child: TextFormField(
-                                controller: email,
-                                decoration: InputDecoration(
-                                    contentPadding: hintPadding,
-                                    hintStyle: hinstyle,
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    focusedErrorBorder: InputBorder.none,
-                                    isCollapsed: true,
-                                    suffixIconConstraints:
-                                        BoxConstraints(maxWidth: 20, maxHeight: 20),
-                                    errorStyle: validatorErrorStyle,
-                                    hintText: "Email"),
-                                autovalidateMode: AutovalidateMode.onUserInteraction,
-                                validator: (value) {
-                                  if (value!.isNotEmpty &&
-                                      RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
-                                          .hasMatch(value.trim())) {
-                                    return null;
-                                  } else {
-                                    return "Please Enter Valid Email";
-                                  }
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
+                    textInputAction: TextInputAction.next,
+                    textAlignVertical: TextAlignVertical.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1!
+                        .copyWith(color: Colors.white70, fontSize: 14.0),
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'please enter your name';
+                      }
+                      return null;
+                    },
+                  )),
+                  TextFormFieldContainer(TextFormField(
+                    controller: email,
+                    decoration: InputDecoration(
+                      contentPadding: hintPadding,
+                      hintStyle:
+                          Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: hintTextSize),
+                      label: Text(
+                        'Email',
+                        style: Theme.of(context).textTheme.subtitle1,
                       ),
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                      focusedErrorBorder: InputBorder.none,
+                      isCollapsed: false,
+                      errorStyle: Theme.of(context)
+                          .textTheme
+                          .subtitle1!
+                          .copyWith(fontSize: 11.0, color: Colors.red),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: height * 0.03, left: 30, right: 30),
-                    child: Container(
-                      height: height * 0.08,
-                      decoration: BoxDecoration(
-                          color: cardBackgroundColor, borderRadius: BorderRadius.circular(20)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10.0, top: 10, bottom: 10),
-                            child: Text(
-                              "Enter Mobile Number ",
-                              style: Theme.of(context).textTheme.subtitle1,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10.0, right: 10),
-                            child: Container(
-                              constraints: BoxConstraints(maxHeight: 30),
-                              child: TextFormField(
-                                controller: phoneNumber,
-                                decoration: InputDecoration(
-                                    contentPadding: hintPadding,
-                                    hintStyle: hinstyle,
-                                    border: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    enabledBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    disabledBorder: InputBorder.none,
-                                    errorStyle: validatorErrorStyle,
-                                    suffixIconConstraints:
-                                        BoxConstraints(maxWidth: 20, maxHeight: 20),
-                                    hintText: "+924242424"),
-                                autovalidateMode: AutovalidateMode.onUserInteraction,
-                                validator: (value) {
-                                  if (value!.isNotEmpty) {
-                                    return null;
-                                  } else {
-                                    return "Please Enter Your Number";
-                                  }
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
+                    textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.emailAddress,
+                    textAlignVertical: TextAlignVertical.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1!
+                        .copyWith(color: Colors.white70, fontSize: 14.0),
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) {
+                      if (value!.isEmpty ||
+                          !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(value.trim())) {
+                        return 'please enter correct format';
+                      }
+                      return null;
+                    },
+                  )),
+                  TextFormFieldContainer(TextFormField(
+                    controller: phoneNumber,
+                    decoration: InputDecoration(
+                      contentPadding: hintPadding,
+                      hintStyle:
+                          Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: hintTextSize),
+                      label: Text(
+                        'Number',
+                        style: Theme.of(context).textTheme.subtitle1,
                       ),
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                      focusedErrorBorder: InputBorder.none,
+                      isCollapsed: false,
+                      errorStyle: Theme.of(context)
+                          .textTheme
+                          .subtitle1!
+                          .copyWith(fontSize: 11.0, color: Colors.red),
                     ),
-                  ),
+                    textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.phone,
+                    textAlignVertical: TextAlignVertical.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle1!
+                        .copyWith(color: Colors.white70, fontSize: 14.0),
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'please enter contact number';
+                      }
+                      return null;
+                    },
+                  )),
                 ],
               ),
             ),
