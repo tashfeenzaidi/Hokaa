@@ -9,8 +9,18 @@ class CartController extends GetxController {
   RxDouble total = RxDouble(0);
 
   add(CartItem item) {
-    itemList.add(item);
-    getSubTotal();
+    int flag = 0;
+    itemList.asMap().forEach((index, element) {
+      if (element.product.id == item.product.id) {
+        addQuantity(index);
+        flag = 1;
+        return;
+      }
+    });
+    if (flag != 1) {
+      itemList.add(item);
+      getSubTotal();
+    }
   }
 
   delete(CartItem item) {
