@@ -4,7 +4,7 @@ import 'package:get/route_manager.dart';
 import '../../constant/constants.dart';
 
 class BottomBar extends StatelessWidget {
-  String price;
+  Widget price;
   Icon? icon;
   String buttonLabel;
   VoidCallback onButtonPressed;
@@ -29,10 +29,7 @@ class BottomBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              "\$$price",
-              style: priceStyle,
-            ),
+            price,
             ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.black),

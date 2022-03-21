@@ -158,10 +158,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         ),
         BottomBar(
           buttonLabel: 'ADD tO CART',
-          price: '23',
+          price: Obx(
+            () => Text(
+              "\$${_cartController.total.value}",
+              style: priceStyle,
+            ),
+          ),
           onButtonPressed: () {
-            _cartController.itemList.value
-                .add(CartItem(product: _productController.value!.data![productIndex]));
+            _cartController.add(CartItem(product: _productController.value!.data![productIndex]));
             Get.toNamed("/cart");
           },
         ),

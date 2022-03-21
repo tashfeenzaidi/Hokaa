@@ -4,6 +4,7 @@ import 'package:gold_crowne/Screens/CheckOutCard/tabbar.dart';
 import 'package:gold_crowne/Screens/Widgets/cardwidget.dart';
 import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
 import 'package:gold_crowne/constant/constants.dart';
+import 'package:gold_crowne/controller/cart_controller.dart';
 
 import 'Widgets/bottom_bar.dart';
 
@@ -14,6 +15,8 @@ class CheckOutScreen extends StatefulWidget {
 
 class _CheckOutScreenState extends State<CheckOutScreen> {
   ScrollController _scrollController = ScrollController();
+  CartController _cartController = Get.find();
+
   int val = 1;
   @override
   Widget build(BuildContext context) {
@@ -67,19 +70,17 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                             controller: _scrollController,
                             isAlwaysShown: true,
                             thickness: 2,
-                            child: ListView.builder(
-                                itemCount: 10,
-                                controller: _scrollController,
-                                itemBuilder: (context, index) {
-                                  return CardWidget(
-                                    val: val,
-                                    onPressed: (value) {
-                                      setState(() {
-                                        val = value;
-                                      });
-                                    },
-                                  );
-                                }),
+                            child: Obx(
+                              () => ListView.builder(
+                                  itemCount: _cartController.itemList.length,
+                                  controller: _scrollController,
+                                  itemBuilder: (context, index) {
+                                    return CardWidget(
+                                      val: index,
+                                      onPressed: (value) {},
+                                    );
+                                  }),
+                            ),
                           ),
                         )),
                   ),
@@ -89,7 +90,12 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                 Spacer(),
                 BottomBar(
                   buttonLabel: 'PROCEED TO CONFIRM',
-                  price: '23',
+                  price: Obx(
+                    () => Text(
+                      "\$${_cartController.total.value}",
+                      style: priceStyle,
+                    ),
+                  ),
                   onButtonPressed: () {
                     Get.toNamed("/paymentDone");
                   },

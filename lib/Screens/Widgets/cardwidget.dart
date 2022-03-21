@@ -77,14 +77,9 @@ class _CardWidgetState extends State<CardWidget> {
             children: [
               GestureDetector(
                 onTap: () {
-                  if (widget.val > 0) {
-                    widget.onPressed(widget.val - 1);
-                    setState(() {
-                      widget.val--;
-                    });
-                  }
+                  _cartController.addQuantity(widget.val);
                 },
-                child: Icon(Icons.remove_circle, color: primaryColor),
+                child: Icon(Icons.add_circle, color: primaryColor),
               ),
               Padding(
                 padding: const EdgeInsets.all(5.0),
@@ -94,13 +89,11 @@ class _CardWidgetState extends State<CardWidget> {
                 ),
               ),
               GestureDetector(
-                  onTap: () {
-                    widget.onPressed(widget.val + 1);
-                    setState(() {
-                      widget.val++;
-                    });
-                  },
-                  child: Image.asset("assets/plus.png"))
+                onTap: () {
+                  _cartController.deleteQuantity(widget.val);
+                },
+                child: Icon(Icons.remove_circle, color: primaryColor),
+              )
             ],
           ),
         )

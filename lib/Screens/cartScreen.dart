@@ -25,8 +25,11 @@ class _CartScreenState extends State<CartScreen> {
       backgroundColor: primayBackgroundColor,
       appBar: AppBar(
         backgroundColor: primayBackgroundColor,
-        leading: Icon(
-          Icons.arrow_back_ios,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back_ios),
           color: primaryColor,
         ),
         actions: [
@@ -41,10 +44,9 @@ class _CartScreenState extends State<CartScreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image.asset(
-              "assets/shopping_cart.png",
-              width: 25,
-              height: 25,
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.store),
               color: primaryColor,
             ),
           ),
@@ -69,11 +71,7 @@ class _CartScreenState extends State<CartScreen> {
                           itemBuilder: (context, index) {
                             return CardWidget(
                               val: index,
-                              onPressed: (value) {
-                                setState(() {
-                                  val = value;
-                                });
-                              },
+                              onPressed: (value) {},
                             );
                           }),
                     ),
@@ -94,9 +92,11 @@ class _CartScreenState extends State<CartScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      LabelValue(
-                        label: 'Sub Total',
-                        value: '23',
+                      Obx(
+                        () => LabelValue(
+                          label: 'Sub Total',
+                          value: _cartController.subTotal.value.toString(),
+                        ),
                       ),
                       LabelValue(
                         label: 'Tax',
@@ -110,7 +110,12 @@ class _CartScreenState extends State<CartScreen> {
           ),
           BottomBar(
             buttonLabel: 'CHECKOUT',
-            price: '23',
+            price: Obx(
+              () => Text(
+                "\$${_cartController.total.value}",
+                style: priceStyle,
+              ),
+            ),
             onButtonPressed: () {
               Get.toNamed("/checkout");
             },
