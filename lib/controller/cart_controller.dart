@@ -13,6 +13,11 @@ class CartController extends GetxController {
     getSubTotal();
   }
 
+  delete(CartItem item) {
+    itemList.remove(item);
+    getSubTotal();
+  }
+
   addQuantity(int product) {
     itemList[product].quantity += 1;
     itemList.refresh();

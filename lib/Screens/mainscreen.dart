@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:gold_crowne/Screens/Widgets/loading_widget.dart';
 import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constant/constants.dart';
@@ -43,7 +44,8 @@ class MainScreen extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(25),
                                     image: DecorationImage(
-                                        image: AssetImage("assets/more.png"), fit: BoxFit.cover)),
+                                        image: NetworkImage(event.data![index].imageUrl!),
+                                        fit: BoxFit.cover)),
                                 child: Align(
                                     alignment: Alignment.bottomCenter,
                                     child: Padding(

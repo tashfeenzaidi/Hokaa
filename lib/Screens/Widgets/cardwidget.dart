@@ -29,11 +29,21 @@ class _CardWidgetState extends State<CardWidget> {
             children: [
               Row(
                 children: [
-                  Icon(Icons.delete_forever, color: Colors.red, size: 20),
+                  IconButton(
+                    onPressed: () {
+                      _cartController.delete(_cartController.itemList[widget.val]);
+                    },
+                    icon: Icon(
+                      Icons.cancel,
+                    ),
+                    color: Colors.red,
+                    padding: EdgeInsets.zero,
+                    constraints: BoxConstraints.loose(Size(20, 20)),
+                  ),
                   Column(
                     children: [
-                      Image.asset(
-                        "assets/hookah.png",
+                      Image.network(
+                        _cartController.itemList[widget.val].product.imageUrl!,
                         height: 70,
                         width: 60,
                         fit: BoxFit.fill,

@@ -1,3 +1,5 @@
 import 'package:get/state_manager.dart';
 
-class OrderController extends GetxController {}
+class OrderController extends GetxController {
+  getOrderList() {}
+}
