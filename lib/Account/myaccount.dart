@@ -81,6 +81,14 @@ class MyAccount extends StatelessWidget {
                         'Name',
                         style: Theme.of(context).textTheme.subtitle1,
                       ),
+                      suffixIcon: IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          "assets/edit.png",
+                          width: 20,
+                          height: 20,
+                        ),
+                      ),
                       border: InputBorder.none,
                       focusedBorder: InputBorder.none,
                       enabledBorder: InputBorder.none,
@@ -116,6 +124,14 @@ class MyAccount extends StatelessWidget {
                       label: Text(
                         'Email',
                         style: Theme.of(context).textTheme.subtitle1,
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          "assets/edit.png",
+                          width: 20,
+                          height: 20,
+                        ),
                       ),
                       border: InputBorder.none,
                       focusedBorder: InputBorder.none,
@@ -155,6 +171,14 @@ class MyAccount extends StatelessWidget {
                       label: Text(
                         'Number',
                         style: Theme.of(context).textTheme.subtitle1,
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          "assets/edit.png",
+                          width: 20,
+                          height: 20,
+                        ),
                       ),
                       border: InputBorder.none,
                       focusedBorder: InputBorder.none,

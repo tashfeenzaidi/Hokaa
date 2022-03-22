@@ -21,6 +21,6 @@ class OrderService extends GetConnect {
     return await post(baseUrl + 'order/checkout', data, headers: {'token': token});
   }
 
-  Future<Response<dynamic>> getOrder() async =>
-      await get(baseUrl + 'order', headers: {'Authorization': token});
+  Future<Response<dynamic>> getAllOrder(int pageKey) async =>
+      await get(baseUrl + 'order?page=$pageKey', headers: {'Authorization': token});
 }

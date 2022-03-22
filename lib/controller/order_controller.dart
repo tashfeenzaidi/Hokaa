@@ -5,7 +5,7 @@ class OrderController extends GetxController with StateMixin {
   getOrderList() {
     change(null, status: RxStatus.loading());
 
-    OrderService().getOrder().then((value) {
+    OrderService().getAllOrder(1).then((value) {
       change(null, status: RxStatus.error('no orders'));
     });
   }
