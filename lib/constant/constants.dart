@@ -22,7 +22,8 @@ final cardfieldPadding = EdgeInsets.only(left: 10.0, top: 5, bottom: 5);
 final checkoutButtonText = TextStyle(color: Colors.white, fontSize: 16);
 final priceTextStyle = TextStyle(color: Colors.black, fontSize: 16);
 final lightTextstyle = TextStyle(color: paymentCardBackgroundColor, fontSize: 14);
-final historyTextstyle = TextStyle(color: Colors.white, fontSize: 12, fontFamily: "Helvetica");
+final historyTextstyle = TextStyle(
+    color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400, fontFamily: "Helvetica");
 final littleDateStyle = TextStyle(color: primaryColor, fontSize: 10);
 final littleTextStyle = TextStyle(color: Colors.white, fontSize: 10);
 final noEventTextStyle = TextStyle(color: primaryColor, fontSize: 18);

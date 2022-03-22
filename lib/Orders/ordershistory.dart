@@ -11,6 +11,8 @@ import 'package:gold_crowne/models/order_response_model.dart';
 import 'package:gold_crowne/models/orders_response_model.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
+import '../utils.dart';
+
 class OrderHistory extends StatefulWidget {
   const OrderHistory({Key? key}) : super(key: key);
 
@@ -45,6 +47,20 @@ class _OrderHistoryState extends State<OrderHistory> {
       });
     } catch (error) {
       _pagingController.error = error;
+    }
+  }
+
+  getStatusIcon(int status) {
+    switch (status) {
+      case 1:
+        Icons.remove_circle_sharp;
+        break;
+      case 2:
+        Icons.check_circle_sharp;
+        break;
+      case 3:
+        Icons.check_circle_sharp;
+        break;
     }
   }
 
@@ -84,186 +100,98 @@ class _OrderHistoryState extends State<OrderHistory> {
                 children: [
                   Container(margin: EdgeInsets.only(top: 15), child: PageTopHeading('MY ORDERS')),
                   Expanded(
-                      child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 18.0),
-                    child: PagedListView(
-                      builderDelegate:
-                          PagedChildBuilderDelegate<Data>(itemBuilder: (context, item, index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GestureDetector(
-                              onTap: () {
-                                Get.toNamed("/orderDetailsNew");
-                              },
-                              child: Container(
-                                  height: 100,
-                                  padding: EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    color: cardBackgroundColor,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "15th Oct,12:24",
-                                              style: littleDateStyle,
-                                            ),
-                                            Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: primaryColor,
-                                              size: 15,
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "Order ID",
-                                              style: historyTextstyle,
-                                            ),
-                                            Text(
-                                              "#1234555555",
-                                              style: historyTextstyle,
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "Status",
-                                              style: historyTextstyle,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Icon(
-                                                  Icons.cancel,
-                                                  color: Colors.red,
-                                                  size: 15,
+                      child: PagedListView(
+                    builderDelegate:
+                        PagedChildBuilderDelegate<Data>(itemBuilder: (context, item, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 6.0),
+                        child: GestureDetector(
+                            onTap: () {
+                              Get.toNamed("/orderDetailsNew");
+                            },
+                            child: Container(
+                                height: 120,
+                                padding: EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  color: cardBackgroundColor,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            Utils.getDate(DateTime.parse(item.createdAt!)),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .subtitle1!
+                                                .copyWith(color: primaryColor, fontSize: 14),
+                                          ),
+                                          Icon(
+                                            Icons.arrow_forward_ios_rounded,
+                                            color: primaryColor,
+                                            size: 18,
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Order ID",
+                                            style: historyTextstyle,
+                                          ),
+                                          Text(
+                                            '${item.id!}',
+                                            style: historyTextstyle,
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Status",
+                                            style: historyTextstyle,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Icon(
+                                                Icons.cancel,
+                                                color: Colors.red,
+                                                size: 15,
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.only(left: 10.0),
+                                                child: Text(
+                                                  item.status!,
+                                                  style: historyTextstyle,
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(left: 10.0),
-                                                  child: Text(
-                                                    "Rejetced",
-                                                    style: historyTextstyle,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "Total",
-                                              style: historyTextstyle,
-                                            ),
-                                            Text(
-                                              "\$80",
-                                              style: historyTextstyle,
-                                            ),
-                                          ],
-                                        ),
-                                      ]))),
-                        );
-                      }),
-                      pagingController: _pagingController,
-                      // child: ListView.builder(
-                      //     itemCount: 10,
-                      //     itemBuilder: (context, index) {
-                      //       return Padding(
-                      //         padding: const EdgeInsets.all(8.0),
-                      //         child: GestureDetector(
-                      //             onTap: () {
-                      //               Get.toNamed("/orderDetailsNew");
-                      //             },
-                      //             child: Container(
-                      //                 height: 100,
-                      //                 padding: EdgeInsets.all(10),
-                      //                 decoration: BoxDecoration(
-                      //                   color: cardBackgroundColor,
-                      //                   borderRadius: BorderRadius.circular(10),
-                      //                 ),
-                      //                 child: Column(
-                      //                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      //                     children: [
-                      //                       Row(
-                      //                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //                         children: [
-                      //                           Text(
-                      //                             "15th Oct,12:24",
-                      //                             style: littleDateStyle,
-                      //                           ),
-                      //                           Icon(
-                      //                             Icons.arrow_forward_ios,
-                      //                             color: primaryColor,
-                      //                             size: 15,
-                      //                           ),
-                      //                         ],
-                      //                       ),
-                      //                       Row(
-                      //                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //                         children: [
-                      //                           Text(
-                      //                             "Order ID",
-                      //                             style: historyTextstyle,
-                      //                           ),
-                      //                           Text(
-                      //                             "#1234555555",
-                      //                             style: historyTextstyle,
-                      //                           ),
-                      //                         ],
-                      //                       ),
-                      //                       Row(
-                      //                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //                         children: [
-                      //                           Text(
-                      //                             "Status",
-                      //                             style: historyTextstyle,
-                      //                           ),
-                      //                           Row(
-                      //                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //                             children: [
-                      //                               Icon(
-                      //                                 Icons.cancel,
-                      //                                 color: Colors.red,
-                      //                                 size: 15,
-                      //                               ),
-                      //                               Padding(
-                      //                                 padding: EdgeInsets.only(left: 10.0),
-                      //                                 child: Text(
-                      //                                   "Rejetced",
-                      //                                   style: historyTextstyle,
-                      //                                 ),
-                      //                               ),
-                      //                             ],
-                      //                           ),
-                      //                         ],
-                      //                       ),
-                      //                       Row(
-                      //                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //                         children: [
-                      //                           Text(
-                      //                             "Total",
-                      //                             style: historyTextstyle,
-                      //                           ),
-                      //                           Text(
-                      //                             "\$80",
-                      //                             style: historyTextstyle,
-                      //                           ),
-                      //                         ],
-                      //                       ),
-                      //                     ]))),
-                      //       );
-                      //     }),
-                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Total",
+                                            style: historyTextstyle,
+                                          ),
+                                          Text(
+                                            "\$ ${item.totalPrice!}",
+                                            style: historyTextstyle,
+                                          ),
+                                        ],
+                                      ),
+                                    ]))),
+                      );
+                    }),
+                    pagingController: _pagingController,
                   ))
                 ],
               ),
