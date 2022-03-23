@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gold_crowne/Screens/Widgets/back_button.dart';
+import 'package:gold_crowne/Screens/Widgets/custom_appbar.dart';
 import 'package:gold_crowne/Screens/Widgets/loading_widget.dart';
 import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
 import 'package:gold_crowne/constant/constants.dart';
@@ -68,17 +70,7 @@ class _OrderHistoryState extends State<OrderHistory> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: primaryColor,
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: Icon(Icons.arrow_back_ios),
-            color: Colors.black,
-          ),
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-        ),
+        appBar: CustomAppBar(),
         extendBodyBehindAppBar: true,
         body: Container(
           width: MediaQuery.of(context).size.width,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:gold_crowne/Screens/Widgets/back_button.dart';
+import 'package:gold_crowne/Screens/Widgets/custom_appbar.dart';
 import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
 import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constant/constants.dart';
@@ -16,14 +18,7 @@ class OrderDetailsNew extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: primaryColor,
-        appBar: AppBar(
-          leading: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-        ),
+        appBar: CustomAppBar(),
         extendBodyBehindAppBar: true,
         body: Container(
             width: MediaQuery.of(context).size.width,
