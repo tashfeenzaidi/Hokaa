@@ -107,7 +107,7 @@ class _OrderHistoryState extends State<OrderHistory> {
                         padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 6.0),
                         child: GestureDetector(
                             onTap: () {
-                              Get.toNamed("/orderDetailsNew");
+                              Get.toNamed("/orderDetailsNew", arguments: item);
                             },
                             child: Container(
                                 height: 120,
