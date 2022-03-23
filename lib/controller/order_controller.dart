@@ -1,18 +1,14 @@
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/state_manager.dart';
+import 'package:gold_crowne/models/order_response_model.dart';
 import 'package:gold_crowne/service/order_service.dart';
 
-class OrderController extends GetxController with StateMixin {
-  getOrderList() {
-    change(null, status: RxStatus.loading());
-
-    OrderService().getAllOrder(1).then((value) {
-      change(null, status: RxStatus.error('no orders'));
+class OrderController extends GetxController with StateMixin<OrderResponseModel> {
+  createOrder() {
+    OrderService().createOder().then((value) {
+      if (value.statusCode! == 201) {
+        Get.toNamed('/paymentDone');
+      }
     });
-  }
-
-  @override
-  void onInit() {
-    getOrderList();
-    super.onInit();
   }
 }

@@ -5,6 +5,7 @@ import 'package:gold_crowne/Screens/Widgets/cardwidget.dart';
 import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/cart_controller.dart';
+import 'package:gold_crowne/controller/order_controller.dart';
 
 import 'Widgets/bottom_bar.dart';
 
@@ -16,6 +17,7 @@ class CheckOutScreen extends StatefulWidget {
 class _CheckOutScreenState extends State<CheckOutScreen> {
   ScrollController _scrollController = ScrollController();
   CartController _cartController = Get.find();
+  OrderController _orderController = Get.put(OrderController());
 
   int val = 1;
   @override
@@ -97,7 +99,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                     ),
                   ),
                   onButtonPressed: () {
-                    Get.toNamed("/paymentDone");
+                    _orderController.createOrder();
                   },
                 ),
               ],

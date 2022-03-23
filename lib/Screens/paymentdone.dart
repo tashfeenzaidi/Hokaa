@@ -36,7 +36,7 @@ class PaymentConfirm extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              Get.toNamed("/paymentCancel");
+              Get.offAllNamed("/shop");
             },
             child: Text(
               "Back to Home",

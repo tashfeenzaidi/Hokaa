@@ -68,7 +68,7 @@ Drawer drawer(BuildContext context) {
             ListTile(
               horizontalTitleGap: 0,
               onTap: () {
-                Get.toNamed("/mainscreen");
+                Get.toNamed("/mainScreen");
               },
               leading: Image.asset(
                 "assets/home.png",

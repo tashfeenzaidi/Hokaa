@@ -18,7 +18,7 @@ class OrderService extends GetConnect {
     });
     data['items'] = list;
     data['event_id'] = 1;
-    return await post(baseUrl + 'order/checkout', data, headers: {'token': token});
+    return await post(baseUrl + 'order/checkout', data, headers: {'Authorization': token});
   }
 
   Future<Response<dynamic>> getAllOrder(int pageKey) async =>
