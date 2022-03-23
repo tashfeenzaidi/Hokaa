@@ -48,7 +48,11 @@ Drawer drawer(BuildContext context) {
               padding: EdgeInsets.only(left: 20.0, top: 10),
               child: Text(
                 user.email!,
-                style: Theme.of(context).textTheme.bodyText1,
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle1!
+                    .copyWith(color: Colors.black)!
+                    .copyWith(color: Colors.black),
               ),
             ),
             Padding(
@@ -61,128 +65,80 @@ Drawer drawer(BuildContext context) {
                 ),
               ),
             ),
-            GestureDetector(
+            ListTile(
+              horizontalTitleGap: 0,
               onTap: () {
-                Get.offNamed("/mainscreen");
+                Get.toNamed("/mainscreen");
               },
-              child: Padding(
-                padding: drawerPadding,
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/home.png",
-                      width: 22,
-                      height: 22,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text(
-                        "Home",
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                    )
-                  ],
-                ),
+              leading: Image.asset(
+                "assets/home.png",
+                width: 22,
+                height: 22,
               ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.toNamed("/cart");
-              },
-              child: Padding(
-                padding: drawerPadding,
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/mycart.png",
-                      width: 22,
-                      height: 22,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text(
-                        "My Cart",
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.toNamed("/ordersHistory");
-              },
-              child: Padding(
-                padding: drawerPadding,
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/package.png",
-                      width: 22,
-                      height: 22,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text(
-                        "My Orders",
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                Get.toNamed("/myAccount");
-              },
-              child: Padding(
-                padding: drawerPadding,
-                child: Row(
-                  children: [
-                    Icon(Icons.person),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Text(
-                        "My Account",
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: drawerPadding,
-              child: Row(
-                children: [
-                  Icon(Icons.help),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Text(
-                      "Help",
-                      style: Theme.of(context).textTheme.bodyText1,
-                    ),
-                  )
-                ],
+              title: Text(
+                "Home",
+                style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.black),
               ),
             ),
             ListTile(
+              horizontalTitleGap: 0,
+              onTap: () {
+                Get.toNamed("/cart");
+              },
+              leading: Image.asset(
+                "assets/mycart.png",
+                width: 22,
+                height: 22,
+              ),
+              title: Text(
+                "My Cart",
+                style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.black),
+              ),
+            ),
+            ListTile(
+              horizontalTitleGap: 0,
+              onTap: () {
+                Get.toNamed("/ordersHistory");
+              },
+              leading: Image.asset(
+                "assets/package.png",
+                width: 22,
+                height: 22,
+              ),
+              title: Text(
+                "My Orders",
+                style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.black),
+              ),
+            ),
+            ListTile(
+              horizontalTitleGap: 0,
+              onTap: () {
+                Get.toNamed("/myAccount");
+              },
+              leading: Icon(
+                Icons.person_outlined,
+                color: Colors.black,
+              ),
+              title: Text(
+                "My Account",
+                style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.black),
+              ),
+            ),
+            ListTile(
+              horizontalTitleGap: 0,
               onTap: () {
                 AuthController _controller = Get.put(AuthController());
                 _controller.logOut();
                 Get.offAllNamed('/signIn');
                 _controller.dispose();
               },
-              leading: Image.asset(
-                "assets/logout.png",
-                width: 22,
-                height: 22,
+              leading: Icon(
+                Icons.logout_outlined,
+                color: Colors.black,
               ),
               title: Text(
                 "Logout",
-                style: Theme.of(context).textTheme.bodyText1,
+                style: Theme.of(context).textTheme.subtitle1!.copyWith(color: Colors.black),
               ),
             ),
           ],
