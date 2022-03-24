@@ -51,17 +51,20 @@ class _SignInScreenState extends State<SignInScreen> {
                     image: AssetImage("assets/background_pic.png"), fit: BoxFit.cover)),
             child: Column(
               children: [
-                Center(
-                    child: Container(
-                        margin: EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top * 2),
-                        child: Image.asset('assets/signin.png'))),
+                SizedBox(
+                  height: height * 0.3,
+                  child: Center(
+                      child: Container(
+                          margin: EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top * 2),
+                          child: Image.asset('assets/signin.png'))),
+                ),
                 Container(
                   decoration: BoxDecoration(
                       color: primayBackgroundColor,
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(20), topLeft: Radius.circular(20))),
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.7,
+                    height: height * 0.7,
                     child: _authController.obx(
                       (user) => getWidgets(),
                       onEmpty: getWidgets(),

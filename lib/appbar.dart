@@ -16,33 +16,24 @@ AppBar appbar(BuildContext context) {
     ),
     elevation: 0,
     actions: [
-      GestureDetector(
-        onTap: () {
-          // Get.toNamed("/noevent");
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset(
-            "assets/search.png",
-            width: 25,
-            height: 25,
-          ),
-        ),
-      ),
-      GestureDetector(
-        onTap: () {
-          Get.toNamed("/cart");
-        },
-        child: Padding(
-          padding:
-              EdgeInsets.only(left: 8.0, right: 14.0, top: 8.0, bottom: 8.0),
-          child: Image.asset(
+      IconButton(
+          padding: EdgeInsets.zero,
+          onPressed: () {},
+          icon: Icon(
+            Icons.search_outlined,
+            color: Colors.black,
+            size: 29,
+          )),
+      IconButton(
+          padding: EdgeInsets.zero,
+          onPressed: () {
+            Get.toNamed("/cart");
+          },
+          icon: Image.asset(
             "assets/shopping_cart.png",
             width: 25,
             height: 25,
-          ),
-        ),
-      ),
+          )),
     ],
   );
 }

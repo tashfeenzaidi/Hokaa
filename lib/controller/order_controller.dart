@@ -8,6 +8,8 @@ class OrderController extends GetxController with StateMixin<OrderResponseModel>
     OrderService().createOder().then((value) {
       if (value.statusCode! == 201) {
         Get.toNamed('/paymentDone');
+      } else {
+        Get.toNamed('/paymentCancel');
       }
     });
   }

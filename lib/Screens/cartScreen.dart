@@ -15,7 +15,7 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
   ScrollController _scrollController = ScrollController();
-  CartController _cartController = Get.find();
+  CartController _cartController = Get.put(CartController());
 
   int val = 1;
 

@@ -43,7 +43,8 @@ class MainScreen extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(25),
                                     image: DecorationImage(
-                                        image: AssetImage("assets/more.png"), fit: BoxFit.cover)),
+                                        image: NetworkImage(event.data![index].imageUrl!),
+                                        fit: BoxFit.cover)),
                                 child: Align(
                                     alignment: Alignment.bottomCenter,
                                     child: Padding(
@@ -211,7 +212,7 @@ class MainScreen extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "Naxt",
+                              "Next",
                               style: Theme.of(context).textTheme.subtitle1,
                             ),
                             IconButton(

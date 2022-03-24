@@ -5,8 +5,6 @@ import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/auth_controller.dart';
 import 'package:gold_crowne/models/user_response_model.dart';
 
-// User user = AuthController.getUser();
-
 Drawer drawer(BuildContext context) {
   var box = GetStorage();
   User user = User.fromJson(box.read('user'));
@@ -23,12 +21,16 @@ Drawer drawer(BuildContext context) {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: GestureDetector(
-                  child: Image.asset(
-                "assets/drawer.png",
-                width: 20,
-                height: 20,
-              )),
+              child: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Image.asset(
+                  "assets/drawer.png",
+                  width: 20,
+                  height: 20,
+                ),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.0, top: MediaQuery.of(context).size.height * 0.1),

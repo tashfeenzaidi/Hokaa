@@ -89,8 +89,8 @@ class OrderDetailsNew extends StatelessWidget {
                             width: 80,
                             alignment: Alignment.center,
                             child: Center(
-                              child: Image.asset(
-                                "assets/hookah.png",
+                              child: Image.network(
+                                e.image!,
                                 height: 60,
                                 width: 60,
                                 fit: BoxFit.fill,

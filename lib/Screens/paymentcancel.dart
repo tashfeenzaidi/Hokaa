@@ -51,7 +51,7 @@ class PaymentCancel extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              Get.toNamed("/checkout");
+              Get.offAllNamed("/checkout");
             },
             child: Text(
               "Back to Checkout",
