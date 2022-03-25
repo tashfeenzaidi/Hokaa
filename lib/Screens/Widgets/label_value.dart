@@ -10,13 +10,16 @@ class LabelValue extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
           '$label: ',
+          textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headline3!.copyWith(color: Colors.white),
         ),
         Text(
-          '\$$value',
+          '\$ $value',
+          textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headline2,
         ),
       ],

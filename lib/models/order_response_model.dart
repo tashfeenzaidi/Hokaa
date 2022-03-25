@@ -36,6 +36,7 @@ class Data {
   String? status;
   List<Items>? items;
   Event? event;
+  String? paymentMethod;
 
   Data(
       {this.id,
@@ -50,6 +51,7 @@ class Data {
       this.eventId,
       this.status,
       this.items,
+      this.paymentMethod,
       this.event});
 
   Data.fromJson(Map<String, dynamic> json) {
@@ -64,6 +66,7 @@ class Data {
     updatedAt = json['updated_at'];
     eventId = json['event_id'];
     status = json['status'];
+    paymentMethod = json['payment_method'];
     if (json['items'] != null) {
       items = <Items>[];
       json['items'].forEach((v) {
@@ -86,6 +89,7 @@ class Data {
     data['updated_at'] = this.updatedAt;
     data['event_id'] = this.eventId;
     data['status'] = this.status;
+    data['payment_method'] = this.paymentMethod;
     if (this.items != null) {
       data['items'] = this.items!.map((v) => v.toJson()).toList();
     }

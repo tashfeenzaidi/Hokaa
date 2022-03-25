@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:gold_crowne/Screens/Widgets/back_button.dart';
 import 'package:gold_crowne/Screens/Widgets/custom_appbar.dart';
 import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
 import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constant/constants.dart';
-import 'package:gold_crowne/models/order_response_model.dart';
+import 'package:gold_crowne/models/SystemParameterResponse.dart';
+import 'package:gold_crowne/models/order_response_model.dart' as model;
 import 'package:gold_crowne/utils.dart';
 
 class OrderDetailsNew extends StatelessWidget {
   OrderDetailsNew({Key? key}) : super(key: key);
-  var data = Get.arguments as Data;
-
-  getItems() {}
+  var data = Get.arguments as model.Data;
+  // final system = SystemParameterResponse.fromJson(GetStorage().read('systemParameters'));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,7 +146,12 @@ class OrderDetailsNew extends StatelessWidget {
                               "Payment Method",
                               style: Theme.of(context).textTheme.headline2,
                             ),
-                            Image.asset("assets/visa1.png")
+                            Text(
+                              data.paymentMethod!,
+                              style: Theme.of(context).textTheme.headline2,
+                            ),
+
+                            // Image.asset("assets/visa1.png")
                           ],
                         ),
                       ),
@@ -230,7 +236,7 @@ class OrderDetailsNew extends StatelessWidget {
                                 style: priceTextStyle,
                               ),
                               Text(
-                                "\$${data.totalPrice}",
+                                "${GetStorage().read('currency_symbol')} ${data.totalPrice}",
                                 style: priceTextStyle,
                               ),
                             ],

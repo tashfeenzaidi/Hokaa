@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:gold_crowne/Screens/Widgets/cardwidget.dart';
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/cart_controller.dart';
@@ -45,7 +46,9 @@ class _CartScreenState extends State<CartScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.offAllNamed('/shop');
+              },
               icon: Icon(Icons.store),
               color: primaryColor,
             ),
@@ -100,7 +103,7 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                       LabelValue(
                         label: 'Tax',
-                        value: '0.03',
+                        value: _cartController.tax.toString(),
                       ),
                     ],
                   ),

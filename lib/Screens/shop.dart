@@ -5,6 +5,7 @@ import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/cart_controller.dart';
 import 'package:gold_crowne/controller/product_controller.dart';
 import 'package:gold_crowne/drawer.dart';
+import 'package:gold_crowne/models/cart_item.dart';
 
 import 'Widgets/tab_button_widget.dart';
 
@@ -137,11 +138,16 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
                                   Positioned(
                                     bottom: MediaQuery.of(context).size.height * 0.01,
                                     right: 20,
-                                    child: Image.asset(
-                                      "assets/shopping_cart.png",
-                                      width: 25,
-                                      height: 25,
-                                      color: primaryColor,
+                                    child: IconButton(
+                                      onPressed: () {
+                                        _controller.add(CartItem(product: products.data![index]));
+                                      },
+                                      icon: Image.asset(
+                                        "assets/shopping_cart.png",
+                                        width: 25,
+                                        height: 25,
+                                        color: primaryColor,
+                                      ),
                                     ),
                                   )
                                 ],

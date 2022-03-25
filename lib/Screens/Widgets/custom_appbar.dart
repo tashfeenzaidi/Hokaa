@@ -9,7 +9,9 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: CustomBackButton(),
+      leading: CustomBackButton(
+        color: Colors.black,
+      ),
       elevation: 0,
       backgroundColor: Colors.transparent,
     );

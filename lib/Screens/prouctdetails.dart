@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gold_crowne/Screens/Widgets/back_button.dart';
 
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/cart_controller.dart';
@@ -39,14 +40,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       backgroundColor: primayBackgroundColor,
       appBar: AppBar(
         backgroundColor: primayBackgroundColor,
-        leading: GestureDetector(
-          onTap: () {
-            Get.back();
-          },
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: primaryColor,
-          ),
+        leading: CustomBackButton(
+          color: primaryColor,
         ),
         actions: [
           Padding(
@@ -157,7 +152,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
           ),
         ),
         BottomBar(
-          buttonLabel: 'ADD tO CART',
+          buttonLabel: 'ADD TO CART',
           price: Obx(
             () => Text(
               "\$${_cartController.total.value}",
