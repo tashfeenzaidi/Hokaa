@@ -82,78 +82,68 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
               ),
               _productController.obx(
                 (products) => Expanded(
-                  child: GridView.builder(
-                      itemCount: products!.data!.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio: 0.8, crossAxisCount: 2),
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selected = index;
-                              });
-                              Get.toNamed("/productDetail", arguments: index);
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Container(
-                                    width: MediaQuery.of(context).size.width * 0.43,
-                                    height: MediaQuery.of(context).size.height * 0.6,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFF242424),
-                                        border: Border.all(
-                                            color: selected == index
-                                                ? primaryColor
-                                                : Color(0xFF242424)),
-                                        borderRadius: BorderRadius.circular(25)),
-                                  ),
-                                  Positioned(
-                                    top: MediaQuery.of(context).size.height * 0.03,
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width * 0.3,
-                                      height: MediaQuery.of(context).size.height * 0.16,
-                                      decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: NetworkImage(products.data![index].image!),
-                                            fit: BoxFit.fill),
-                                      ),
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    child: GridView.builder(
+                        itemCount: products!.data!.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 15,
+                            crossAxisSpacing: 15,
+                            childAspectRatio: 0.8),
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  selected = index;
+                                });
+                                Get.toNamed("/productDetail", arguments: index);
+                              },
+                              child: Container(
+                                // width: MediaQuery.of(context).size.width * 0.43,
+                                // height: MediaQuery.of(context).size.height * 0.6,
+                                padding: EdgeInsets.symmetric(horizontal: 15),
+                                decoration: BoxDecoration(
+                                    color: Color(0xFF242424),
+                                    border: Border.all(
+                                        color:
+                                            selected == index ? primaryColor : Color(0xFF242424)),
+                                    borderRadius: BorderRadius.circular(25)),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Spacer(),
+                                    Image.network(products.data![index].image!),
+                                    Text(
+                                      products.data![index].name!,
+                                      style: Theme.of(context).textTheme.subtitle1,
                                     ),
-                                  ),
-                                  Positioned(
-                                      bottom: MediaQuery.of(context).size.height * 0.04,
-                                      child: Text(
-                                        products.data![index].name!,
-                                        style: Theme.of(context).textTheme.subtitle1,
-                                      )),
-                                  Positioned(
-                                      bottom: MediaQuery.of(context).size.height * 0.01,
-                                      left: 25,
-                                      child: Text(
-                                        "\$ ${products.data![index].price!}",
-                                        style: Theme.of(context).textTheme.subtitle1,
-                                      )),
-                                  Positioned(
-                                    bottom: MediaQuery.of(context).size.height * 0.01,
-                                    right: 20,
-                                    child: IconButton(
-                                      onPressed: () {
-                                        _controller.add(CartItem(product: products.data![index]));
-                                      },
-                                      icon: Image.asset(
-                                        "assets/shopping_cart.png",
-                                        width: 25,
-                                        height: 25,
-                                        color: primaryColor,
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ));
-                      }),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          "\$ ${products.data![index].price!}",
+                                          style: Theme.of(context).textTheme.subtitle1,
+                                        ),
+                                        IconButton(
+                                          onPressed: () {
+                                            _controller
+                                                .add(CartItem(product: products.data![index]));
+                                          },
+                                          icon: Image.asset(
+                                            "assets/shopping_cart.png",
+                                            width: 25,
+                                            height: 25,
+                                            color: primaryColor,
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ));
+                        }),
+                  ),
                 ),
               )
             ],
