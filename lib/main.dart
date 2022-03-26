@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:gold_crowne/constant/app_route.dart';
@@ -8,6 +9,10 @@ import 'package:responsive_framework/utils/scroll_behavior.dart';
 
 void main() async {
   await GetStorage.init();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(MyApp());
 }
 
