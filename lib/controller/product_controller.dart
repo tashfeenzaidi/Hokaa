@@ -5,6 +5,8 @@ import 'package:gold_crowne/models/products_response_model.dart';
 import 'package:gold_crowne/service/product_service.dart';
 
 class ProductController extends GetxController with StateMixin<ProductResponseModel> {
+  RxBool isSearchClicked = RxBool(false);
+
   @override
   onInit() {
     getProducts();

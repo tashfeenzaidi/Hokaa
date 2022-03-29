@@ -22,7 +22,6 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
   late TabController _tabController;
   ProductController _productController = Get.put(ProductController());
   CartController _controller = Get.put(CartController());
-
   @override
   void initState() {
     super.initState();
@@ -33,7 +32,7 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer(context),
-      appBar: appbar(context),
+      appBar: CustomAppBar(),
       extendBodyBehindAppBar: true,
       body: Container(
         width: MediaQuery.of(context).size.width,

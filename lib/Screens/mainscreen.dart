@@ -11,11 +11,12 @@ class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);
   EventController _controller = Get.put(EventController());
   final PageController controller = PageController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: drawer(context),
-        appBar: appbar(context),
+        appBar: CustomAppBar(),
         extendBodyBehindAppBar: true,
         body: Container(
           width: MediaQuery.of(context).size.width,

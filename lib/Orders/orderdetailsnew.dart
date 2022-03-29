@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:gold_crowne/Screens/Widgets/back_button.dart';
-import 'package:gold_crowne/Screens/Widgets/custom_appbar.dart';
 import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
 import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constant/constants.dart';
-import 'package:gold_crowne/models/SystemParameterResponse.dart';
 import 'package:gold_crowne/models/order_response_model.dart' as model;
 import 'package:gold_crowne/utils.dart';
 
