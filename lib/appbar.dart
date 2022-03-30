@@ -47,7 +47,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30), bottomLeft: Radius.circular(30)),
                 ),
-                duration: Duration(milliseconds: 900),
+                duration: Duration(milliseconds: 300),
                 child: TextFormField(
                   cursorColor: Colors.black,
                   onChanged: (val) {
@@ -60,7 +60,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       errorBorder: InputBorder.none,
                       disabledBorder: InputBorder.none,
                       contentPadding: EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-                      hintText: "Hint here"),
+                      hintText: "Search by name"),
                 ),
               ),
             )),
