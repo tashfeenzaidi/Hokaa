@@ -15,13 +15,25 @@ class ProductController extends GetxController with StateMixin<List<Data>> {
   }
 
   productSearch(String val) {
-    change(
-        val.isEmpty
-            ? productList
-            : productList
-                .where((element) => element.name!.toLowerCase().contains(val.toLowerCase()))
-                .toList(),
-        status: RxStatus.success());
+    successStatus(val.isEmpty
+        ? productList
+        : productList
+            .where((element) => element.name!.toLowerCase().contains(val.toLowerCase()))
+            .toList());
+  }
+
+  filterProduct(int isSingle) {
+    switch (isSingle) {
+      case 0:
+        successStatus(productList);
+        break;
+      case 1:
+        successStatus(productList.where((element) => element.isSingle == 0).toList());
+        break;
+      case 2:
+        successStatus(productList.where((element) => element.isSingle == 1).toList());
+        break;
+    }
   }
 
   getProducts() {
@@ -29,10 +41,14 @@ class ProductController extends GetxController with StateMixin<List<Data>> {
     ProductService().getProducts().then((value) {
       if (value.statusCode == 200) {
         productList = ProductResponseModel.fromJson(jsonDecode(value.bodyString!)).data!;
-        change(productList, status: RxStatus.success());
+        successStatus(productList);
       } else {
         change(null, status: RxStatus.empty());
       }
     });
+  }
+
+  successStatus(List<Data> list) {
+    change(list, status: RxStatus.success());
   }
 }

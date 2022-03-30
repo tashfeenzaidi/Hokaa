@@ -25,7 +25,7 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -61,19 +61,26 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
                 isScrollable: false,
                 onTap: (val) {
                   setState(() {});
+                  _productController.filterProduct(_tabController.index);
                 },
                 tabs: [
                   Tab(
                     height: 35,
-                    child: TabButton(_tabController.index == 0 ? primaryColor : Colors.black,
-                        'Single', "assets/small.png"),
+                    child:
+                        TabButton(_tabController.index == 0 ? primaryColor : Colors.black, 'All'),
                   ),
                   Tab(
                     height: 35,
                     child: TabButton(
-                      _tabController.index == 1 ? primaryColor : Colors.black,
+                        _tabController.index == 1 ? primaryColor : Colors.black, 'Single',
+                        icon: "assets/small.png"),
+                  ),
+                  Tab(
+                    height: 35,
+                    child: TabButton(
+                      _tabController.index == 2 ? primaryColor : Colors.black,
                       'Mix',
-                      "assets/small.png",
+                      icon: "assets/small.png",
                       secondIcon: "assets/small.png",
                     ),
                   ),

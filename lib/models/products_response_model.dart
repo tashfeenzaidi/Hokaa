@@ -38,6 +38,7 @@ class Data {
   int? status;
   String? createdAt;
   String? imageUrl;
+  int? isSingle;
 
   Data(
       {this.id,
@@ -49,6 +50,7 @@ class Data {
       this.quantity,
       this.status,
       this.createdAt,
+      this.isSingle,
       this.imageUrl});
 
   Data.fromJson(Map<String, dynamic> json) {
@@ -62,6 +64,7 @@ class Data {
     status = json['status'];
     createdAt = json['created_at'];
     imageUrl = json['image_url'];
+    isSingle = json['is_single'];
   }
 
   Map<String, dynamic> toJson() {
@@ -76,6 +79,7 @@ class Data {
     data['status'] = this.status;
     data['created_at'] = this.createdAt;
     data['image_url'] = this.imageUrl;
+    data['is_single'] = this.isSingle;
     return data;
   }
 }
