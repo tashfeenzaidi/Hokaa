@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import 'controller/product_controller.dart';
 
-ProductController _productController = Get.put(ProductController());
+ProductController _productController = Get.find();
 
 class CustomAppBar extends StatefulWidget with PreferredSizeWidget {
   CustomAppBar({Key? key})
@@ -48,9 +48,11 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       topLeft: Radius.circular(30), bottomLeft: Radius.circular(30)),
                 ),
                 duration: Duration(milliseconds: 900),
-                child: TextField(
+                child: TextFormField(
                   cursorColor: Colors.black,
-                  onEditingComplete: () {},
+                  onChanged: (val) {
+                    _productController.productSearch(val);
+                  },
                   decoration: new InputDecoration(
                       border: InputBorder.none,
                       focusedBorder: InputBorder.none,

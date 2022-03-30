@@ -53,7 +53,7 @@ Drawer drawer(BuildContext context) {
                 style: Theme.of(context)
                     .textTheme
                     .subtitle1!
-                    .copyWith(color: Colors.black)!
+                    .copyWith(color: Colors.black)
                     .copyWith(color: Colors.black),
               ),
             ),

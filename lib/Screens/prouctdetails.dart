@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/Screens/Widgets/back_button.dart';
-
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/cart_controller.dart';
 import 'package:gold_crowne/controller/product_controller.dart';
@@ -85,7 +84,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: NetworkImage(
-                                      _productController.value!.data![productIndex].image!))),
+                                      _productController.value![productIndex].image!))),
                         ),
                       );
                     })),
@@ -125,7 +124,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    _productController.value!.data![productIndex].name!,
+                    _productController.value![productIndex].name!,
                     style: Theme.of(context).textTheme.headline4,
                   ),
                   Row(
@@ -143,7 +142,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 ],
               ),
               Text(
-                "${_productController.value!.data![productIndex].description!}",
+                "${_productController.value![productIndex].description!}",
                 style: Theme.of(context).textTheme.subtitle2,
                 textAlign: TextAlign.left,
                 // maxLines: 2,
@@ -160,7 +159,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             ),
           ),
           onButtonPressed: () {
-            _cartController.add(CartItem(product: _productController.value!.data![productIndex]));
+            _cartController.add(CartItem(product: _productController.value![productIndex]));
             Get.toNamed("/cart");
           },
         ),

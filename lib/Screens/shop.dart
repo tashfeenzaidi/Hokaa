@@ -84,7 +84,7 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 15),
                     child: GridView.builder(
-                        itemCount: products!.data!.length,
+                        itemCount: products!.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             mainAxisSpacing: 15,
@@ -99,8 +99,6 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
                                 Get.toNamed("/productDetail", arguments: index);
                               },
                               child: Container(
-                                // width: MediaQuery.of(context).size.width * 0.43,
-                                // height: MediaQuery.of(context).size.height * 0.6,
                                 padding: EdgeInsets.symmetric(horizontal: 15),
                                 decoration: BoxDecoration(
                                     color: Color(0xFF242424),
@@ -112,22 +110,21 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Spacer(),
-                                    Image.network(products.data![index].image!),
+                                    Image.network(products[index].image!),
                                     Text(
-                                      products.data![index].name!,
+                                      products[index].name!,
                                       style: Theme.of(context).textTheme.subtitle1,
                                     ),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          "\$ ${products.data![index].price!}",
+                                          "\$ ${products[index].price!}",
                                           style: Theme.of(context).textTheme.subtitle1,
                                         ),
                                         IconButton(
                                           onPressed: () {
-                                            _controller
-                                                .add(CartItem(product: products.data![index]));
+                                            _controller.add(CartItem(product: products[index]));
                                           },
                                           icon: Image.asset(
                                             "assets/shopping_cart.png",

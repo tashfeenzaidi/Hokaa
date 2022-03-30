@@ -4,12 +4,14 @@ import 'package:gold_crowne/Screens/Widgets/loading_widget.dart';
 import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/event_controller.dart';
+import 'package:gold_crowne/controller/product_controller.dart';
 import 'package:gold_crowne/drawer.dart';
 import 'package:gold_crowne/utils.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);
   EventController _controller = Get.put(EventController());
+  ProductController _productController = Get.put(ProductController());
   final PageController controller = PageController();
 
   @override
