@@ -88,7 +88,49 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                   ),
                 ),
                 Spacer(),
-                TabBarWidget(),
+                // TabBarWidget(),
+                Column(
+                  children: [
+                    Container(
+                      height: kToolbarHeight,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20), color: cardBackgroundColor),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: RadioListTile(
+                            value: 0,
+                            groupValue: 0,
+                            onChanged: (val) {},
+                            activeColor: primaryColor,
+                            selectedTileColor: Colors.white,
+                            title: Text('COD'),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: kToolbarHeight,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20), color: cardBackgroundColor),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: RadioListTile(
+                            value: 1,
+                            groupValue: 0,
+                            onChanged: (val) {},
+                            activeColor: primaryColor,
+                            selectedTileColor: Colors.white,
+                            title: Text('COD'),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 Spacer(),
                 BottomBar(
                   buttonLabel: 'PROCEED TO CONFIRM',

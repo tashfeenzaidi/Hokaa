@@ -21,10 +21,10 @@ class _TabBarWidgetState extends State<TabBarWidget> with SingleTickerProviderSt
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
-    _tabController.animation?.addListener(() {
-      _stateController.currentTab.value = _tabController.index;
-      _stateController.update();
-    });
+    // _tabController.animation?.addListener(() {
+    //   // _stateController.currentTab.value = _tabController.index;
+    //   // _stateController.update();
+    // });
   }
 
   @override
@@ -81,10 +81,6 @@ class _TabBarWidgetState extends State<TabBarWidget> with SingleTickerProviderSt
                   ),
                 ),
               ],
-              onTap: (val) {
-                _controller.currentTab.value = val;
-                _controller.update();
-              },
             ),
             body: TabBarView(
               controller: _tabController,
