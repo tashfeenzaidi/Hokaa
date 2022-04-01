@@ -36,8 +36,16 @@ class ProductController extends GetxController with StateMixin<List<Data>> {
     }
   }
 
+  onRefresh(int filter){
+    ProductService().getProducts().then((val){
+      if(val.statusCode == 200){
+        filterProduct(filter);
+      }
+    });
+  }
+
   getProducts() {
-    // change(null, status: RxStatus.loading());
+    change(null, status: RxStatus.loading());
     ProductService().getProducts().then((value) {
       if (value.statusCode == 200) {
         productList = ProductResponseModel.fromJson(jsonDecode(value.bodyString!)).data!;

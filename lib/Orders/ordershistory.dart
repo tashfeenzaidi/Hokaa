@@ -108,12 +108,12 @@ class _OrderHistoryState extends State<OrderHistory> {
                           builderDelegate:
                           PagedChildBuilderDelegate<Data>(
                             firstPageProgressIndicatorBuilder: (_) => SpinKitSquareCircle(itemBuilder:(BuildContext context, int index) {
-                          return DecoratedBox(
-                          decoration: BoxDecoration(
-                          color: index.isEven ? primaryColor : cardColor,
-                          ),
-                          );
-                          },),
+                              return DecoratedBox(
+                                decoration: BoxDecoration(
+                                color: index.isEven ? primaryColor : cardColor,
+                                ),
+                              );
+                            },),
                               itemBuilder: (context, item, index) {
                               return Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 6.0),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gold_crowne/Screens/Widgets/loading_widget.dart';
 import 'package:gold_crowne/appbar.dart';
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/cart_controller.dart';
@@ -90,64 +91,70 @@ class _ShopWidgetState extends State<ShopWidget> with SingleTickerProviderStateM
                 (products) => Expanded(
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 15),
-                    child: GridView.builder(
-                        itemCount: products!.length,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            mainAxisSpacing: 15,
-                            crossAxisSpacing: 15,
-                            childAspectRatio: 0.8),
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  selected = index;
-                                });
-                                Get.toNamed("/productDetail", arguments: index);
-                              },
-                              child: Container(
-                                padding: EdgeInsets.symmetric(horizontal: 15),
-                                decoration: BoxDecoration(
-                                    color: Color(0xFF242424),
-                                    border: Border.all(
-                                        color:
-                                            selected == index ? primaryColor : Color(0xFF242424)),
-                                    borderRadius: BorderRadius.circular(25)),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Spacer(),
-                                    Image.network(products[index].image!),
-                                    Text(
-                                      products[index].name!,
-                                      style: Theme.of(context).textTheme.subtitle1,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "\$ ${products[index].price!}",
-                                          style: Theme.of(context).textTheme.subtitle1,
-                                        ),
-                                        IconButton(
-                                          onPressed: () {
-                                            _controller.add(CartItem(product: products[index]));
-                                          },
-                                          icon: Image.asset(
-                                            "assets/shopping_cart.png",
-                                            width: 25,
-                                            height: 25,
-                                            color: primaryColor,
+                    child: RefreshIndicator(
+                      color: primaryColor,
+                      onRefresh: () => Future.sync(() =>_productController.onRefresh(_tabController.index) ),
+                      child: GridView.builder(
+                          itemCount: products!.length,
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 15,
+                              crossAxisSpacing: 15,
+                              childAspectRatio: 0.8),
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    selected = index;
+                                  });
+                                  Get.toNamed("/productDetail", arguments: index);
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 15),
+                                  decoration: BoxDecoration(
+                                      color: Color(0xFF242424),
+                                      border: Border.all(
+                                          color:
+                                              selected == index ? primaryColor : Color(0xFF242424)),
+                                      borderRadius: BorderRadius.circular(25)),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Spacer(),
+                                      Image.network(products[index].image!),
+                                      Text(
+                                        products[index].name!,
+                                        style: Theme.of(context).textTheme.subtitle1,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "\$ ${products[index].price!}",
+                                            style: Theme.of(context).textTheme.subtitle1,
                                           ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ));
-                        }),
+                                          IconButton(
+                                            onPressed: () {
+                                              _controller.add(CartItem(product: products[index]));
+                                            },
+                                            icon: Image.asset(
+                                              "assets/shopping_cart.png",
+                                              width: 25,
+                                              height: 25,
+                                              color: primaryColor,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ));
+                          }),
+                    ),
                   ),
                 ),
+                onEmpty: Text('No records'),
+                onLoading: LoadingWidget(child: Container()),
               )
             ],
           ),
