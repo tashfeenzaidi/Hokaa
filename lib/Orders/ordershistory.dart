@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/Screens/Widgets/back_button.dart';
 import 'package:gold_crowne/Screens/Widgets/custom_appbar.dart';
@@ -33,6 +34,12 @@ class _OrderHistoryState extends State<OrderHistory> {
       _fetchPage(pageKey);
     });
     super.initState();
+  }
+
+  @override
+  void dispose(){
+    _pagingController.dispose();
+    super.dispose();
   }
 
   Future<void> _fetchPage(int pageKey) async {
@@ -97,10 +104,18 @@ class _OrderHistoryState extends State<OrderHistory> {
                         onRefresh: () => Future.sync(
                               () => _pagingController.refresh(),
                         ),
-                        child: PagedListView(
-                    builderDelegate:
-                          PagedChildBuilderDelegate<Data>(itemBuilder: (context, item, index) {
-                        return Padding(
+                        child: PagedListView<int,Data>(
+                          builderDelegate:
+                          PagedChildBuilderDelegate<Data>(
+                            firstPageProgressIndicatorBuilder: (_) => SpinKitSquareCircle(itemBuilder:(BuildContext context, int index) {
+                          return DecoratedBox(
+                          decoration: BoxDecoration(
+                          color: index.isEven ? primaryColor : cardColor,
+                          ),
+                          );
+                          },),
+                              itemBuilder: (context, item, index) {
+                              return Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 6.0),
                           child: GestureDetector(
                               onTap: () {
@@ -186,9 +201,8 @@ class _OrderHistoryState extends State<OrderHistory> {
                                           ],
                                         ),
                                       ]))),
-                        );
-                    }),
-                    pagingController: _pagingController,
+                        );}),
+                          pagingController: _pagingController,
 
                   ),
                       ))

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import '../../constant/constants.dart';
+
 class LoadingWidget extends StatelessWidget {
   final Widget child;
   LoadingWidget({required this.child});
@@ -15,7 +17,13 @@ class LoadingWidget extends StatelessWidget {
         Positioned.fill(child: child),
         Align(
           alignment: Alignment.center,
-          child: spinKit,
+          child: SpinKitSquareCircle(itemBuilder:(BuildContext context, int index) {
+            return DecoratedBox(
+              decoration: BoxDecoration(
+                color: index.isEven ? primaryColor : cardColor,
+              ),
+            );
+          },),
         ),
       ],
     );
