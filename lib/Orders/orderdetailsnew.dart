@@ -71,59 +71,64 @@ class OrderDetailsNew extends StatelessWidget {
                     ),
                   ),
                 ),
-                Wrap(
-                  children: data.items!.map((e) {
-                    return Padding(
-                      padding: const EdgeInsets.only(
-                        left: 15.0,
-                        right: 15,
-                      ),
-                      child: Card(
-                        color: cardBackgroundColor,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                          Container(
-                            height: 80,
-                            width: 80,
-                            alignment: Alignment.center,
-                            child: Center(
-                              child: Image.network(
-                                e.image!,
-                                height: 60,
-                                width: 60,
-                                fit: BoxFit.fill,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  child: SingleChildScrollView(
+                    child: Wrap(
+                      children: data.items!.map((e) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                            left: 15.0,
+                            right: 15,
+                          ),
+                          child: Card(
+                            color: cardBackgroundColor,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                              Container(
+                                height: 80,
+                                width: 80,
+                                alignment: Alignment.center,
+                                child: Center(
+                                  child: Image.network(
+                                    e.image!,
+                                    height: 60,
+                                    width: 60,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
                               ),
-                            ),
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.5,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Text(e.name!, style: nameStyle),
+                                    Transform.translate(
+                                      offset: Offset(0, 10),
+                                      child: Text("\$${e.itemPrice}", style: pricenameStyle),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text("QTY", style: nameStyle),
+                                  Transform.translate(
+                                    offset: Offset(0, 10),
+                                    child: Text('${e.quantity}', style: pricenameStyle),
+                                  )
+                                ],
+                              ),
+                            ]),
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text(e.name!, style: nameStyle),
-                                Transform.translate(
-                                  offset: Offset(0, 10),
-                                  child: Text("\$${e.itemPrice}", style: pricenameStyle),
-                                )
-                              ],
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text("QTY", style: nameStyle),
-                              Transform.translate(
-                                offset: Offset(0, 10),
-                                child: Text('${e.quantity}', style: pricenameStyle),
-                              )
-                            ],
-                          ),
-                        ]),
-                      ),
-                    );
-                  }).toList(),
+                        );
+                      }).toList(),
+                    ),
+                  ),
                 ),
                 Spacer(),
                 Padding(
