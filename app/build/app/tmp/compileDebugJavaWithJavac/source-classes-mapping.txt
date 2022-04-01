@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/gold_crowne/BuildConfig.java
+ com.gold_crowne.BuildConfig
