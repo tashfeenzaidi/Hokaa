@@ -85,9 +85,10 @@ class AuthController extends GetxController with StateMixin<UserResponseModel> {
         GetStorage().write('tax', response.data!.appSetting!.tax!);
         GetStorage().write('currency_symbol', response.data!.appSetting!.currencySymbol!);
         GetStorage().write(
-            'systemParameters', SystemParameterResponse.fromJson(jsonDecode(value.bodyString!)));
+              'systemParameters', SystemParameterResponse.fromJson(jsonDecode(value.bodyString!)));
         Isolate.exit(p, value);
       }
     });
   }
+
 }

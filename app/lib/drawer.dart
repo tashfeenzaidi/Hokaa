@@ -3,12 +3,13 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/auth_controller.dart';
+import 'package:gold_crowne/controller/my_account_controller.dart';
 import 'package:gold_crowne/models/user_response_model.dart';
 
 Drawer drawer(BuildContext context) {
   var box = GetStorage();
-  User user = User.fromJson(box.read('user'));
-
+  MyAccountController userController = Get.put(MyAccountController());
+  var user = userController.user.value;
   return Drawer(
     child: Container(
       decoration: BoxDecoration(
@@ -36,7 +37,7 @@ Drawer drawer(BuildContext context) {
               padding: EdgeInsets.only(left: 20.0, top: MediaQuery.of(context).size.height * 0.1),
               child: CircleAvatar(
                 radius: 45,
-                backgroundImage: AssetImage("assets/onboard1.png"),
+                backgroundImage: NetworkImage(user.profileImageUrl!),
               ),
             ),
             Padding(

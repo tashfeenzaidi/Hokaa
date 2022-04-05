@@ -3,13 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:gold_crowne/Screens/Widgets/back_button.dart';
 import 'package:gold_crowne/Screens/Widgets/custom_appbar.dart';
-import 'package:gold_crowne/Screens/Widgets/loading_widget.dart';
 import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/orderList_controller.dart';
-import 'package:gold_crowne/controller/order_controller.dart';
 import 'package:gold_crowne/models/order_response_model.dart';
 import 'package:gold_crowne/models/orders_response_model.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -60,15 +57,30 @@ class _OrderHistoryState extends State<OrderHistory> {
   }
 
   getStatusIcon(int status) {
+    // SystemParameterResponse systemParameterResponse = SystemParameterResponse.fromJson(GetStorage().read('systemParameters'));
     switch (status) {
       case 1:
-        Icons.remove_circle_sharp;
+        return Icons.check_circle_sharp;
         break;
       case 2:
-        Icons.check_circle_sharp;
+        return Icons.check_circle_sharp;
         break;
       case 3:
-        Icons.check_circle_sharp;
+        return Icons.check_circle_sharp;
+        break;
+    }
+  }
+
+  getStatusIconColor(int status) {
+    switch (status) {
+      case 1:
+        return Colors.yellow;
+        break;
+      case 2:
+        return Colors.red;
+        break;
+      case 3:
+        return Colors.green;
         break;
     }
   }
@@ -172,8 +184,8 @@ class _OrderHistoryState extends State<OrderHistory> {
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               children: [
                                                 Icon(
-                                                  Icons.cancel,
-                                                  color: Colors.red,
+                                                  getStatusIcon(item.statusId!),
+                                                  color: getStatusIconColor(item.statusId!),
                                                   size: 15,
                                                 ),
                                                 Padding(

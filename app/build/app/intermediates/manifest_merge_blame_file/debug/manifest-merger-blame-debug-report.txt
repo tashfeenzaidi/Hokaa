@@ -16,7 +16,7 @@
 14-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:3:22-64
 15
 16    <application
-16-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:4:4-41:19
+16-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:4:4-46:19
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 17-->[androidx.core:core:1.6.0] /Users/salar/.gradle/caches/transforms-2/files-2.1/4b40d7c102e62bc6a756da9a6ea5f5ea/core-1.6.0/AndroidManifest.xml:24:18-86
 18        android:debuggable="true"
@@ -76,29 +76,56 @@
 52-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:33:27-74
 53            </intent-filter>
 54        </activity>
-55        <!--
-56             Don't delete the meta-data below.
-57             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-58        -->
-59        <meta-data
-59-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:38:9-40:33
-60            android:name="flutterEmbedding"
-60-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:39:13-44
-61            android:value="2" />
-61-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:40:13-30
-62
-63        <uses-library
-63-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
-64            android:name="androidx.window.extensions"
-64-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
-65            android:required="false" />
-65-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
-66        <uses-library
-66-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
-67            android:name="androidx.window.sidecar"
-67-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
-68            android:required="false" />
-68-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
-69    </application>
-70
-71</manifest>
+55        <activity
+55-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:36:8-39:70
+56            android:name="com.yalantis.ucrop.UCropActivity"
+56-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:37:12-59
+57            android:screenOrientation="portrait"
+57-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:38:12-48
+58            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+58-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:39:12-68
+59
+60        <!--
+61            Don't delete the meta-data below.
+62            This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+63        -->
+64        <meta-data
+64-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:43:9-45:33
+65            android:name="flutterEmbedding"
+65-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:44:13-44
+66            android:value="2" />
+66-->/Users/salar/AndroidStudioProjects/Hokaa/app/android/app/src/main/AndroidManifest.xml:45:13-30
+67
+68        <provider
+68-->[:image_picker] /Users/salar/AndroidStudioProjects/Hokaa/app/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-16:20
+69            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+69-->[:image_picker] /Users/salar/AndroidStudioProjects/Hokaa/app/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-82
+70            android:authorities="com.gold_crowne.flutter.image_provider"
+70-->[:image_picker] /Users/salar/AndroidStudioProjects/Hokaa/app/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-74
+71            android:exported="false"
+71-->[:image_picker] /Users/salar/AndroidStudioProjects/Hokaa/app/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-37
+72            android:grantUriPermissions="true" >
+72-->[:image_picker] /Users/salar/AndroidStudioProjects/Hokaa/app/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-47
+73            <meta-data
+73-->[:image_picker] /Users/salar/AndroidStudioProjects/Hokaa/app/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-15:75
+74                android:name="android.support.FILE_PROVIDER_PATHS"
+74-->[:image_picker] /Users/salar/AndroidStudioProjects/Hokaa/app/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:17-67
+75                android:resource="@xml/flutter_image_picker_file_paths" />
+75-->[:image_picker] /Users/salar/AndroidStudioProjects/Hokaa/app/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-72
+76        </provider>
+77
+78        <uses-library
+78-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+79            android:name="androidx.window.extensions"
+79-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+80            android:required="false" />
+80-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+81        <uses-library
+81-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+82            android:name="androidx.window.sidecar"
+82-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+83            android:required="false" />
+83-->[androidx.window:window:1.0.0-beta04] /Users/salar/.gradle/caches/transforms-2/files-2.1/596a997b6629d3c6ec8f74ffd9ded17d/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+84    </application>
+85
+86</manifest>
