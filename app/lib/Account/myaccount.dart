@@ -77,9 +77,9 @@ class MyAccount extends StatelessWidget {
                           Obx(
                           () => CircleAvatar(
                               radius: 45,
-                              child: _accountController.state.value == AppState.free ?
-                              ClipRRect(borderRadius: BorderRadius.circular(45.0),child: Image.asset("assets/onboard1.png",fit: BoxFit.contain,)):
-                              ClipRRect(borderRadius: BorderRadius.circular(45.0),child: Image.file(imageFile!,fit: BoxFit.cover,width: double.infinity,height: double.infinity,)),
+                              foregroundImage: _accountController.state.value == AppState.free ? NetworkImage(_accountController.user.value.profileImageUrl!):
+                              imageFile != null?Image.file(imageFile!).image : Image.asset('assets/onboard1.png').image
+                                  ,
                             ),
                           ),
                           Transform.translate(
@@ -345,4 +345,5 @@ class MyAccount extends StatelessWidget {
     imageFile = null;
     _accountController.state.value = AppState.free;
   }
+
 }

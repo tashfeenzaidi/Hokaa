@@ -35,27 +35,33 @@ Drawer drawer(BuildContext context) {
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.0, top: MediaQuery.of(context).size.height * 0.1),
-              child: CircleAvatar(
-                radius: 45,
-                backgroundImage: NetworkImage(user.profileImageUrl!),
+              child: Obx(
+                () => CircleAvatar(
+                  radius: 45,
+                  foregroundImage: NetworkImage(userController.user.value.profileImageUrl!),
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0, top: 20),
-              child: Text(
-                user.name!,
-                style: Theme.of(context).textTheme.bodyText2,
+              child: Obx(
+                () => Text(
+                  userController.user.value.name!,
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.0, top: 10),
-              child: Text(
-                user.email!,
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1!
-                    .copyWith(color: Colors.black)
-                    .copyWith(color: Colors.black),
+              child: Obx(
+                () => Text(
+                  userController.user.value.email!,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle1!
+                      .copyWith(color: Colors.black)
+                      .copyWith(color: Colors.black),
+                ),
               ),
             ),
             Padding(

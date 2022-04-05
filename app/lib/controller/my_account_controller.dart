@@ -19,7 +19,7 @@ class MyAccountController extends GetxController{
 
   @override
   onInit(){
-
+    state.value = AppState.free;
     var map = GetStorage().read('user');
     if(map != null) {
       User userMap = User.fromJson(map);
@@ -37,6 +37,10 @@ class MyAccountController extends GetxController{
     MyAccountService().updateProfilePic(imageFile).then((value) {
       if(value.statusCode == 200){
         Get.snackbar('Image', 'image uploaded successfully');
+        final user = jsonDecode(value.bodyString!)['data'];
+        final userModel = User.fromJson(user);
+        GetStorage().write('user', userModel.toJson());
+        onInit();
       }else{
         Get.snackbar('Image', 'image uploaded failed');
       }
