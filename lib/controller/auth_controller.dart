@@ -32,7 +32,8 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
     await AuthService().loginUser(email, password).then((value) async {
       if (value.statusCode! == 200) {
         change(null, status: RxStatus.success());
-        userResponse.UserResponseModel user = userResponse.UserResponseModel.fromJson(json.decode(value.bodyString!));
+        userResponse.UserResponseModel user =
+            userResponse.UserResponseModel.fromJson(json.decode(value.bodyString!));
         GetStorage().write('user', user.data!.user?.toJson());
         GetStorage().write('token', user.data!.accessToken);
         _fireBaseController.signInWithEmailPassword(email, password);
@@ -50,12 +51,17 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
     });
   }
 
-  registerUser(String name, String email, String password, String phone) async {
+  registerUser(String name, String email, String password, String phone, String image) async {
     change(null, status: RxStatus.loading());
-    await AuthService().registerUser(name, email, password, phone).then((value) {
+    await AuthService().registerUser(name, email, password, phone, image).then((value) async {
       change(null, status: RxStatus.empty());
       if (value.statusCode == 201) {
-        Get.back();
+        userResponse.UserResponseModel user =
+            userResponse.UserResponseModel.fromJson(json.decode(value.bodyString!));
+        GetStorage().write('user', user.data!.user?.toJson());
+        GetStorage().write('token', user.data!.accessToken);
+        Get.offAllNamed('/mainScreen');
+        await getSystemParametersInBackground();
       }
       if (value.statusCode == 422) {
         ErrorResponseModel error = ErrorResponseModel.fromJson(json.decode(value.bodyString!));
@@ -71,7 +77,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
     Get.offAllNamed('/signIn');
   }
 
-  getSystemParametersInBackground() async {
+  Future<void> getSystemParametersInBackground() async {
     final p = ReceivePort();
     await Isolate.spawn(getSystemParameters(p.sendPort).then((value) {}), p);
     // return await p.first as Response<dynamic>;
@@ -90,26 +96,29 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
         GetStorage().write('tax', response.data!.appSetting!.tax!);
         GetStorage().write('currency_symbol', response.data!.appSetting!.currencySymbol!);
         GetStorage().write(
-              'systemParameters', SystemParameterResponse.fromJson(jsonDecode(value.bodyString!)));
+            'systemParameters', SystemParameterResponse.fromJson(jsonDecode(value.bodyString!)));
         Isolate.exit(p, value);
       }
     });
   }
 
-  googleLogin(){
+  googleLogin() {
     _fireBaseController.signInWithGoogle().then((value) {
-      if(value.user != null){
-        Get.snackbar('google Login', 'successful');
+      if (value.user != null) {
+        Get.snackbar('Google Login', 'successful');
+        registerUser(value.user!.displayName!, value.user!.email!, value.user!.uid, '',
+            value.user!.photoURL!);
       }
     });
   }
 
-  facebookLogin(){
+  facebookLogin() {
     _fireBaseController.signInWithFacebook().then((value) {
-      if(value.user != null){
-        Get.snackbar('facebook Login', 'successful');
+      if (value.user != null) {
+        Get.snackbar('Facebook Login', 'successful');
+        registerUser(value.user!.displayName!, value.user!.email!, value.user!.uid, '',
+            value.user!.photoURL!);
       }
     });
   }
-
 }

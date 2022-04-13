@@ -19,12 +19,11 @@ class MyAccount extends StatelessWidget {
   TextEditingController phoneNumber = TextEditingController();
   File? imageFile;
 
-
   MyAccountController _accountController = Get.put(MyAccountController());
-  MyAccount(){
+  MyAccount() {
     username.text = _accountController.user.value.name!;
     email.text = _accountController.user.value.email!;
-    phoneNumber.text = _accountController.user.value.phoneNo!;
+    phoneNumber.text = _accountController.user.value.phoneNo ?? '';
   }
 
   @override
@@ -46,7 +45,6 @@ class MyAccount extends StatelessWidget {
           elevation: 0,
         ),
         extendBodyBehindAppBar: true,
-
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -67,7 +65,7 @@ class MyAccount extends StatelessWidget {
                         topRight: Radius.circular(20),
                       )),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center ,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       PageTopHeading('MY ACCOUNT'),
                       Spacer(),
@@ -75,17 +73,19 @@ class MyAccount extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Obx(
-                          () => CircleAvatar(
+                            () => CircleAvatar(
                               radius: 45,
-                              foregroundImage: _accountController.state.value == AppState.free ? NetworkImage(_accountController.user.value.profileImageUrl!):
-                              imageFile != null?Image.file(imageFile!).image : Image.asset('assets/onboard1.png').image
-                                  ,
+                              foregroundImage: _accountController.state.value == AppState.free
+                                  ? NetworkImage(_accountController.user.value.profileImageUrl!)
+                                  : imageFile != null
+                                      ? Image.file(imageFile!).image
+                                      : Image.asset('assets/onboard1.png').image,
                             ),
                           ),
                           Transform.translate(
                               offset: Offset(-10, 20),
                               child: GestureDetector(
-                                onTap: (){
+                                onTap: () {
                                   _showPicker(context);
                                 },
                                 child: CircleAvatar(
@@ -105,8 +105,10 @@ class MyAccount extends StatelessWidget {
                         controller: username,
                         decoration: InputDecoration(
                           contentPadding: hintPadding,
-                          hintStyle:
-                              Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: hintTextSize),
+                          hintStyle: Theme.of(context)
+                              .textTheme
+                              .subtitle1!
+                              .copyWith(fontSize: hintTextSize),
                           label: Text(
                             'Name',
                             style: Theme.of(context).textTheme.subtitle1,
@@ -130,7 +132,7 @@ class MyAccount extends StatelessWidget {
                             .subtitle1!
                             .copyWith(color: Colors.white70, fontSize: 14.0),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
-                        onChanged: (val){
+                        onChanged: (val) {
                           _accountController.user.update((val) {
                             val?.name = username.text;
                           });
@@ -146,8 +148,10 @@ class MyAccount extends StatelessWidget {
                         controller: email,
                         decoration: InputDecoration(
                           contentPadding: hintPadding,
-                          hintStyle:
-                              Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: hintTextSize),
+                          hintStyle: Theme.of(context)
+                              .textTheme
+                              .subtitle1!
+                              .copyWith(fontSize: hintTextSize),
                           label: Text(
                             'Email',
                             style: Theme.of(context).textTheme.subtitle1,
@@ -172,7 +176,7 @@ class MyAccount extends StatelessWidget {
                             .subtitle1!
                             .copyWith(color: Colors.white70, fontSize: 14.0),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
-                        onChanged: (val){
+                        onChanged: (val) {
                           _accountController.user.update((val) {
                             val?.email = email.text;
                           });
@@ -190,8 +194,10 @@ class MyAccount extends StatelessWidget {
                         controller: phoneNumber,
                         decoration: InputDecoration(
                           contentPadding: hintPadding,
-                          hintStyle:
-                              Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: hintTextSize),
+                          hintStyle: Theme.of(context)
+                              .textTheme
+                              .subtitle1!
+                              .copyWith(fontSize: hintTextSize),
                           label: Text(
                             'Number',
                             style: Theme.of(context).textTheme.subtitle1,
@@ -216,7 +222,7 @@ class MyAccount extends StatelessWidget {
                             .subtitle1!
                             .copyWith(color: Colors.white70, fontSize: 14.0),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
-                        onChanged: (val){
+                        onChanged: (val) {
                           _accountController.user.update((val) {
                             val?.phoneNo = phoneNumber.text;
                           });
@@ -228,7 +234,7 @@ class MyAccount extends StatelessWidget {
                       Spacer(),
                       ElevatedButton(
                         onPressed: () {
-                          if(!formKey.currentState!.validate()){
+                          if (!formKey.currentState!.validate()) {
                             return;
                           }
                           _accountController.updateUser();
@@ -240,7 +246,6 @@ class MyAccount extends StatelessWidget {
                       Spacer(),
                       Spacer(),
                       Spacer(),
-
                     ],
                   ),
                 ),
@@ -251,7 +256,6 @@ class MyAccount extends StatelessWidget {
   }
 
   void _showPicker(context) {
-
     showModalBottomSheet(
         context: context,
         builder: (BuildContext bc) {
@@ -260,14 +264,17 @@ class MyAccount extends StatelessWidget {
               children: <Widget>[
                 ListTile(
                     leading: const Icon(Icons.photo_library),
-                    title: const Text('Photo Library',style: TextStyle(color: Colors.black),),
+                    title: const Text(
+                      'Photo Library',
+                      style: TextStyle(color: Colors.black),
+                    ),
                     onTap: () {
                       _pickImage();
                       Navigator.of(context).pop();
                     }),
                 ListTile(
                   leading: const Icon(Icons.photo_camera),
-                  title: const Text('Camera',style: TextStyle(color: Colors.black)),
+                  title: const Text('Camera', style: TextStyle(color: Colors.black)),
                   onTap: () {
                     _pickCameraImage();
                     Navigator.of(context).pop();
@@ -280,8 +287,7 @@ class MyAccount extends StatelessWidget {
   }
 
   Future<Null> _pickImage() async {
-    final pickedImage =
-    await ImagePicker().pickImage(source: ImageSource.gallery);
+    final pickedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
     imageFile = pickedImage != null ? File(pickedImage.path) : null;
     if (imageFile != null) {
       _cropImage();
@@ -290,8 +296,7 @@ class MyAccount extends StatelessWidget {
   }
 
   Future<Null> _pickCameraImage() async {
-    final pickedImage =
-    await ImagePicker().pickImage(source: ImageSource.camera);
+    final pickedImage = await ImagePicker().pickImage(source: ImageSource.camera);
     imageFile = pickedImage != null ? File(pickedImage.path) : null;
     if (imageFile != null) {
       _cropImage();
@@ -306,28 +311,29 @@ class MyAccount extends StatelessWidget {
         maxWidth: 150,
         aspectRatioPresets: Platform.isAndroid
             ? [
-          CropAspectRatioPreset.square,
-          CropAspectRatioPreset.ratio3x2,
-          CropAspectRatioPreset.original,
-          CropAspectRatioPreset.ratio4x3,
-          CropAspectRatioPreset.ratio16x9
-        ]
+                CropAspectRatioPreset.square,
+                CropAspectRatioPreset.ratio3x2,
+                CropAspectRatioPreset.original,
+                CropAspectRatioPreset.ratio4x3,
+                CropAspectRatioPreset.ratio16x9
+              ]
             : [
-          CropAspectRatioPreset.original,
-          CropAspectRatioPreset.square,
-          CropAspectRatioPreset.ratio3x2,
-          CropAspectRatioPreset.ratio4x3,
-          CropAspectRatioPreset.ratio5x3,
-          CropAspectRatioPreset.ratio5x4,
-          CropAspectRatioPreset.ratio7x5,
-          CropAspectRatioPreset.ratio16x9
-        ],cropStyle: CropStyle.circle,
+                CropAspectRatioPreset.original,
+                CropAspectRatioPreset.square,
+                CropAspectRatioPreset.ratio3x2,
+                CropAspectRatioPreset.ratio4x3,
+                CropAspectRatioPreset.ratio5x3,
+                CropAspectRatioPreset.ratio5x4,
+                CropAspectRatioPreset.ratio7x5,
+                CropAspectRatioPreset.ratio16x9
+              ],
+        cropStyle: CropStyle.circle,
         androidUiSettings: AndroidUiSettings(
             toolbarTitle: 'Crop Image',
             toolbarColor: primaryColor,
             toolbarWidgetColor: Colors.black,
-            backgroundColor:Colors.black,
-            activeControlsWidgetColor:primaryColor,
+            backgroundColor: Colors.black,
+            activeControlsWidgetColor: primaryColor,
             initAspectRatio: CropAspectRatioPreset.original,
             hideBottomControls: true,
             lockAspectRatio: false),
@@ -345,5 +351,4 @@ class MyAccount extends StatelessWidget {
     imageFile = null;
     _accountController.state.value = AppState.free;
   }
-
 }
