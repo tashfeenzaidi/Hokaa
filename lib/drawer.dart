@@ -3,12 +3,13 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/auth_controller.dart';
+import 'package:gold_crowne/controller/my_account_controller.dart';
 import 'package:gold_crowne/models/user_response_model.dart';
 
 Drawer drawer(BuildContext context) {
   var box = GetStorage();
-  User user = User.fromJson(box.read('user'));
-
+  MyAccountController userController = Get.put(MyAccountController());
+  var user = userController.user.value;
   return Drawer(
     child: Container(
       decoration: BoxDecoration(
@@ -34,27 +35,33 @@ Drawer drawer(BuildContext context) {
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.0, top: MediaQuery.of(context).size.height * 0.1),
-              child: CircleAvatar(
-                radius: 45,
-                backgroundImage: AssetImage("assets/onboard1.png"),
+              child: Obx(
+                () => CircleAvatar(
+                  radius: 45,
+                  foregroundImage: NetworkImage(userController.user.value.profileImageUrl!),
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0, top: 20),
-              child: Text(
-                user.name!,
-                style: Theme.of(context).textTheme.bodyText2,
+              child: Obx(
+                () => Text(
+                  userController.user.value.name!,
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(left: 20.0, top: 10),
-              child: Text(
-                user.email!,
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1!
-                    .copyWith(color: Colors.black)
-                    .copyWith(color: Colors.black),
+              child: Obx(
+                () => Text(
+                  userController.user.value.email!,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle1!
+                      .copyWith(color: Colors.black)
+                      .copyWith(color: Colors.black),
+                ),
               ),
             ),
             Padding(

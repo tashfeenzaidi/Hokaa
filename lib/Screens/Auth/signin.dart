@@ -6,6 +6,8 @@ import 'package:gold_crowne/Screens/Widgets/text_form_field_container.dart';
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/auth_controller.dart';
 
+import '../../controller/firebase_controller.dart';
+
 class SignInScreen extends StatefulWidget {
   @override
   _SignInScreenState createState() => _SignInScreenState();
@@ -13,6 +15,7 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   AuthController _authController = Get.put(AuthController());
+
 
   TextEditingController email = TextEditingController();
 
@@ -217,7 +220,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 45,
                 minWidth: 40,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                onPressed: () {},
+                onPressed: () {
+                  _authController.googleLogin();
+                },
                 child: Image.asset(
                   "assets/google.png",
                   height: 25,
@@ -233,7 +238,9 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: 45,
                   minWidth: 40,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                  onPressed: () {},
+                  onPressed: () {
+                    _authController.facebookLogin();
+                    },
                   child: Image.asset(
                     "assets/facebook.png",
                     height: 25,

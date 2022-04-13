@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:gold_crowne/constant/constants.dart';
-import 'package:gold_crowne/models/user_response_model.dart';
 
 class AuthService extends GetConnect {
   Future<Response<dynamic>> registerUser(
@@ -22,4 +22,5 @@ class AuthService extends GetConnect {
     });
     return await post(baseUrl + 'login', formData);
   }
+
 }

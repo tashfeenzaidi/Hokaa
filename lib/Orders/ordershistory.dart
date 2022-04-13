@@ -3,13 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:gold_crowne/Screens/Widgets/back_button.dart';
 import 'package:gold_crowne/Screens/Widgets/custom_appbar.dart';
-import 'package:gold_crowne/Screens/Widgets/loading_widget.dart';
 import 'package:gold_crowne/Screens/Widgets/page_top_heading.dart';
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/orderList_controller.dart';
-import 'package:gold_crowne/controller/order_controller.dart';
 import 'package:gold_crowne/models/order_response_model.dart';
 import 'package:gold_crowne/models/orders_response_model.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -37,7 +34,7 @@ class _OrderHistoryState extends State<OrderHistory> {
   }
 
   @override
-  void dispose(){
+  void dispose() {
     _pagingController.dispose();
     super.dispose();
   }
@@ -60,15 +57,36 @@ class _OrderHistoryState extends State<OrderHistory> {
   }
 
   getStatusIcon(int status) {
+    // SystemParameterResponse systemParameterResponse = SystemParameterResponse.fromJson(GetStorage().read('systemParameters'));
     switch (status) {
       case 1:
-        Icons.remove_circle_sharp;
+        return Icons.check_circle_sharp;
         break;
-      case 2:
-        Icons.check_circle_sharp;
+      case 5:
+        return Icons.check_circle_sharp;
         break;
       case 3:
-        Icons.check_circle_sharp;
+        return Icons.check_circle_sharp;
+        break;
+      case 4:
+        return Icons.check_circle_sharp;
+        break;
+    }
+  }
+
+  getStatusIconColor(int status) {
+    switch (status) {
+      case 1:
+        return Colors.yellow;
+        break;
+      case 5:
+        return Colors.red;
+        break;
+      case 3:
+        return Colors.green;
+        break;
+      case 4:
+        return Colors.orange;
         break;
     }
   }
@@ -100,112 +118,114 @@ class _OrderHistoryState extends State<OrderHistory> {
                   Container(margin: EdgeInsets.only(top: 15), child: PageTopHeading('MY ORDERS')),
                   Expanded(
                       child: RefreshIndicator(
-                        color: primaryColor,
-                        onRefresh: () => Future.sync(
-                              () => _pagingController.refresh(),
-                        ),
-                        child: PagedListView<int,Data>(
-                          builderDelegate:
-                          PagedChildBuilderDelegate<Data>(
-                            firstPageProgressIndicatorBuilder: (_) => SpinKitSquareCircle(itemBuilder:(BuildContext context, int index) {
-                              return DecoratedBox(
-                                decoration: BoxDecoration(
-                                color: index.isEven ? primaryColor : cardColor,
-                                ),
-                              );
-                            },),
-                              itemBuilder: (context, item, index) {
-                              return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 6.0),
-                          child: GestureDetector(
-                              onTap: () {
-                                Get.toNamed("/orderDetailsNew", arguments: item);
-                              },
-                              child: Container(
-                                  height: 120,
-                                  padding: EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    color: cardBackgroundColor,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    color: primaryColor,
+                    onRefresh: () => Future.sync(
+                      () => _pagingController.refresh(),
+                    ),
+                    child: PagedListView<int, Data>(
+                      builderDelegate: PagedChildBuilderDelegate<Data>(
+                          firstPageProgressIndicatorBuilder: (_) => SpinKitSquareCircle(
+                                itemBuilder: (BuildContext context, int index) {
+                                  return DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      color: index.isEven ? primaryColor : cardColor,
+                                    ),
+                                  );
+                                },
+                              ),
+                          itemBuilder: (context, item, index) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 6.0),
+                              child: GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed("/orderDetailsNew", arguments: item);
+                                  },
+                                  child: Container(
+                                      height: 120,
+                                      padding: EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                        color: cardBackgroundColor,
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            Text(
-                                              Utils.getDate(DateTime.parse(item.createdAt!)),
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .subtitle1!
-                                                  .copyWith(color: primaryColor, fontSize: 14),
-                                            ),
-                                            Icon(
-                                              Icons.arrow_forward_ios_rounded,
-                                              color: primaryColor,
-                                              size: 18,
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "Order ID",
-                                              style: historyTextstyle,
-                                            ),
-                                            Text(
-                                              '${item.id!}',
-                                              style: historyTextstyle,
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "Status",
-                                              style: historyTextstyle,
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text(
+                                                  Utils.getDate(DateTime.parse(item.createdAt!)),
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .subtitle1!
+                                                      .copyWith(color: primaryColor, fontSize: 14),
+                                                ),
+                                                Icon(
+                                                  Icons.arrow_forward_ios_rounded,
+                                                  color: primaryColor,
+                                                  size: 18,
+                                                ),
+                                              ],
                                             ),
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               children: [
-                                                Icon(
-                                                  Icons.cancel,
-                                                  color: Colors.red,
-                                                  size: 15,
+                                                Text(
+                                                  "Order ID",
+                                                  style: historyTextstyle,
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(left: 10.0),
-                                                  child: Text(
-                                                    item.status!,
-                                                    style: historyTextstyle,
-                                                  ),
+                                                Text(
+                                                  '${item.id!}',
+                                                  style: historyTextstyle,
                                                 ),
                                               ],
                                             ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "Total",
-                                              style: historyTextstyle,
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text(
+                                                  "Status",
+                                                  style: historyTextstyle,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Icon(
+                                                      Utils.getStatusIcon(item.statusId!),
+                                                      color:
+                                                          Utils.getStatusIconColor(item.statusId!),
+                                                      size: 15,
+                                                    ),
+                                                    Padding(
+                                                      padding: EdgeInsets.only(left: 10.0),
+                                                      child: Text(
+                                                        item.status!,
+                                                        style: historyTextstyle,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
                                             ),
-                                            Text(
-                                              "\$ ${item.totalPrice!}",
-                                              style: historyTextstyle,
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text(
+                                                  "Total",
+                                                  style: historyTextstyle,
+                                                ),
+                                                Text(
+                                                  "\$ ${item.totalPrice!}",
+                                                  style: historyTextstyle,
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      ]))),
-                        );}),
-                          pagingController: _pagingController,
-
-                  ),
-                      ))
+                                          ]))),
+                            );
+                          }),
+                      pagingController: _pagingController,
+                    ),
+                  ))
                 ],
               ),
             ),
