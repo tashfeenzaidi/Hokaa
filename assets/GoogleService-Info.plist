@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>777642096629-99qg140ccsun7pgpm4ibg0l8dnh15o26.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.777642096629-99qg140ccsun7pgpm4ibg0l8dnh15o26</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>777642096629-q7kvd8s2c466vreleq6m12gavkos59gj.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBztwi0ERcwNGb4n30fYEuBIn8qg0eY5og</string>
+	<key>GCM_SENDER_ID</key>
+	<string>777642096629</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.goldCrowne</string>
+	<key>PROJECT_ID</key>
+	<string>hooka-1331e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>hooka-1331e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:777642096629:ios:a157e83fcf33b0c5df92bc</string>
+</dict>
+</plist>

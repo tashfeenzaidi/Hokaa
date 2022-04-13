@@ -6,6 +6,7 @@ import 'package:gold_crowne/constant/app_route.dart';
 import 'package:gold_crowne/theme.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   await GetStorage.init();
@@ -13,6 +14,8 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
