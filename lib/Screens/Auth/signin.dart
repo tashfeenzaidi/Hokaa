@@ -7,6 +7,7 @@ import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/auth_controller.dart';
 
 import '../../controller/firebase_controller.dart';
+import '../Widgets/loading_widget.dart';
 
 class SignInScreen extends StatefulWidget {
   @override
@@ -15,7 +16,6 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   AuthController _authController = Get.put(AuthController());
-
 
   TextEditingController email = TextEditingController();
 
@@ -240,7 +240,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   onPressed: () {
                     _authController.facebookLogin();
-                    },
+                  },
                   child: Image.asset(
                     "assets/facebook.png",
                     height: 25,
@@ -309,12 +309,6 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Widget getLoading() {
-    return Stack(children: [
-      Positioned.fill(child: getWidgets()),
-      Align(
-        alignment: Alignment.center,
-        child: CircularProgressIndicator(),
-      )
-    ]);
+    return LoadingWidget(child: getWidgets());
   }
 }

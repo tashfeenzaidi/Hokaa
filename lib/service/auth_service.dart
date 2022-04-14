@@ -4,14 +4,15 @@ import 'package:gold_crowne/constant/constants.dart';
 
 class AuthService extends GetConnect {
   Future<Response<dynamic>> registerUser(
-      String name, String email, String password, String phone, String image) async {
+      String name, String email, String password, String phone, String image, String uid) async {
     var formData = FormData({
       'name': name,
       'phone_no': phone,
       'email': email,
       'password': password,
       'password_confirmation': password,
-      'profile_image_url': image
+      'profile_image_url': image,
+      'uid': uid
     });
     return await post(baseUrl + 'registration', formData);
   }

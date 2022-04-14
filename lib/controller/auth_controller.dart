@@ -51,9 +51,10 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
     });
   }
 
-  registerUser(String name, String email, String password, String phone, String image) async {
+  registerUser(
+      String name, String email, String password, String phone, String image, String uid) async {
     change(null, status: RxStatus.loading());
-    await AuthService().registerUser(name, email, password, phone, image).then((value) async {
+    await AuthService().registerUser(name, email, password, phone, image, uid).then((value) async {
       change(null, status: RxStatus.empty());
       if (value.statusCode == 201) {
         userResponse.UserResponseModel user =
@@ -74,6 +75,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
 
   logOut() {
     GetStorage().remove('token');
+    _fireBaseController.signOutUser();
     Get.offAllNamed('/signIn');
   }
 
@@ -107,7 +109,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
       if (value.user != null) {
         Get.snackbar('Google Login', 'successful');
         registerUser(value.user!.displayName!, value.user!.email!, value.user!.uid, '',
-            value.user!.photoURL!);
+            value.user!.photoURL!, value.user!.uid);
       }
     });
   }
@@ -117,7 +119,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
       if (value.user != null) {
         Get.snackbar('Facebook Login', 'successful');
         registerUser(value.user!.displayName!, value.user!.email!, value.user!.uid, '',
-            value.user!.photoURL!);
+            value.user!.photoURL!, value.user!.uid);
       }
     });
   }

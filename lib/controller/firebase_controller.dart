@@ -3,14 +3,12 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class FireBaseController extends GetxController{
-
+class FireBaseController extends GetxController {
   static FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseAuth get fireBaseAuth => auth;
 
   @override
   void onInit() {
-
     auth.authStateChanges().listen((user) {
       if (user == null) {
         print('User is currently signed out!');
@@ -24,10 +22,8 @@ class FireBaseController extends GetxController{
 
   createUserWithEmailPassword(String email, String password) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email,
-          password: password
-      );
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
@@ -41,10 +37,8 @@ class FireBaseController extends GetxController{
 
   signInWithEmailPassword(String email, String password) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: email,
-          password: password
-      );
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
       Get.offAllNamed('/mainScreen');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -72,15 +66,19 @@ class FireBaseController extends GetxController{
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
-
   Future<UserCredential> signInWithFacebook() async {
     // Trigger the sign-in flow
     final LoginResult loginResult = await FacebookAuth.instance.login();
 
     // Create a credential from the access token
-    final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.token);
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(loginResult.accessToken!.token);
 
     // Once signed in, return the UserCredential
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+  }
+
+  signOutUser() {
+    auth.signOut();
   }
 }
