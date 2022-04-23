@@ -56,41 +56,6 @@ class _OrderHistoryState extends State<OrderHistory> {
     }
   }
 
-  getStatusIcon(int status) {
-    // SystemParameterResponse systemParameterResponse = SystemParameterResponse.fromJson(GetStorage().read('systemParameters'));
-    switch (status) {
-      case 1:
-        return Icons.check_circle_sharp;
-        break;
-      case 5:
-        return Icons.check_circle_sharp;
-        break;
-      case 3:
-        return Icons.check_circle_sharp;
-        break;
-      case 4:
-        return Icons.check_circle_sharp;
-        break;
-    }
-  }
-
-  getStatusIconColor(int status) {
-    switch (status) {
-      case 1:
-        return Colors.yellow;
-        break;
-      case 5:
-        return Colors.red;
-        break;
-      case 3:
-        return Colors.green;
-        break;
-      case 4:
-        return Colors.orange;
-        break;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,7 +89,7 @@ class _OrderHistoryState extends State<OrderHistory> {
                     ),
                     child: PagedListView<int, Data>(
                       builderDelegate: PagedChildBuilderDelegate<Data>(
-                          firstPageProgressIndicatorBuilder: (_) => SpinKitSquareCircle(
+                          firstPageProgressIndicatorBuilder: (_) => SpinKitFadingCircle(
                                 itemBuilder: (BuildContext context, int index) {
                                   return DecoratedBox(
                                     decoration: BoxDecoration(

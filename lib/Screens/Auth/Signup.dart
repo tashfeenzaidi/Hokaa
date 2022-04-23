@@ -317,9 +317,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ElevatedButton(
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        _authController.registerUser(
-                            username.text, email.text, password.text, phoneNumber.text, '', '');
-                        _fireBaseController.createUserWithEmailPassword(email.text, password.text);
+                        _authController.signUp(
+                            username.text, email.text, password.text, phoneNumber.text);
+                        // _authController.registerUser(
+                        //     username.text, email.text, password.text, phoneNumber.text, '', '');
+                        // _fireBaseController.createUserWithEmailPassword(email.text, password.text);
                       }
                     },
                     child: Text(

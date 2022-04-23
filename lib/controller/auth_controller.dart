@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:isolate';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get_connect.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
@@ -59,12 +60,14 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
       if (value.statusCode == 201) {
         userResponse.UserResponseModel user =
             userResponse.UserResponseModel.fromJson(json.decode(value.bodyString!));
+        _fireBaseController.fcmSubscribe();
         GetStorage().write('user', user.data!.user?.toJson());
         GetStorage().write('token', user.data!.accessToken);
         Get.offAllNamed('/mainScreen');
         await getSystemParametersInBackground();
       }
       if (value.statusCode == 422) {
+        _fireBaseController.deleteUser();
         ErrorResponseModel error = ErrorResponseModel.fromJson(json.decode(value.bodyString!));
         error.errors?.forEach((element) {
           Get.snackbar('${element.key}', element.message!);
@@ -121,6 +124,12 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
         registerUser(value.user!.displayName!, value.user!.email!, value.user!.uid, '',
             value.user!.photoURL!, value.user!.uid);
       }
+    });
+  }
+
+  signUp(String name, String email, String password, String phone) {
+    _fireBaseController.createUserWithEmailPassword(email, password).then((value) {
+      registerUser(name, email, password, phone, '', value.user!.uid);
     });
   }
 }

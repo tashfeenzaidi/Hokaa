@@ -17,13 +17,15 @@ class LoadingWidget extends StatelessWidget {
         Positioned.fill(child: child),
         Align(
           alignment: Alignment.center,
-          child: SpinKitSquareCircle(itemBuilder:(BuildContext context, int index) {
-            return DecoratedBox(
-              decoration: BoxDecoration(
-                color: index.isEven ? primaryColor : cardColor,
-              ),
-            );
-          },),
+          child: SpinKitFadingCircle(
+            itemBuilder: (BuildContext context, int index) {
+              return DecoratedBox(
+                decoration: BoxDecoration(
+                  color: index.isEven ? primaryColor : cardColor,
+                ),
+              );
+            },
+          ),
         ),
       ],
     );

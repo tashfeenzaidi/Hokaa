@@ -11,9 +11,15 @@ Drawer drawer(BuildContext context) {
   MyAccountController userController = Get.put(MyAccountController());
   var user = userController.user.value;
   return Drawer(
+    backgroundColor: primaryColor,
+    shape: const RoundedRectangleBorder(
+      borderRadius:
+          BorderRadius.only(topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
+    ),
     child: Container(
+      // margin: EdgeInsets.symmetric(vertical: 15),
       decoration: BoxDecoration(
-        color: primaryColor,
+        // color: primaryColor,
         image: DecorationImage(image: AssetImage("assets/dback.png"), fit: BoxFit.cover),
       ),
       child: SafeArea(
@@ -26,15 +32,11 @@ Drawer drawer(BuildContext context) {
                 onPressed: () {
                   Get.back();
                 },
-                icon: Image.asset(
-                  "assets/drawer.png",
-                  width: 20,
-                  height: 20,
-                ),
+                icon: Icon(Icons.clear),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 20.0, top: MediaQuery.of(context).size.height * 0.1),
+              padding: EdgeInsets.only(left: 20.0, top: MediaQuery.of(context).size.height * 0.03),
               child: Obx(
                 () => CircleAvatar(
                   radius: 45,

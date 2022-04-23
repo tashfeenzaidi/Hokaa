@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -20,25 +21,24 @@ class FireBaseController extends GetxController {
     super.onInit();
   }
 
-  createUserWithEmailPassword(String email, String password) async {
+  Future<UserCredential> createUserWithEmailPassword(String email, String password) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
+      return await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
+        throw Exception('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+        throw Exception('The account already exists for that email.');
       }
-    } catch (e) {
-      print(e);
     }
+    throw Exception('Account creation failed');
   }
 
   signInWithEmailPassword(String email, String password) async {
     try {
       UserCredential userCredential =
-          await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+          await fireBaseAuth.signInWithEmailAndPassword(email: email, password: password);
       Get.offAllNamed('/mainScreen');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -47,6 +47,10 @@ class FireBaseController extends GetxController {
         print('Wrong password provided for that user.');
       }
     }
+  }
+
+  deleteUser() {
+    fireBaseAuth.currentUser!.delete();
   }
 
   Future<UserCredential> signInWithGoogle() async {
@@ -78,7 +82,18 @@ class FireBaseController extends GetxController {
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 
+  FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
+
+  void fcmSubscribe() {
+    firebaseMessaging.subscribeToTopic(fireBaseAuth.currentUser!.uid);
+  }
+
+  void fcmUnSubscribe() {
+    firebaseMessaging.unsubscribeFromTopic(fireBaseAuth.currentUser!.uid);
+  }
+
   signOutUser() {
     auth.signOut();
+    fcmUnSubscribe();
   }
 }
