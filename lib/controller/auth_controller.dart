@@ -16,6 +16,7 @@ import 'package:gold_crowne/service/system_parameters_service.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'firebase_controller.dart';
+import 'firebase_messaging_controller.dart';
 
 class AuthController extends GetxController with StateMixin<userResponse.UserResponseModel> {
   static AuthController get to => Get.find();
@@ -38,12 +39,8 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
         GetStorage().write('user', user.data!.user?.toJson());
         GetStorage().write('token', user.data!.accessToken);
         _fireBaseController.signInWithEmailPassword(email, password);
-        await getSystemParametersInBackground();
-        //     .then((value) {
-        //   if (value.statusCode! == 200) {
-        //     Get.snackbar('system', 'loaded');
-        //   }
-        // });
+        Get.put(FirebaseMessagingController());
+        getSystemParametersInBackground();
       } else if (value.statusCode! == 401) {
         ErrorResponseModel error = ErrorResponseModel.fromJson(json.decode(value.bodyString!));
         Get.snackbar('Authentication', error.message!);
@@ -64,6 +61,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
         GetStorage().write('user', user.data!.user?.toJson());
         GetStorage().write('token', user.data!.accessToken);
         Get.offAllNamed('/mainScreen');
+        Get.put(FirebaseMessagingController());
         await getSystemParametersInBackground();
       }
       if (value.statusCode == 422) {
@@ -82,10 +80,9 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
     Get.offAllNamed('/signIn');
   }
 
-  Future<void> getSystemParametersInBackground() async {
+  getSystemParametersInBackground() async {
     final p = ReceivePort();
-    await Isolate.spawn(getSystemParameters(p.sendPort).then((value) {}), p);
-    // return await p.first as Response<dynamic>;
+    await Isolate.spawn(getSystemParameters(),'');
   }
 
   static userResponse.User getUser() {
@@ -93,16 +90,15 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
     return userResponse.User.fromJson(user);
   }
 
-  getSystemParameters(SendPort p) async {
-    final response = await SystemParametersService().getSystemParameters().then((value) {
+  getSystemParameters() async {
+    await SystemParametersService().getSystemParameters().then((value) {
       if (value.statusCode! == 200) {
         SystemParameterResponse response =
-            SystemParameterResponse.fromJson(jsonDecode(value.bodyString!));
+            SystemParameterResponse.fromJson(value.body!);
         GetStorage().write('tax', response.data!.appSetting!.tax!);
         GetStorage().write('currency_symbol', response.data!.appSetting!.currencySymbol!);
         GetStorage().write(
             'systemParameters', SystemParameterResponse.fromJson(jsonDecode(value.bodyString!)));
-        Isolate.exit(p, value);
       }
     });
   }

@@ -24,14 +24,20 @@ class SystemParameterResponse {
 
 class Data {
   AppSetting? appSetting;
-  OrderStatus? orderStatus;
+  List<OrderStatus>? orderStatus;
 
   Data({this.appSetting, this.orderStatus});
 
   Data.fromJson(Map<String, dynamic> json) {
-    appSetting = json['app_setting'] != null ? new AppSetting.fromJson(json['app_setting']) : null;
-    orderStatus =
-        json['order_status'] != null ? new OrderStatus.fromJson(json['order_status']) : null;
+    appSetting = json['app_setting'] != null
+        ? new AppSetting.fromJson(json['app_setting'])
+        : null;
+    if (json['order_status'] != null) {
+      orderStatus = <OrderStatus>[];
+      json['order_status'].forEach((v) {
+        orderStatus!.add(new OrderStatus.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -40,7 +46,7 @@ class Data {
       data['app_setting'] = this.appSetting!.toJson();
     }
     if (this.orderStatus != null) {
-      data['order_status'] = this.orderStatus!.toJson();
+      data['order_status'] = this.orderStatus!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -69,29 +75,20 @@ class AppSetting {
 }
 
 class OrderStatus {
-  String? s1;
-  String? s2;
-  String? s3;
-  String? s4;
-  String? s5;
+  int? id;
+  String? value;
 
-  OrderStatus({this.s1, this.s2, this.s3, this.s4, this.s5});
+  OrderStatus({this.id, this.value});
 
   OrderStatus.fromJson(Map<String, dynamic> json) {
-    s1 = json['1'];
-    s2 = json['2'];
-    s3 = json['3'];
-    s4 = json['4'];
-    s5 = json['5'];
+    id = json['id'];
+    value = json['value'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['1'] = this.s1;
-    data['2'] = this.s2;
-    data['3'] = this.s3;
-    data['4'] = this.s4;
-    data['5'] = this.s5;
+    data['id'] = this.id;
+    data['value'] = this.value;
     return data;
   }
 }

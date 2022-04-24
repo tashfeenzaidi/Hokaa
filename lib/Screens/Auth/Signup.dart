@@ -319,9 +319,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       if (formKey.currentState!.validate()) {
                         _authController.signUp(
                             username.text, email.text, password.text, phoneNumber.text);
-                        // _authController.registerUser(
-                        //     username.text, email.text, password.text, phoneNumber.text, '', '');
-                        // _fireBaseController.createUserWithEmailPassword(email.text, password.text);
                       }
                     },
                     child: Text(
