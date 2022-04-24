@@ -18,7 +18,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: drawer(context),
-        appBar: CustomAppBar(),
+        appBar: CustomAppBar(isActionButtons: false),
         extendBodyBehindAppBar: true,
         body: Container(
           width: MediaQuery.of(context).size.width,

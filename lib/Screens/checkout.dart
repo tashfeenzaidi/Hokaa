@@ -65,7 +65,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                     decoration: BoxDecoration(
                         color: paymentCardBackgroundColor, borderRadius: BorderRadius.circular(20)),
                     child: SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.3,
+                        height: MediaQuery.of(context).size.height * 0.5,
                         child: Padding(
                           padding: EdgeInsets.all(10),
                           child: Scrollbar(
@@ -89,15 +89,16 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                 ),
                 Spacer(),
                 // TabBarWidget(),
-                Column(
-                  children: [
-                    Container(
-                      height: kToolbarHeight,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20), color: cardBackgroundColor),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Wrap(
+                    runSpacing: 5,
+                    children: [
+                      Container(
+                        height: kToolbarHeight,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20), color: cardBackgroundColor),
                         child: Center(
                           child: RadioListTile(
                             value: 0,
@@ -106,30 +107,34 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                             activeColor: primaryColor,
                             selectedTileColor: Colors.white,
                             title: Text('COD'),
+                            controlAffinity: ListTileControlAffinity.trailing,
+                            secondary: Image.asset('assets/icons/cod.png'),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      height: kToolbarHeight,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20), color: cardBackgroundColor),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      Container(
+                        height: kToolbarHeight,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20), color: cardBackgroundColor),
                         child: Center(
                           child: RadioListTile(
+                            controlAffinity: ListTileControlAffinity.trailing,
                             value: 1,
                             groupValue: 0,
-                            onChanged: (val) {},
+                            onChanged: (val) {
+                              Get.snackbar('Online Payment', 'Sorry for inconvenience Online payment will be available soon');
+                            },
                             activeColor: primaryColor,
                             selectedTileColor: Colors.white,
-                            title: Text('COD'),
+                            title: Text('Online Payment'),
+                            secondary: Image.asset('assets/visa1.png'),
+
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Spacer(),
                 BottomBar(
