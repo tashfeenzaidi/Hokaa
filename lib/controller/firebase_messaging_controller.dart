@@ -1,6 +1,8 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 
+import 'firebase_controller.dart';
+
 class FirebaseMessagingController extends GetxController{
   getMessage(){
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
@@ -8,6 +10,7 @@ class FirebaseMessagingController extends GetxController{
       print('Message data: ${message.data}');
 
       if (message.notification != null) {
+        Get.snackbar(message.notification!.title!, message.notification!.body!);
         print('Message also contained a notification: ${message.notification}');
       }
     });
@@ -15,6 +18,7 @@ class FirebaseMessagingController extends GetxController{
 
   @override
   void onInit() {
+    FireBaseController().fcmSubscribe();
     getMessage();
     super.onInit();
   }
