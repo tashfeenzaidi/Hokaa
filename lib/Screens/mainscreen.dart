@@ -8,11 +8,14 @@ import 'package:gold_crowne/controller/product_controller.dart';
 import 'package:gold_crowne/drawer.dart';
 import 'package:gold_crowne/utils.dart';
 
+import '../controller/firebase_messaging_controller.dart';
+
 class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);
   EventController _controller = Get.put(EventController());
   ProductController _productController = Get.put(ProductController());
   final PageController controller = PageController();
+  FirebaseMessagingController _firebaseMessagingController = Get.put(FirebaseMessagingController());
 
   @override
   Widget build(BuildContext context) {

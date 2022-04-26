@@ -85,7 +85,8 @@ class FireBaseController extends GetxController {
   FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
 
   void fcmSubscribe() {
-    firebaseMessaging.subscribeToTopic(fireBaseAuth.currentUser!.uid);
+    String uid =fireBaseAuth.currentUser!.uid;
+    firebaseMessaging.subscribeToTopic(uid);
   }
 
   void fcmUnSubscribe() {

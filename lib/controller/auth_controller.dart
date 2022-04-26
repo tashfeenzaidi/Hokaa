@@ -39,7 +39,6 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
         GetStorage().write('user', user.data!.user?.toJson());
         GetStorage().write('token', user.data!.accessToken);
         _fireBaseController.signInWithEmailPassword(email, password);
-        Get.put(FirebaseMessagingController());
         getSystemParametersInBackground();
       } else if (value.statusCode! == 401) {
         ErrorResponseModel error = ErrorResponseModel.fromJson(json.decode(value.bodyString!));
@@ -57,11 +56,9 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
       if (value.statusCode == 201) {
         userResponse.UserResponseModel user =
             userResponse.UserResponseModel.fromJson(json.decode(value.bodyString!));
-        _fireBaseController.fcmSubscribe();
         GetStorage().write('user', user.data!.user?.toJson());
         GetStorage().write('token', user.data!.accessToken);
         Get.offAllNamed('/mainScreen');
-        Get.put(FirebaseMessagingController());
         await getSystemParametersInBackground();
       }
       if (value.statusCode == 422) {
