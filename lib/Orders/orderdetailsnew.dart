@@ -177,7 +177,10 @@ class OrderDetailsNew extends StatelessWidget {
                               "Order Status",
                               style: Theme.of(context).textTheme.headline2,
                             ),
-                            Image.asset("assets/done1.png")
+                            Icon(
+                              Utils.getStatusIcon(data.statusId!),
+                              color: Utils.getStatusIconColor(data.statusId!),
+                            )
                           ],
                         ),
                       ),

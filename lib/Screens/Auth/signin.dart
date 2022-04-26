@@ -6,6 +6,9 @@ import 'package:gold_crowne/Screens/Widgets/text_form_field_container.dart';
 import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/controller/auth_controller.dart';
 
+import '../../controller/firebase_controller.dart';
+import '../Widgets/loading_widget.dart';
+
 class SignInScreen extends StatefulWidget {
   @override
   _SignInScreenState createState() => _SignInScreenState();
@@ -217,7 +220,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: 45,
                 minWidth: 40,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                onPressed: () {},
+                onPressed: () {
+                  _authController.googleLogin();
+                },
                 child: Image.asset(
                   "assets/google.png",
                   height: 25,
@@ -233,7 +238,9 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: 45,
                   minWidth: 40,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                  onPressed: () {},
+                  onPressed: () {
+                    _authController.facebookLogin();
+                  },
                   child: Image.asset(
                     "assets/facebook.png",
                     height: 25,
@@ -302,12 +309,6 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Widget getLoading() {
-    return Stack(children: [
-      Positioned.fill(child: getWidgets()),
-      Align(
-        alignment: Alignment.center,
-        child: CircularProgressIndicator(),
-      )
-    ]);
+    return LoadingWidget(child: getWidgets());
   }
 }
