@@ -87,10 +87,12 @@ class FireBaseController extends GetxController {
   void fcmSubscribe() {
     String uid =fireBaseAuth.currentUser!.uid;
     firebaseMessaging.subscribeToTopic(uid);
+    firebaseMessaging.subscribeToTopic('all');
   }
 
   void fcmUnSubscribe() {
     firebaseMessaging.unsubscribeFromTopic(fireBaseAuth.currentUser!.uid);
+    firebaseMessaging.unsubscribeFromTopic('all');
   }
 
   signOutUser() {
