@@ -2,8 +2,8 @@
     package="com.gold_crowne">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="gold_crowne"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Gold Crowne"
+        android:icon="@mipmap/launcher_icon">
 
        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
