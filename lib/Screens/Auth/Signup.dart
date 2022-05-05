@@ -19,7 +19,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  AuthController _authController = Get.find();
+  AuthController _authController = Get.put(AuthController());
   FireBaseController _fireBaseController = Get.put(FireBaseController());
 
   TextEditingController email = TextEditingController();

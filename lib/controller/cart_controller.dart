@@ -1,6 +1,7 @@
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/models/cart_item.dart';
 import 'package:gold_crowne/models/products_response_model.dart';
 
@@ -38,7 +39,7 @@ class CartController extends GetxController {
 
   deleteQuantity(int product) {
     if (itemList[product].quantity <= 1) {
-      Get.snackbar('product', 'cont be less then');
+      showSnackBar('product', 'cont be less then');
       return;
     }
     itemList[product].quantity -= 1;

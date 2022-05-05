@@ -72,7 +72,7 @@ class FireBaseController extends GetxController {
 
   Future<UserCredential> signInWithFacebook() async {
     // Trigger the sign-in flow
-    final LoginResult loginResult = await FacebookAuth.instance.login();
+    final LoginResult loginResult = await FacebookAuth.instance.login(permissions: [ "email","public_profile"]);
 
     // Create a credential from the access token
     final OAuthCredential facebookAuthCredential =
@@ -87,10 +87,12 @@ class FireBaseController extends GetxController {
   void fcmSubscribe() {
     String uid =fireBaseAuth.currentUser!.uid;
     firebaseMessaging.subscribeToTopic(uid);
+    firebaseMessaging.subscribeToTopic('allUser');
   }
 
   void fcmUnSubscribe() {
     firebaseMessaging.unsubscribeFromTopic(fireBaseAuth.currentUser!.uid);
+    firebaseMessaging.unsubscribeFromTopic('allUser');
   }
 
   signOutUser() {
