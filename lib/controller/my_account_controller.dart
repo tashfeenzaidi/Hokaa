@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/service/my_account_service.dart';
 
 import '../models/user_response_model.dart';
@@ -36,13 +37,13 @@ class MyAccountController extends GetxController{
   updateProfilePic(File imageFile){
     MyAccountService().updateProfilePic(imageFile).then((value) {
       if(value.statusCode == 200){
-        Get.snackbar('Image', 'image uploaded successfully');
+        showSnackBar('Image', 'image uploaded successfully');
         final user = jsonDecode(value.bodyString!)['data'];
         final userModel = User.fromJson(user);
         GetStorage().write('user', userModel.toJson());
         onInit();
       }else{
-        Get.snackbar('Image', 'image uploaded failed');
+        showSnackBar('Image', 'image uploaded failed');
       }
     });
   }
@@ -51,7 +52,7 @@ class MyAccountController extends GetxController{
     Map<String,dynamic> map = Map();
     MyAccountService().updateUser(user.toJson()).then((value){
       if(value.statusCode == 200){
-        Get.snackbar('Profile', 'Profile updated successfully');
+        showSnackBar('Profile', 'Profile updated successfully');
         GetStorage().write('user', jsonDecode(value.bodyString!)['data']);
       }
     });

@@ -123,7 +123,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                             value: 1,
                             groupValue: 0,
                             onChanged: (val) {
-                              Get.snackbar('Online Payment', 'Sorry for inconvenience Online payment will be available soon');
+                              showSnackBar('Online Payment', 'Sorry for inconvenience Online payment will be available soon');
                             },
                             activeColor: primaryColor,
                             selectedTileColor: Colors.white,

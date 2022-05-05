@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 
 const primaryColor = Color.fromRGBO(255, 199, 0, 10);
 const lightDarkColor = Color.fromRGBO(12, 12, 12, 10);
@@ -54,3 +56,13 @@ final smallblack = TextStyle(color: Colors.black, fontSize: 12);
 final String baseUrl = 'https://goldcrownehookah.com/api/';
 // final String baseUrl = 'http://192.168.18.14/api/';
 final String authorization = 'Authorization';
+
+showSnackBar(String message,String tittle){
+  Get.snackbar('','',titleText:Text(message,style: TextStyle(color: Colors.white,
+      fontSize: 16,
+      fontWeight: FontWeight.w300,
+      fontFamily: 'Helvetica')), messageText:Text(tittle,style:  TextStyle(color: Colors.white,
+      fontSize: 16,
+      fontWeight: FontWeight.w300,
+      fontFamily: 'Helvetica')), colorText: Colors.white,backgroundColor: Colors.black87 );
+}

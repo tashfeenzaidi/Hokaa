@@ -1,13 +1,11 @@
 import 'dart:convert';
 import 'dart:isolate';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:get/get_connect.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:gold_crowne/constant/constants.dart';
 import 'package:gold_crowne/models/ErrorResponseModel.dart';
 import 'package:gold_crowne/models/SystemParameterResponse.dart';
 import 'package:gold_crowne/models/user_response_model.dart' as userResponse;
@@ -42,8 +40,8 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
         getSystemParametersInBackground();
       } else if (value.statusCode! == 401) {
         ErrorResponseModel error = ErrorResponseModel.fromJson(json.decode(value.bodyString!));
-        Get.snackbar('Authentication', error.message!);
-        change(null, status: RxStatus.error('error accoured'));
+        showSnackBar('Sign in failed', 'User does\'nt exist');
+        change(null, status: RxStatus.empty());
       }
     });
   }
@@ -65,7 +63,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
         _fireBaseController.deleteUser();
         ErrorResponseModel error = ErrorResponseModel.fromJson(json.decode(value.bodyString!));
         error.errors?.forEach((element) {
-          Get.snackbar('${element.key}', element.message!);
+          showSnackBar('${element.key}', element.message!);
         });
       }
     });
@@ -103,7 +101,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
   googleLogin() {
     _fireBaseController.signInWithGoogle().then((value) {
       if (value.user != null) {
-        Get.snackbar('Google Login', 'successful');
+        showSnackBar('Google Login', 'successful');
         registerUser(value.user!.displayName!, value.user!.email!, value.user!.uid, '',
             value.user!.photoURL!, value.user!.uid);
       }
@@ -113,7 +111,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
   facebookLogin() {
     _fireBaseController.signInWithFacebook().then((value) {
       if (value.user != null) {
-        Get.snackbar('Facebook Login', 'successful');
+        // Get.snackbar('Facebook Login', 'successful');
         registerUser(value.user!.displayName!,value.user!.email! ?? '',value.user!.uid, '',
             value.user!.photoURL!, value.user!.uid);
       }
