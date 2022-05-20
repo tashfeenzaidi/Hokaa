@@ -112,7 +112,7 @@ class ForgotPassword extends StatelessWidget {
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                 }
-                                // Get.toNamed("/mainScreen");
+                                Get.toNamed("/verifyOtp");
                               },
                               child: Text(
                                 "Send Otp",
