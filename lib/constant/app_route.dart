@@ -7,6 +7,8 @@ import 'package:gold_crowne/Orders/orderstatus.dart';
 import 'package:gold_crowne/Screens/Auth/Signup.dart';
 import 'package:gold_crowne/Screens/Auth/signin.dart';
 import 'package:gold_crowne/Screens/ForgotPassword/forgotpassword.dart';
+import 'package:gold_crowne/Screens/ForgotPassword/newPassword.dart';
+import 'package:gold_crowne/Screens/ForgotPassword/verifyOtp.dart';
 import 'package:gold_crowne/Screens/Splash/splashscreen.dart';
 import 'package:gold_crowne/Screens/cartScreen.dart';
 import 'package:gold_crowne/Screens/checkout.dart';
@@ -33,6 +35,8 @@ class AppRoutes {
     GetPage(name: "/paymentDone", page: () => PaymentConfirm()),
     GetPage(name: "/paymentCancel", page: () => PaymentCancel()),
     GetPage(name: "/forgotPassword", page: () => ForgotPassword()),
+    GetPage(name: "/verifyOtp", page: () => VerifyOtp()),
+    GetPage(name: "/newPassword", page: () => NewPassword()),
     GetPage(name: "/ordersHistory", page: () => OrderHistory()),
     GetPage(name: "/orderDetail", page: () => OrderDetails()),
     GetPage(name: "/orderStatus", page: () => OrderStatus()),
