@@ -48,7 +48,7 @@ class VerifyOtp extends StatelessWidget{
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-
+                    Get.toNamed('/newPassword');
                   },
                   child: Text(
                     "Confirm",
