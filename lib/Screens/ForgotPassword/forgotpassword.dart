@@ -9,8 +9,6 @@ import '../Widgets/text_form_field_container.dart';
 class ForgotPassword extends StatelessWidget {
   TextEditingController email = TextEditingController();
 
-  TextEditingController password = TextEditingController();
-
   final formKey = GlobalKey<FormState>();
   bool view = true;
 
@@ -121,7 +119,6 @@ class ForgotPassword extends StatelessWidget {
                         ),
                         Spacer(),
                         Spacer(),
-
                       ],
                     ),
                   ),
