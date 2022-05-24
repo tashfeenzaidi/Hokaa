@@ -59,8 +59,8 @@ class ForgotPassword extends StatelessWidget {
                         PageTopHeading('Forget Password'),
                         Center(
                             child: Text(
-                          "Enter your email address below, We'll look for \nyour account and send you a password reset email",
-                          style: lightTextstyle,
+                          "Enter your email address below, We'll look for your \naccount and send you a password reset email",
+                          style: historyTextstyle,
                         )),
                         Spacer(),
                         TextFormFieldContainer(
@@ -102,7 +102,6 @@ class ForgotPassword extends StatelessWidget {
                             },
                           ),
                         ),
-                        Spacer(),
                         Padding(
                           padding: EdgeInsets.only(top: 20.0),
                           child: Container(

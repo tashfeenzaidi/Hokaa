@@ -14,7 +14,8 @@ class NewPassword extends StatefulWidget {
 class _NewPasswordState extends State<NewPassword> {
 
   TextEditingController password = TextEditingController();
-  TextEditingController username = TextEditingController();
+  TextEditingController confirmPassword = TextEditingController();
+  bool view = false;
 
   @override
   Widget build(BuildContext context) {
@@ -34,132 +35,151 @@ class _NewPasswordState extends State<NewPassword> {
             color: primayBackgroundColor,
             image: DecorationImage(
                 image: AssetImage("assets/background_pic.png"), fit: BoxFit.cover)),
-        child: Column(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              decoration: BoxDecoration(
-                  image:
-                  DecorationImage(image: AssetImage("assets/background_pic.png"), fit: BoxFit.cover)),
-              child: SafeArea(
-                child: SingleChildScrollView(
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: primayBackgroundColor,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20),
-                        )),
-                    margin: EdgeInsets.symmetric(vertical: 24),
-                    child: Flex(
-                      direction: Axis.vertical,
-                      children: [
-                        PageTopHeading('Change Password'),
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 25),
-                          child: Column(
-                            children: [
-                              TextFormFieldContainer(TextFormField(
-                                controller: username,
-                                decoration: InputDecoration(
-                                  contentPadding: hintPadding,
-                                  hintStyle: Theme.of(context)
-                                      .textTheme
-                                      .subtitle1!
-                                      .copyWith(fontSize: hintTextSize),
-                                  label: Text(
-                                    'New Password',
-                                    style: Theme.of(context).textTheme.subtitle1,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                decoration: BoxDecoration(
+                    image:
+                    DecorationImage(image: AssetImage("assets/background_pic.png"), fit: BoxFit.cover)),
+                child: SafeArea(
+                  child: SingleChildScrollView(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: primayBackgroundColor,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                          )),
+                      margin: EdgeInsets.symmetric(vertical: 24),
+                      child: Flex(
+                        direction: Axis.vertical,
+                        children: [
+                          PageTopHeading('Change Password'),
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 25),
+                            child: Column(
+                              children: [
+                                TextFormFieldContainer(
+                                  TextFormField(
+                                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                                    controller: password,
+                                    obscureText: view,
+                                    validator: (value) {
+                                      if (value!.isEmpty || value.length < 5) {
+                                        return "Please Enter Password minimum length of 6";
+                                      }
+                                      return null;
+                                    },
+                                    textInputAction: TextInputAction.next,
+                                    keyboardType: TextInputType.visiblePassword,
+                                    textAlignVertical: TextAlignVertical.center,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .subtitle1!
+                                        .copyWith(color: Colors.white70, fontSize: 14.0),
+                                    decoration: InputDecoration(
+                                      contentPadding: hintPadding,
+                                      hintStyle: Theme.of(context)
+                                          .textTheme
+                                          .subtitle1!
+                                          .copyWith(fontSize: hintTextSize),
+                                      label: Text(
+                                        'Password',
+                                        style: Theme.of(context).textTheme.subtitle1,
+                                      ),
+                                      labelStyle: Theme.of(context)
+                                          .textTheme
+                                          .subtitle1!
+                                          .copyWith(fontSize: 16, fontWeight: FontWeight.w700),
+                                      border: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      disabledBorder: InputBorder.none,
+                                      errorStyle: Theme.of(context)
+                                          .textTheme
+                                          .subtitle1!
+                                          .copyWith(fontSize: 11.0, color: Colors.red),
+                                      suffixIcon: IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            view = view ? false : true;
+                                          });
+                                        },
+                                        icon: Icon(
+                                          view ? Icons.visibility : Icons.visibility_off,
+                                          color: primaryColor,
+                                        ),
+                                      ),
+                                      hintText: "*******",
+                                    ),
                                   ),
-                                  border: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  enabledBorder: InputBorder.none,
-                                  errorBorder: InputBorder.none,
-                                  disabledBorder: InputBorder.none,
-                                  focusedErrorBorder: InputBorder.none,
-                                  isCollapsed: false,
-                                  errorStyle: Theme.of(context)
-                                      .textTheme
-                                      .subtitle1!
-                                      .copyWith(fontSize: 11.0, color: Colors.red),
                                 ),
-                                textInputAction: TextInputAction.next,
-                                textAlignVertical: TextAlignVertical.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .subtitle1!
-                                    .copyWith(color: Colors.white70, fontSize: 14.0),
-                                autovalidateMode: AutovalidateMode.onUserInteraction,
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'please enter your name';
-                                  }
-                                  return null;
-                                },
-                              )),
-                              TextFormFieldContainer(TextFormField(
-                                controller: username,
-                                decoration: InputDecoration(
-                                  contentPadding: hintPadding,
-                                  hintStyle: Theme.of(context)
-                                      .textTheme
-                                      .subtitle1!
-                                      .copyWith(fontSize: hintTextSize),
-                                  label: Text(
-                                    'Confirm Password',
-                                    style: Theme.of(context).textTheme.subtitle1,
+                                TextFormFieldContainer(
+                                  TextFormField(
+                                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                                    controller: confirmPassword,
+                                    obscureText: view,
+                                    validator: (value) {
+                                      if (value!.isEmpty || value.length < 5) {
+                                        return "Please Enter Password minimum length of 6";
+                                      }
+                                      return null;
+                                    },
+                                    keyboardType: TextInputType.visiblePassword,
+                                    textAlignVertical: TextAlignVertical.center,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .subtitle1!
+                                        .copyWith(color: Colors.white70, fontSize: 14.0),
+                                    decoration: InputDecoration(
+                                      contentPadding: hintPadding,
+                                      hintStyle: Theme.of(context)
+                                          .textTheme
+                                          .subtitle1!
+                                          .copyWith(fontSize: hintTextSize),
+                                      label: Text(
+                                        'Confirm Password',
+                                        style: Theme.of(context).textTheme.subtitle1,
+                                      ),
+                                      border: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      disabledBorder: InputBorder.none,
+                                      errorStyle: Theme.of(context)
+                                          .textTheme
+                                          .subtitle1!
+                                          .copyWith(fontSize: 11.0, color: Colors.red),
+                                      hintText: "*******",
+                                    ),
                                   ),
-                                  border: InputBorder.none,
-                                  focusedBorder: InputBorder.none,
-                                  enabledBorder: InputBorder.none,
-                                  errorBorder: InputBorder.none,
-                                  disabledBorder: InputBorder.none,
-                                  focusedErrorBorder: InputBorder.none,
-                                  isCollapsed: false,
-                                  errorStyle: Theme.of(context)
-                                      .textTheme
-                                      .subtitle1!
-                                      .copyWith(fontSize: 11.0, color: Colors.red),
                                 ),
-                                textInputAction: TextInputAction.next,
-                                keyboardType: TextInputType.emailAddress,
-                                textAlignVertical: TextAlignVertical.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .subtitle1!
-                                    .copyWith(color: Colors.white70, fontSize: 14.0),
-                                autovalidateMode: AutovalidateMode.onUserInteraction,
-                                validator: (value) {
-                                  if (value!.isEmpty ||
-                                      !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                          .hasMatch(value.trim())) {
-                                    return 'please enter correct format';
-                                  }
-                                  return null;
-                                },
-                              )),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            // if (formKey.currentState!.validate()) {
-                            //   _authController.signUp(
-                            //       username.text, email.text, password.text, phoneNumber.text);
-                            // }
-                          },
-                          child: Text(
-                            "Confirm",
+                          ElevatedButton(
+                            onPressed: () {
+                              // if (formKey.currentState!.validate()) {
+                              //   _authController.signUp(
+                              //       username.text, email.text, password.text, phoneNumber.text);
+                              // }
+                            },
+                            child: Text(
+                              "Confirm",
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

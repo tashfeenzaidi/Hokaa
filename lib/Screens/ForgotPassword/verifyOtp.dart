@@ -20,12 +20,13 @@ class VerifyOtp extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             OtpTextField(
-              numberOfFields: 5,
+              numberOfFields: 6,
               borderColor: primaryColor,
               cursorColor: primaryColor,
               focusedBorderColor: primaryColor,
+              enabledBorderColor: Colors.white60,
               //set to true to show as box or false to show as dash
-              showFieldAsBox: false,
+              showFieldAsBox: true,
               //runs when a code is typed in
               onCodeChanged: (String code) {
                 //handle validation or checks here
@@ -37,8 +38,8 @@ class VerifyOtp extends StatelessWidget{
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Obx(()=> Text('If Didn\'t receive the code in 00:${_controller.startTimer}',style: smallStyle,)),
-                TextButton(onPressed: (){}, child: Text('Resend code',style: TextStyle(decoration: TextDecoration.underline, color: primaryColor, fontSize: 8, fontWeight: FontWeight.w400, fontFamily: 'Helvetica' ))),
+                Obx(()=> Text('Didn\'t receive the code in 00:${_controller.startTimer}',style: historyTextstyle,)),
+                TextButton(onPressed: (){}, child: Text('Resend code',style: TextStyle(decoration: TextDecoration.underline, color: primaryColor, fontSize: 12, fontWeight: FontWeight.w400, fontFamily: "Helvetica"))),
               ],
             ),
             Padding(
