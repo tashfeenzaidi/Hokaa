@@ -98,6 +98,9 @@ class ForgotPassword extends StatelessWidget {
                                       .hasMatch(value.trim())) {
                                 return 'please enter correct format';
                               }
+                              if(value == ''){
+                                return 'Please enter email address';
+                              }
                               return null;
                             },
                           ),
@@ -111,8 +114,8 @@ class ForgotPassword extends StatelessWidget {
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   _controller.sendOtp(email.text);
+                                  Get.toNamed("/verifyOtp");
                                 }
-                                Get.toNamed("/verifyOtp");
                               },
                               child: Text(
                                 "Send Otp",

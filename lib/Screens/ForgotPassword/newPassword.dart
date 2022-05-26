@@ -15,7 +15,7 @@ class NewPassword extends StatefulWidget {
 }
 
 class _NewPasswordState extends State<NewPassword> {
-  ForgotPasswordController _controller = Get.put(ForgotPasswordController());
+  ForgotPasswordController _controller = Get.find();
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
   bool view = false;

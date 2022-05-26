@@ -36,7 +36,7 @@ class AuthService extends GetConnect {
   Future<Response<dynamic>> validateOtp(String email, String optCode) async {
     var formData = FormData({
       'email': email,
-      'otp_code' : optCode
+      'opt_code' : optCode
     });
     return await post(baseUrl + 'opt-validate', formData);
   }
@@ -44,7 +44,7 @@ class AuthService extends GetConnect {
   Future<Response<dynamic>> resetPassword(String newPassword, int otpId) async {
     var formData = FormData({
       'new_password': newPassword,
-      'otp_id' : otpId
+      'opt_id' : otpId
     });
     return await post(baseUrl + 'reset-password', formData);
   }
