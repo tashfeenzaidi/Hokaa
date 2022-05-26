@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gold_crowne/Screens/Widgets/back_button.dart';
 import 'package:gold_crowne/constant/constants.dart';
+import 'package:gold_crowne/controller/forgot_password_controller.dart';
 
 import '../Widgets/page_top_heading.dart';
 import '../Widgets/text_form_field_container.dart';
 
 class ForgotPassword extends StatelessWidget {
   TextEditingController email = TextEditingController();
+  ForgotPasswordController _controller = Get.put(ForgotPasswordController());
 
   final formKey = GlobalKey<FormState>();
   bool view = true;
@@ -108,6 +110,7 @@ class ForgotPassword extends StatelessWidget {
                             child: ElevatedButton(
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
+                                  _controller.sendOtp(email.text);
                                 }
                                 Get.toNamed("/verifyOtp");
                               },

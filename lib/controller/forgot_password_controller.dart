@@ -8,6 +8,9 @@ class ForgotPasswordController extends GetxController{
   RxInt startTimer = 60.obs;
   late Timer _timer ;
   AuthService _authService = AuthService();
+  late int optId;
+  String verificationCode = '';
+
   void timerStart(){
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if(startTimer > 0){
@@ -39,6 +42,7 @@ class ForgotPasswordController extends GetxController{
 
   @override
   void onInit() {
+    timerStart();
     super.onInit();
   }
 }

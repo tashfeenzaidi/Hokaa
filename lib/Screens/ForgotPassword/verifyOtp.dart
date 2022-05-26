@@ -25,14 +25,16 @@ class VerifyOtp extends StatelessWidget{
               cursorColor: primaryColor,
               focusedBorderColor: primaryColor,
               enabledBorderColor: Colors.white60,
-              //set to true to show as box or false to show as dash
               showFieldAsBox: true,
-              //runs when a code is typed in
               onCodeChanged: (String code) {
-                //handle validation or checks here
+                print('code changed $code');
+                if(code == ''){
+                  _controller.verificationCode = _controller.verificationCode.replaceFirstMapped(_controller.verificationCode, (m)=>'');
+                }
               },
-              //runs when every textfield is filled
               onSubmit: (String verificationCode){
+                print('verification code $verificationCode');
+                _controller.verificationCode = verificationCode;
               }, // end onSubmit
             ),
             Row(
@@ -49,7 +51,10 @@ class VerifyOtp extends StatelessWidget{
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.toNamed('/newPassword');
+                    if(_controller.verificationCode.length == 6){
+                      print('_controller verificationCode length ${_controller.verificationCode.length}');
+                      Get.toNamed('/newPassword');
+                    }
                   },
                   child: Text(
                     "Confirm",
