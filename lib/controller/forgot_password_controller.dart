@@ -8,7 +8,7 @@ class ForgotPasswordController extends GetxController{
   RxInt startTimer = 60.obs;
   late Timer _timer ;
   AuthService _authService = AuthService();
-  late int optId;
+  late int otpId;
   String verificationCode = '';
 
   void timerStart(){
@@ -36,7 +36,7 @@ class ForgotPasswordController extends GetxController{
     _authService.validateOtp(email,otpCode);
   }
 
-  void resetPassword(String email,String otpId){
+  void resetPassword(String email,int otpId){
     _authService.resetPassword(email,otpId);
   }
 

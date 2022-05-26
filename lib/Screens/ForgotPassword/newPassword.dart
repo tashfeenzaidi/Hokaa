@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:gold_crowne/controller/forgot_password_controller.dart';
 
 import '../../constant/constants.dart';
 import '../Widgets/page_top_heading.dart';
@@ -12,11 +15,12 @@ class NewPassword extends StatefulWidget {
 }
 
 class _NewPasswordState extends State<NewPassword> {
-
+  ForgotPasswordController _controller = Get.put(ForgotPasswordController());
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
   bool view = false;
-  GlobalObjectKey _formKey = GlobalObjectKey(FormFieldState);
+  final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +41,7 @@ class _NewPasswordState extends State<NewPassword> {
                 image: AssetImage("assets/background_pic.png"), fit: BoxFit.cover)),
         child: SingleChildScrollView(
           child: Form(
-            key: _formKey,
+            key: formKey,
             child: Column(
               children: [
                 Container(
@@ -129,6 +133,9 @@ class _NewPasswordState extends State<NewPassword> {
                                         if (value!.isEmpty || value.length < 5) {
                                           return "Please Enter Password minimum length of 6";
                                         }
+                                        if(password.text != confirmPassword.text){
+                                          return 'password does not match';
+                                        }
                                         return null;
                                       },
                                       keyboardType: TextInputType.visiblePassword,
@@ -165,10 +172,9 @@ class _NewPasswordState extends State<NewPassword> {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                // if (formKey.currentState!.validate()) {
-                                //   _authController.signUp(
-                                //       username.text, email.text, password.text, phoneNumber.text);
-                                // }
+                                if (formKey.currentState!.validate()) {
+                                  _controller.resetPassword(password.text,_controller.otpId);
+                                }
                               },
                               child: Text(
                                 "Confirm",

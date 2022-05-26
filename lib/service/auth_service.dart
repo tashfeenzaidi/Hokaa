@@ -41,10 +41,10 @@ class AuthService extends GetConnect {
     return await post(baseUrl + 'opt-validate', formData);
   }
 
-  Future<Response<dynamic>> resetPassword(String newPassword, String optId) async {
+  Future<Response<dynamic>> resetPassword(String newPassword, int otpId) async {
     var formData = FormData({
       'new_password': newPassword,
-      'otp_id' : optId
+      'otp_id' : otpId
     });
     return await post(baseUrl + 'reset-password', formData);
   }
