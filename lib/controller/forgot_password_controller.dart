@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:gold_crowne/constant/constants.dart';
+import 'package:gold_crowne/models/ErrorResponseModel.dart';
 import 'package:gold_crowne/models/base_responseModel.dart';
 import 'package:gold_crowne/service/auth_service.dart';
 
@@ -35,7 +36,14 @@ class ForgotPasswordController extends GetxController with StateMixin{
 
   void sendOtp(String email){
     this.email = email;
-    _authService.sendOtp(email);
+    _authService.sendOtp(email).then((value) {
+      if(value.statusCode == 422){
+        ErrorResponseModel errorResponseModel = ErrorResponseModel.fromJson(jsonDecode(value.bodyString!));
+        showSnackBar(errorResponseModel.errors!.first.key.toString(), errorResponseModel.errors!.first.message.toString());
+      }else{
+        Get.toNamed("/verifyOtp");
+      }
+    });
   }
 
   void validateOtp(){

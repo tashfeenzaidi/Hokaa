@@ -114,7 +114,7 @@ class ForgotPassword extends StatelessWidget {
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   _controller.sendOtp(email.text);
-                                  Get.toNamed("/verifyOtp");
+
                                 }
                               },
                               child: Text(
