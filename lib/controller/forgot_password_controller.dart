@@ -49,15 +49,15 @@ class ForgotPasswordController extends GetxController with StateMixin{
   void validateOtp(){
     change(null,status: RxStatus.loading());
     _authService.validateOtp(email,verificationCode).then((value){
+      BaseResponseModel baseResponseModel = BaseResponseModel.fromJson(jsonDecode(value.bodyString!));
+
       if(value.statusCode! == 200){
         change(null,status: RxStatus.success());
-        BaseResponseModel baseResponseModel = BaseResponseModel.fromJson(jsonDecode(value.bodyString!));
         this.otpId = baseResponseModel.data!.id!;
         Get.toNamed('/newPassword');
       }else if(value.statusCode! == 401){
-        showSnackBar('', '');
-      }else if(value.statusCode! == 402){
-
+        change(null,status: RxStatus.empty());
+        showSnackBar('', baseResponseModel.message!);
       }
 
     });
