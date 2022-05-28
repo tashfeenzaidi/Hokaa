@@ -75,7 +75,6 @@ class ForgotPasswordController extends GetxController with StateMixin{
 
   @override
   void onInit() {
-    timerStart();
     change(null, status: RxStatus.empty());
     super.onInit();
   }

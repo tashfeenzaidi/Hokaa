@@ -13,6 +13,7 @@ class VerifyOtp extends StatelessWidget{
   late double width;
   @override
   Widget build(BuildContext context) {
+    _controller.timerStart();
     height = MediaQuery.of(context).size.height;
     width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -55,8 +56,14 @@ class VerifyOtp extends StatelessWidget{
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Obx(()=> Text('Didn\'t receive the code in 00:${_controller.startTimer}',style: historyTextstyle,)),
-              TextButton(onPressed: (){}, child: Text('Resend code',style: TextStyle(decoration: TextDecoration.underline, color: primaryColor, fontSize: 12, fontWeight: FontWeight.w400, fontFamily: "Helvetica"))),
+              Obx(()=> Text('Didn\'t receive a code? 00:${_controller.startTimer}',style: historyTextstyle,)),
+              TextButton(onPressed: (){
+                if(_controller.startTimer.value < 1){
+                  _controller.reset();
+                  _controller.timerStart();
+                  _controller.sendOtp(_controller.email);
+                }
+                }, child: Text('Resend code',style: TextStyle(decoration: TextDecoration.underline, color: primaryColor, fontSize: 12, fontWeight: FontWeight.w400, fontFamily: "Helvetica"))),
             ],
           ),
           Padding(
