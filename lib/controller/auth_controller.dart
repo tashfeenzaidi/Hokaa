@@ -76,7 +76,6 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
   }
 
   getSystemParametersInBackground() async {
-    final p = ReceivePort();
     await Isolate.spawn(getSystemParameters(),'');
   }
 
@@ -109,13 +108,18 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
   }
 
   facebookLogin() {
-    _fireBaseController.signInWithFacebook().then((value) {
-      if (value.user != null) {
-        // Get.snackbar('Facebook Login', 'successful');
-        registerUser(value.user!.displayName!,value.user!.email! ?? '',value.user!.uid, '',
-            value.user!.photoURL!, value.user!.uid);
-      }
-    });
+    try{
+      _fireBaseController.signInWithFacebook().then((value) {
+        if (value.user != null) {
+          Get.snackbar('Facebook Login', 'successful');
+          registerUser(value.user!.displayName!,value.user!.email! ?? '',value.user!.uid, '',
+              value.user!.photoURL!, value.user!.uid);
+        }
+      });
+    }catch(e){
+      print(e);
+    }
+
   }
 
   signUp(String name, String email, String password, String phone) {
