@@ -112,7 +112,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
       _fireBaseController.signInWithFacebook().then((value) {
         if (value.user != null) {
           Get.snackbar('Facebook Login', 'successful');
-          registerUser(value.user!.displayName!,value.user!.email! ?? '',value.user!.uid, '',
+          registerUser(value.user!.displayName!,value.user!.email ?? '',value.user!.uid, '',
               value.user!.photoURL!, value.user!.uid);
         }
       });
