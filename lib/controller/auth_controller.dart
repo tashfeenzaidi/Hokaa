@@ -40,7 +40,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
         getSystemParametersInBackground();
       } else if (value.statusCode! == 401) {
         ErrorResponseModel error = ErrorResponseModel.fromJson(json.decode(value.bodyString!));
-        showSnackBar('Sign in failed', 'User does\'nt exist');
+        showSnackBar('Sign in failed', error.message!);
         change(null, status: RxStatus.empty());
       }
     });
@@ -112,7 +112,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
       _fireBaseController.signInWithFacebook().then((value) {
         if (value.user != null) {
           Get.snackbar('Facebook Login', 'successful');
-          registerUser(value.user!.displayName!,value.user!.email! ?? '',value.user!.uid, '',
+          registerUser(value.user!.displayName!,value.user!.email ?? '',value.user!.uid, '',
               value.user!.photoURL!, value.user!.uid);
         }
       });
