@@ -25,7 +25,7 @@ class EventController extends GetxController with StateMixin<List<Data>> {
       if (value.statusCode == 200) {
 
         events = EventResponseModel.fromJson(jsonDecode(value.bodyString!)).data!;
-        // change(EventResponseModel.fromJson(jsonDecode(value.bodyString!)),
+        // change(events,
         //     status: RxStatus.success());
       }
     });

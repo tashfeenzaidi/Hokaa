@@ -40,7 +40,7 @@ class AuthController extends GetxController with StateMixin<userResponse.UserRes
         getSystemParametersInBackground();
       } else if (value.statusCode! == 401) {
         ErrorResponseModel error = ErrorResponseModel.fromJson(json.decode(value.bodyString!));
-        showSnackBar('Sign in failed', 'User does\'nt exist');
+        showSnackBar('Sign in failed', error.message!);
         change(null, status: RxStatus.empty());
       }
     });
