@@ -15,18 +15,17 @@ class EventController extends GetxController with StateMixin<List<Data>> {
   @override
   onInit() {
     getEvents();
-    getLocation();
     super.onInit();
   }
 
-  getEvents() {
+  getEvents() async{
     change(null, status: RxStatus.loading());
-    EventService().getEvents().then((value) {
+    await EventService().getEvents().then((value) {
       if (value.statusCode == 200) {
-
         events = EventResponseModel.fromJson(jsonDecode(value.bodyString!)).data!;
-        // change(events,
-        //     status: RxStatus.success());
+        getLocation();
+      }else{
+        change(null, status: RxStatus.error('No events found'));
       }
     });
   }
@@ -55,17 +54,19 @@ class EventController extends GetxController with StateMixin<List<Data>> {
       }
     }
 
+
     await location.getLocation().then((value) {
-      var list = events.where((element) => isEventInRadius(element.lat, element.long, value.latitude, value.longitude,12)).toList();
+      var list = events.where((element) => isEventInRadius(double.parse(element.lat!), double.parse(element.long!), value.latitude!, value.longitude!,element.radius!)).toList();
       if(list.length > 0){
         change(list, status: RxStatus.success());
       }else{
+        change(events, status: RxStatus.success());
         showSnackBar('No events found near you', 'Events');
       }
     });
   }
 
-  bool isEventInRadius(lat1, lon1, lat2, lon2, double radius){
+  bool isEventInRadius(double lat1,double lon1,double lat2,double lon2, double radius){
     return calculateDistance(lat1, lon1, lat2, lon2) < radius;
   }
 
