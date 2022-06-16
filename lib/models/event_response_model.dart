@@ -39,6 +39,7 @@ class Data {
   int? createdBy;
   String? createdAt;
   String? updatedAt;
+  double? radius;
 
   Data(
       {this.id,
@@ -51,7 +52,8 @@ class Data {
       this.status,
       this.createdBy,
       this.createdAt,
-      this.updatedAt});
+      this.updatedAt,
+      this.radius});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -65,6 +67,7 @@ class Data {
     createdBy = json['created_by'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    radius = double.parse(json['radius'].toString());
   }
 
   Map<String, dynamic> toJson() {
@@ -80,6 +83,7 @@ class Data {
     data['created_by'] = this.createdBy;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
+    data['radius'] = this.radius;
     return data;
   }
 }
